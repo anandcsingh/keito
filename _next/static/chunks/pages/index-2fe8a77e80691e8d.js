@@ -7,7 +7,7 @@
     (window.__NEXT_P = window.__NEXT_P || []).push([
       "/",
       function () {
-        return __webpack_require__(8555);
+        return __webpack_require__(4423);
       }
     ]);
     if(false) {}
@@ -202,7 +202,7 @@ Header.defaultProps = defaultProps;
 
 /***/ }),
 
-/***/ 8555:
+/***/ 4423:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -336,68 +336,6 @@ Button.propTypes = propTypes;
 Button.defaultProps = defaultProps;
 /* harmony default export */ var elements_Button = (Button);
 
-;// CONCATENATED MODULE: ./components/elements/Image.js
-
-
-
-const Image_propTypes = {
-    src: prop_types_default().oneOfType([
-        (prop_types_default()).object,
-        (prop_types_default()).string
-    ]).isRequired,
-    width: (prop_types_default()).number,
-    height: (prop_types_default()).number,
-    alt: (prop_types_default()).string
-};
-const Image_defaultProps = {
-    src: undefined,
-    width: undefined,
-    height: undefined,
-    alt: undefined
-};
-const Image = (param)=>{
-    let { className , src , width , height , alt , ...props } = param;
-    const [loaded, setLoaded] = (0,react.useState)(false);
-    const image = (0,react.useRef)(null);
-    (0,react.useEffect)(()=>{
-        handlePlaceholder(image.current);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
-    const placeholderSrc = (w, h)=>{
-        return 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '.concat(w, " ").concat(h, '"%3E%3C/svg%3E');
-    };
-    const handlePlaceholder = (img)=>{
-        const placeholder = document.createElement("img");
-        if (!loaded) {
-            img.style.display = "none";
-            img.before(placeholder);
-            placeholder.src = placeholderSrc(img.getAttribute("width") || 0, img.getAttribute("height") || 0);
-            placeholder.width = img.getAttribute("width");
-            placeholder.height = img.getAttribute("height");
-            placeholder.style.opacity = "0";
-            img.className && placeholder.classList.add(img.className);
-            placeholder.remove();
-            img.style.display = "";
-        }
-    };
-    function onLoad() {
-        setLoaded(true);
-    }
-    return /*#__PURE__*/ (0,jsx_runtime.jsx)("img", {
-        ...props,
-        ref: image,
-        className: className,
-        src: src,
-        width: width,
-        height: height,
-        alt: alt,
-        onLoad: onLoad
-    });
-};
-Image.propTypes = Image_propTypes;
-Image.defaultProps = Image_defaultProps;
-/* harmony default export */ var elements_Image = (Image);
-
 ;// CONCATENATED MODULE: ./components/elements/Modal.js
 
 
@@ -492,6 +430,9 @@ Modal.propTypes = Modal_propTypes;
 Modal.defaultProps = Modal_defaultProps;
 /* harmony default export */ var elements_Modal = (Modal);
 
+// EXTERNAL MODULE: ./node_modules/next/image.js
+var next_image = __webpack_require__(5675);
+var image_default = /*#__PURE__*/__webpack_require__.n(next_image);
 ;// CONCATENATED MODULE: ./components/sections/Hero.js
 
 
@@ -585,7 +526,7 @@ const Hero = (param)=>{
                             href: "#0",
                             "aria-controls": "video-modal",
                             onClick: openModal,
-                            children: /*#__PURE__*/ (0,jsx_runtime.jsx)(elements_Image, {
+                            children: /*#__PURE__*/ (0,jsx_runtime.jsx)((image_default()), {
                                 className: "has-shadow",
                                 src: "/promotion2.jpg",
                                 alt: "Hero",
@@ -647,7 +588,7 @@ function Home() {
 },
 /******/ function(__webpack_require__) { // webpackRuntimeModules
 /******/ var __webpack_exec__ = function(moduleId) { return __webpack_require__(__webpack_require__.s = moduleId); }
-/******/ __webpack_require__.O(0, [678,774,888,179], function() { return __webpack_exec__(9208); });
+/******/ __webpack_require__.O(0, [678,675,774,888,179], function() { return __webpack_exec__(9208); });
 /******/ var __webpack_exports__ = __webpack_require__.O();
 /******/ _N_E = __webpack_exports__;
 /******/ }
