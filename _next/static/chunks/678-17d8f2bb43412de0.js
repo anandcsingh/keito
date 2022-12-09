@@ -75,7 +75,7 @@ Object.defineProperty(exports, "__esModule", ({
     value: true
 }));
 exports.getDomainLocale = getDomainLocale;
-const basePath = (/* unused pure expression or super */ null && ("/04-zkapp-browser-ui" || 0));
+const basePath = (/* unused pure expression or super */ null && ("/keito" || 0));
 function getDomainLocale(path, locale, locales, domainLocales) {
     if (false) {} else {
         return false;
