@@ -528,7 +528,7 @@ const Hero = (param)=>{
                             onClick: openModal,
                             children: /*#__PURE__*/ (0,jsx_runtime.jsx)((image_default()), {
                                 className: "has-shadow",
-                                src: "/promotion2.jpg",
+                                src: "promotion2.jpg",
                                 alt: "Hero",
                                 width: 896,
                                 height: 504
