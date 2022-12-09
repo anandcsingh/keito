@@ -3039,7 +3039,7 @@ body {
       radial-gradient(at 67% 70%, hsla(334, 39%, 80%, 1) 0px, transparent 50%);
   height: 150px;
 
-  background-image: url(/check.png);
+  background-image: url(/keito/_next/static/media/check.1e1c5f4f.png);
   background-position: right;
   background-repeat: no-repeat;
 
@@ -3064,13 +3064,13 @@ body {
 }
 
 .check {
-  background-image: url(/verification.svg);
+  background-image: url(/keito/_next/static/media/verification.e09620ce.svg);
   background-position: 95% 15%;
   background-repeat: no-repeat;
 }
 
 .uncheck {
-  background-image: url(/unverified.svg);
+  background-image: url(/keito/_next/static/media/unverified.ba6d29ae.svg);
   background-position: 95% 15%;
   background-repeat: no-repeat;
 }
@@ -3085,7 +3085,7 @@ body {
   height: 150px;
   border-radius: 10px;
   border: solid 2px rgb(65, 65, 65);
-  background-image: url(/plus.png);
+  background-image: url(/keito/_next/static/media/plus.556d2d84.png);
   background-position: center;
   background-repeat: no-repeat;
 }
