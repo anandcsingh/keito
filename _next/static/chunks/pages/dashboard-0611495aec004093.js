@@ -226,7 +226,7 @@ var react_dom = __webpack_require__(3935);
 
 const AuthenticatedPage = (param)=>{
     let { children  } = param;
-    const loggedIn = false;
+    const loggedIn = true;
     if (!loggedIn) {
         return /*#__PURE__*/ (0,jsx_runtime.jsx)("h1", {
             children: "Please log IN"
