@@ -432,7 +432,6 @@ Modal.defaultProps = Modal_defaultProps;
 
 // EXTERNAL MODULE: ./node_modules/next/image.js
 var next_image = __webpack_require__(5675);
-var image_default = /*#__PURE__*/__webpack_require__.n(next_image);
 ;// CONCATENATED MODULE: ./components/sections/Hero.js
 
 
@@ -526,7 +525,7 @@ const Hero = (param)=>{
                             href: "#0",
                             "aria-controls": "video-modal",
                             onClick: openModal,
-                            children: /*#__PURE__*/ (0,jsx_runtime.jsx)((image_default()), {
+                            children: /*#__PURE__*/ (0,jsx_runtime.jsx)("img", {
                                 className: "has-shadow",
                                 src: "promotion2.jpg",
                                 alt: "Hero",
@@ -539,7 +538,7 @@ const Hero = (param)=>{
                         id: "video-modal",
                         show: videoModalActive,
                         handleClose: closeModal,
-                        video: "/promotion3.mp4",
+                        video: "promotion3.mp4",
                         videoTag: "video"
                     })
                 ]
