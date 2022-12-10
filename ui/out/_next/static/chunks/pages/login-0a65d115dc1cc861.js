@@ -15,7 +15,7 @@
 
 /***/ }),
 
-/***/ 7331:
+/***/ 7541:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68,11 +68,29 @@ const Profile = {
     },
     loggedIn: false
 };
-/* harmony default export */ var profile = (Profile);
+/* harmony default export */ var profile = ((/* unused pure expression or super */ null && (Profile)));
 
 // EXTERNAL MODULE: ./modules/Authentication.js
 var Authentication = __webpack_require__(4557);
+;// CONCATENATED MODULE: ./modules/Snackbar.js
+const Snackbar = (text, duration)=>{
+    const div = document.createElement("div");
+    div.setAttribute("style", "-webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;animation: fadein 0.5s, fadeout 0.5s 2.5s;;min-width: 250px;margin-left: -125px; background-color: rgba(0, 0, 0, 0.257); color: #fff; text-align: center; border-radius: 2px; padding: 16px; position: fixed; z-index: 1; left: 50%;top: 30px;");
+    const node = document.createTextNode(text);
+    div.appendChild(node);
+    const body = document.getElementsByTagName("body")[0];
+    body.appendChild(div);
+    setTimeout(function() {
+        body.removeChild(div);
+    }, duration);
+};
+/* harmony default export */ var modules_Snackbar = (Snackbar);
+
+// EXTERNAL MODULE: ./node_modules/next/router.js
+var router = __webpack_require__(1163);
 ;// CONCATENATED MODULE: ./components/layout/Header.js
+
+
 
 
 
@@ -115,6 +133,11 @@ const Header = (param)=>{
         document.body.classList.add("off-nav-is-active");
         nav.current.style.maxHeight = nav.current.scrollHeight + "px";
         setIsactive(true);
+    };
+    const copyAndClose = (e)=>{
+        navigator.clipboard.writeText(e.currentTarget.title);
+        modules_Snackbar("Copied wallet address", 1500);
+        closeMenu();
     };
     const closeMenu = ()=>{
         document.body.classList.remove("off-nav-is-active");
@@ -166,26 +189,28 @@ const Header = (param)=>{
                                     children: !hideSignin && /*#__PURE__*/ (0,jsx_runtime.jsx)("ul", {
                                         className: "list-reset header-nav-right",
                                         children: /*#__PURE__*/ (0,jsx_runtime.jsx)("li", {
-                                            children: profile.loggedIn ? /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+                                            children: !Authentication/* default.loggedIn */.Z.loggedIn || (0,router.useRouter)().pathname == "/welcome" ? /*#__PURE__*/ (0,jsx_runtime.jsx)((link_default()), {
+                                                href: "dashboard",
+                                                className: "button button-primary button-wide-mobile button-sm",
+                                                onClick: copyAndClose,
+                                                children: "Launch App"
+                                            }) : /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
                                                 children: /*#__PURE__*/ (0,jsx_runtime.jsxs)("button", {
-                                                    class: "button button-dark rounded",
+                                                    className: "button button-dark rounded",
+                                                    title: Authentication/* default.address */.Z.address,
+                                                    onClick: copyAndClose,
                                                     children: [
                                                         /*#__PURE__*/ (0,jsx_runtime.jsx)("img", {
                                                             src: "/auro.svg",
-                                                            class: "mr-12 auro-login-img",
+                                                            className: "mr-12 auro-login-img",
                                                             width: 20,
                                                             height: 20
                                                         }),
                                                         /*#__PURE__*/ (0,jsx_runtime.jsx)("span", {
-                                                            children: profile.getShortAddress()
+                                                            children: Authentication/* default.getShortAddress */.Z.getShortAddress()
                                                         })
                                                     ]
                                                 })
-                                            }) : /*#__PURE__*/ (0,jsx_runtime.jsx)((link_default()), {
-                                                href: "dashboard",
-                                                className: "button button-primary button-wide-mobile button-sm",
-                                                onClick: closeMenu,
-                                                children: "Launch App"
                                             })
                                         })
                                     })
@@ -213,6 +238,10 @@ const Authentication = {
     loggedIn: false,
     login: function() {
         this.loggedIn = true;
+    },
+    address: "B62qpzAWcbZSjzQH9hiTKvHbDx1eCsmRR7dDzK2DuYjRT2sTyW9vSpR",
+    getShortAddress: function() {
+        return this.address.substring(0, 5) + "..." + this.address.substring(this.address.length - 5, this.address.length);
     }
 };
 /* harmony default export */ __webpack_exports__["Z"] = (Authentication);
@@ -229,7 +258,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": function() { return /* binding */ Login; }
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5893);
-/* harmony import */ var _components_layout_Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7331);
+/* harmony import */ var _components_layout_Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7541);
 /* harmony import */ var _modules_Authentication__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4557);
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1163);
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_3__);
@@ -314,20 +343,12 @@ function Login() {
 }
 
 
-/***/ }),
-
-/***/ 1163:
-/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
-
-module.exports = __webpack_require__(880)
-
-
 /***/ })
 
 },
 /******/ function(__webpack_require__) { // webpackRuntimeModules
 /******/ var __webpack_exec__ = function(moduleId) { return __webpack_require__(__webpack_require__.s = moduleId); }
-/******/ __webpack_require__.O(0, [678,774,888,179], function() { return __webpack_exec__(4250); });
+/******/ __webpack_require__.O(0, [960,774,888,179], function() { return __webpack_exec__(4250); });
 /******/ var __webpack_exports__ = __webpack_require__.O();
 /******/ _N_E = __webpack_exports__;
 /******/ }
