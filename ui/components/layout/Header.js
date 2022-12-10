@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Logo from './partials/Logo';
 import Profile from '../../modules/profile'
 import Authentication from '../../modules/Authentication'
+import { useRouter } from 'next/router';
 const propTypes = {
   navPosition: PropTypes.string,
   hideNav: PropTypes.bool,
@@ -30,7 +31,7 @@ const Header = ({
   bottomDivider,
   ...props
 }) => {
- 
+
   console.log(Authentication.loggedIn);
   const [isActive, setIsactive] = useState(false);
 
@@ -46,7 +47,7 @@ const Header = ({
       document.removeEventListener('click', clickOutside);
       closeMenu();
     };
-  });  
+  });
 
   const openMenu = () => {
     document.body.classList.add('off-nav-is-active');
@@ -54,6 +55,10 @@ const Header = ({
     setIsactive(true);
   }
 
+  const copyAndClose = () => {
+    
+    closeMenu();
+  }
   const closeMenu = () => {
     document.body.classList.remove('off-nav-is-active');
     nav.current && (nav.current.style.maxHeight = null);
@@ -68,7 +73,7 @@ const Header = ({
     if (!nav.current) return
     if (!isActive || nav.current.contains(e.target) || e.target === hamburger.current) return;
     closeMenu();
-  }  
+  }
 
   const classes = classNames(
     'site-header',
@@ -108,22 +113,24 @@ const Header = ({
                     isActive && 'is-active'
                   )}>
                 <div className="header-nav-inner">
-                  
+
                   {!hideSignin &&
                     <ul
                       className="list-reset header-nav-right"
                     >
                       <li>
-                        {Profile.loggedIn ?
-                        <div>
-                        
-                        <button class="button button-dark rounded">
-                        <img src='/auro.svg' class="mr-12 auro-login-img" width={20} height={20} />
-                          <span>{Profile.getShortAddress()}</span>
-                          </button>
-                        </div>
+                        {!Authentication.loggedIn || useRouter().pathname == '/welcome' ?
+                          <Link href="dashboard" className="button button-primary button-wide-mobile button-sm" onClick={copyAndClose}>Launch App</Link>
+
                           :
-                          <Link href="dashboard" className="button button-primary button-wide-mobile button-sm" onClick={closeMenu}>Launch App</Link>
+
+                          <div>
+                            <button className="button button-dark rounded">
+                              <img src='/auro.svg' className="mr-12 auro-login-img" width={20} height={20} />
+                              <span>{Authentication.getShortAddress()}</span>
+                            </button>
+                          </div>
+
                         }</li>
                     </ul>}
                 </div>
