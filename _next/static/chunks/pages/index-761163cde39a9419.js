@@ -7,7 +7,7 @@
     (window.__NEXT_P = window.__NEXT_P || []).push([
       "/",
       function () {
-        return __webpack_require__(4423);
+        return __webpack_require__(5128);
       }
     ]);
     if(false) {}
@@ -52,7 +52,7 @@ const Logo = (param)=>{
         children: /*#__PURE__*/ (0,jsx_runtime.jsx)("h1", {
             className: "m-0",
             children: /*#__PURE__*/ (0,jsx_runtime.jsx)((link_default()), {
-                href: "/",
+                href: "/welcome",
                 children: "Ranked"
             })
         })
@@ -202,22 +202,18 @@ Header.defaultProps = defaultProps;
 
 /***/ }),
 
-/***/ 4423:
+/***/ 2929:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-// ESM COMPAT FLAG
-__webpack_require__.r(__webpack_exports__);
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  "default": function() { return /* binding */ Home; }
+  "Z": function() { return /* binding */ sections_Hero; }
 });
 
 // EXTERNAL MODULE: ./node_modules/react/jsx-runtime.js
 var jsx_runtime = __webpack_require__(5893);
-// EXTERNAL MODULE: ./components/layout/Header.js + 2 modules
-var Header = __webpack_require__(7331);
 // EXTERNAL MODULE: ./node_modules/react/index.js
 var react = __webpack_require__(7294);
 // EXTERNAL MODULE: ./node_modules/classnames/index.js
@@ -548,14 +544,27 @@ Hero.propTypes = Hero_propTypes;
 Hero.defaultProps = Hero_defaultProps;
 /* harmony default export */ var sections_Hero = (Hero);
 
-;// CONCATENATED MODULE: ./pages/index.page.tsx
+
+/***/ }),
+
+/***/ 5128:
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ Home; }
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5893);
+/* harmony import */ var _components_layout_Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7331);
+/* harmony import */ var _components_sections_Hero__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(2929);
 
 
 
 function Home() {
-    return /*#__PURE__*/ (0,jsx_runtime.jsxs)(jsx_runtime.Fragment, {
+    return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
         children: [
-            /*#__PURE__*/ (0,jsx_runtime.jsx)(Header/* default */.Z, {
+            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_layout_Header__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z, {
                 navPosition: "right",
                 className: "reveal-from-bottom",
                 hideNav: false,
@@ -563,9 +572,9 @@ function Home() {
                 bottomOuterDivider: false,
                 bottomDivider: false
             }),
-            /*#__PURE__*/ (0,jsx_runtime.jsx)("main", {
+            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("main", {
                 className: "site-content",
-                children: /*#__PURE__*/ (0,jsx_runtime.jsx)(sections_Hero, {
+                children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_sections_Hero__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .Z, {
                     className: "illustration-section-01",
                     topOuterDivider: null,
                     bottomOuterDivider: false,

@@ -52,7 +52,7 @@ const Logo = (param)=>{
         children: /*#__PURE__*/ (0,jsx_runtime.jsx)("h1", {
             className: "m-0",
             children: /*#__PURE__*/ (0,jsx_runtime.jsx)((link_default()), {
-                href: "/",
+                href: "/welcome",
                 children: "Ranked"
             })
         })
