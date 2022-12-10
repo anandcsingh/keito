@@ -184,36 +184,56 @@ const Header = (param)=>{
                             /*#__PURE__*/ (0,jsx_runtime.jsx)("nav", {
                                 ref: nav,
                                 className: classnames_default()("header-nav", isActive && "is-active"),
-                                children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+                                children: /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
                                     className: "header-nav-inner",
-                                    children: !hideSignin && /*#__PURE__*/ (0,jsx_runtime.jsx)("ul", {
-                                        className: "list-reset header-nav-right",
-                                        children: /*#__PURE__*/ (0,jsx_runtime.jsx)("li", {
-                                            children: !Authentication/* default.loggedIn */.Z.loggedIn || (0,router.useRouter)().pathname == "/welcome" ? /*#__PURE__*/ (0,jsx_runtime.jsx)((link_default()), {
-                                                href: "dashboard",
-                                                className: "button button-primary button-wide-mobile button-sm",
-                                                onClick: copyAndClose,
-                                                children: "Launch App"
-                                            }) : /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
-                                                children: /*#__PURE__*/ (0,jsx_runtime.jsxs)("button", {
-                                                    className: "button button-dark rounded",
-                                                    title: Authentication/* default.address */.Z.address,
-                                                    onClick: copyAndClose,
-                                                    children: [
-                                                        /*#__PURE__*/ (0,jsx_runtime.jsx)("img", {
-                                                            src: "/auro.svg",
-                                                            className: "mr-12 auro-login-img",
-                                                            width: 20,
-                                                            height: 20
-                                                        }),
-                                                        /*#__PURE__*/ (0,jsx_runtime.jsx)("span", {
+                                    children: [
+                                        /*#__PURE__*/ (0,jsx_runtime.jsxs)("ul", {
+                                            className: classnames_default()("list-reset text-xs", navPosition && "header-nav-center"),
+                                            children: [
+                                                /*#__PURE__*/ (0,jsx_runtime.jsx)("li", {
+                                                    children: /*#__PURE__*/ (0,jsx_runtime.jsx)((link_default()), {
+                                                        href: "#0",
+                                                        onClick: closeMenu,
+                                                        children: "Rank"
+                                                    })
+                                                }),
+                                                /*#__PURE__*/ (0,jsx_runtime.jsx)("li", {
+                                                    children: /*#__PURE__*/ (0,jsx_runtime.jsx)((link_default()), {
+                                                        href: "#0",
+                                                        onClick: closeMenu,
+                                                        children: "Lineage"
+                                                    })
+                                                }),
+                                                /*#__PURE__*/ (0,jsx_runtime.jsx)("li", {
+                                                    children: /*#__PURE__*/ (0,jsx_runtime.jsx)((link_default()), {
+                                                        href: "#0",
+                                                        onClick: closeMenu,
+                                                        children: "Students"
+                                                    })
+                                                })
+                                            ]
+                                        }),
+                                        !hideSignin && /*#__PURE__*/ (0,jsx_runtime.jsx)("ul", {
+                                            className: "list-reset header-nav-right",
+                                            children: /*#__PURE__*/ (0,jsx_runtime.jsx)("li", {
+                                                children: !Authentication/* default.loggedIn */.Z.loggedIn || (0,router.useRouter)().pathname == "/welcome" ? /*#__PURE__*/ (0,jsx_runtime.jsx)((link_default()), {
+                                                    href: "dashboard",
+                                                    className: "button button-primary button-wide-mobile button-sm",
+                                                    onClick: closeMenu,
+                                                    children: "Launch App"
+                                                }) : /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+                                                    children: /*#__PURE__*/ (0,jsx_runtime.jsx)("button", {
+                                                        className: "button button-dark rounded auth-address",
+                                                        title: Authentication/* default.address */.Z.address,
+                                                        onClick: copyAndClose,
+                                                        children: /*#__PURE__*/ (0,jsx_runtime.jsx)("span", {
                                                             children: Authentication/* default.getShortAddress */.Z.getShortAddress()
                                                         })
-                                                    ]
+                                                    })
                                                 })
                                             })
                                         })
-                                    })
+                                    ]
                                 })
                             })
                         ]
