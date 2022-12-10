@@ -2,7 +2,15 @@
 const nextConfig = {
   reactStrictMode: false,
   swcMinify: true,
-
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/welcome',
+        permanent: true,
+      },
+    ]
+  },
   pageExtensions: ['page.tsx', 'page.ts', 'page.jsx', 'page.js'],
   webpack(config) {
     config.resolve.alias = {
@@ -34,8 +42,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: process.env.NODE_ENV === 'production' ? '/04-zkapp-browser-ui' : undefined, // update if your repo name changes for 'npm run deploy' to work successfully
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/04-zkapp-browser-ui/' : undefined, // update if your repo name changes for 'npm run deploy' to work successfully
+  basePath: process.env.NODE_ENV === 'production' ? '/keito' : undefined, // update if your repo name changes for 'npm run deploy' to work successfully
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/keito/' : undefined, // update if your repo name changes for 'npm run deploy' to work successfully
 };
 
 module.exports = nextConfig

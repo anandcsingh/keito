@@ -18,7 +18,7 @@ const Logo = ({
       className={classes}
     >
       <h1 className="m-0">
-        <Link href="/">
+        <Link href="/welcome">
           Ranked
         </Link>
       </h1>

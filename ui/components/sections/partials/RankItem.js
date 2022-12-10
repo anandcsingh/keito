@@ -21,15 +21,18 @@ const RankItem = ({
     certified,
     ...props
   }) => {
-    const verifiedClasses = certified ? "verified-bjj gold" : "unverified-bjj";
+    const verifiedClasses = certified ? "verified-ma" : "unverified-ma";
     const verifiedCheckClasses = certified ? "check" : "uncheck";
     return (
         <div className="tiles-item">
             <div className={verifiedClasses}>
-                <div className={`pl-8 pt-8 ${verifiedCheckClasses}`}>
-                    <img src={`/${martialArtShortName}.png`} className="p-4" width={50} height={50} />
-                    <div className="mt-24 tt-u">{rank}</div>
+              <div className={martialArtShortName}>
+                <div className={`pl-8 pt-8  ${verifiedCheckClasses}`}>
+                    <div className='mt-auto mb-8'>
+                    <div className="mt-24 fw-500 tt-u">{rank}</div>
                     <div className="text-xs">{martialArt}</div>
+                    </div>
+                </div>
                 </div>
             </div>
         </div>

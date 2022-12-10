@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import Link from 'next/link'
 import Logo from './partials/Logo';
 import Profile from '../../modules/profile'
+import Authentication from '../../modules/Authentication'
 const propTypes = {
   navPosition: PropTypes.string,
   hideNav: PropTypes.bool,
@@ -30,7 +31,7 @@ const Header = ({
   ...props
 }) => {
  
-  console.log(Profile.loggedIn);
+  console.log(Authentication.loggedIn);
   const [isActive, setIsactive] = useState(false);
 
   const nav = useRef(null);

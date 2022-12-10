@@ -3,8 +3,9 @@ import classNames from 'classnames';
 import { SectionProps } from '../../utils/SectionProps';
 import ButtonGroup from '../elements/ButtonGroup';
 import Button from '../elements/Button';
-import Image from '../elements/Image';
 import Modal from '../elements/Modal';
+import Image from 'next/image'
+import Link from 'next/link'
 
 const propTypes = {
   ...SectionProps.types
@@ -69,9 +70,8 @@ const Hero = ({
                 </p>
               <div className="reveal-from-bottom" data-reveal-delay="600">
                 <ButtonGroup>
-                  <Button tag="a" color="primary" wideMobile href="/dashboard">
-                    Launch App
-                    </Button>
+                <Link href="dashboard" className="button button-primary button-wide-mobile">Launch App</Link>
+
                   <Button tag="a" color="dark" wideMobile href="https://github.com/anandcsingh/keito">
                     View on Github
                     </Button>
@@ -86,19 +86,18 @@ const Hero = ({
               aria-controls="video-modal"
               onClick={openModal}
             >
-              <Image
-                className="has-shadow"
-                src='/promotion2.jpg'
-                alt="Hero"
-                width={896}
-                height={504} />
+              <img className='has-shadow'
+              src='promotion2.jpg'
+              alt="Hero"
+              width={896}
+              height={504} />
             </a>
           </div> 
           <Modal
             id="video-modal"
             show={videoModalActive}
             handleClose={closeModal}
-            video="/promotion3.mp4"
+            video="promotion3.mp4"
             videoTag="video" />
         </div>
       </div>
