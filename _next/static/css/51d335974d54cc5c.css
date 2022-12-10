@@ -3024,58 +3024,64 @@ body {
   color: rgb(0, 0, 0);
 }
 
-.verified-bjj {
+.verified-ma {
 
   border-radius: 10px;
-  background-color: #99ffa5;
-  background-color: #99f0ff;
-  background-image:
-      radial-gradient(at 27% 28%, hsla(244, 39%, 80%, 1) 0px, transparent 50%),
-      radial-gradient(at 92% 1%, hsla(71, 39%, 80%, 1) 0px, transparent 50%),
-      radial-gradient(at 22% 5%, hsla(224, 39%, 80%, 1) 0px, transparent 50%),
-      radial-gradient(at 58% 75%, hsla(63, 39%, 80%, 1) 0px, transparent 50%),
-      radial-gradient(at 55% 17%, hsla(308, 39%, 80%, 1) 0px, transparent 50%),
-      radial-gradient(at 8% 5%, hsla(174, 39%, 80%, 1) 0px, transparent 50%),
-      radial-gradient(at 67% 70%, hsla(334, 39%, 80%, 1) 0px, transparent 50%);
-  height: 150px;
-
-  background-image: url(/keito/_next/static/media/check.1e1c5f4f.png);
-  background-position: right;
-  background-repeat: no-repeat;
-
-}
-
-.alt-gold {
-  background-color: hsla(60, 100%, 50%, 1);
-  background-image:
-      radial-gradient(at 40% 20%, hsla(28, 100%, 89%, 1) 0px, transparent 50%),
-      radial-gradient(at 80% 0%, hsla(189, 100%, 89%, 1) 0px, transparent 50%),
-      radial-gradient(at 0% 50%, hsla(355, 100%, 89%, 1) 0px, transparent 50%),
-      radial-gradient(at 80% 50%, hsla(340, 100%, 89%, 1) 0px, transparent 50%),
-      radial-gradient(at 0% 100%, hsla(22, 100%, 89%, 1) 0px, transparent 50%),
-      radial-gradient(at 80% 100%, hsla(242, 100%, 89%, 1) 0px, transparent 50%);
-}
-
-.gold {
   background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
       radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
-      
-  
+    height: 150px;
+
+}
+.ibjjf {
+  background-image: url(/keito/_next/static/media/ibjjf.a16f5252.png);
+  background-position: 5% 15%;
+  background-repeat: no-repeat;
+  background-size: 50px 50px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.mt-auto {
+  margin-top: auto;
+}
+.itf {
+  background-image: url(/keito/_next/static/media/itf.208d2ced.png);
+  background-position: 5% 15%;
+  background-repeat: no-repeat;
+  background-size: 50px 50px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.wkf {
+  background-image: url(/keito/_next/static/media/wkf.1142664d.png);
+  background-position: 5% 15%;
+  background-repeat: no-repeat;
+  background-size: 50px 50px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .check {
   background-image: url(/keito/_next/static/media/verification.e09620ce.svg);
   background-position: 95% 15%;
   background-repeat: no-repeat;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .uncheck {
   background-image: url(/keito/_next/static/media/unverified.ba6d29ae.svg);
   background-position: 95% 15%;
   background-repeat: no-repeat;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-.unverified-bjj {
+.unverified-ma {
   border-radius: 10px;
   background-color: #77777767;
   height: 150px;

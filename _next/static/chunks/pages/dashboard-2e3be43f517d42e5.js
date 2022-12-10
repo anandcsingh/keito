@@ -262,30 +262,30 @@ const defaultProps = {
 };
 const RankItem = (param)=>{
     let { martialArtShortName , rank , martialArt , certified , ...props } = param;
-    const verifiedClasses = certified ? "verified-bjj gold" : "unverified-bjj";
+    const verifiedClasses = certified ? "verified-ma" : "unverified-ma";
     const verifiedCheckClasses = certified ? "check" : "uncheck";
     return /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
         className: "tiles-item",
         children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
             className: verifiedClasses,
-            children: /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
-                className: "pl-8 pt-8 ".concat(verifiedCheckClasses),
-                children: [
-                    /*#__PURE__*/ (0,jsx_runtime.jsx)("img", {
-                        src: "/".concat(martialArtShortName, ".png"),
-                        className: "p-4",
-                        width: 50,
-                        height: 50
-                    }),
-                    /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
-                        className: "mt-24 tt-u",
-                        children: rank
-                    }),
-                    /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
-                        className: "text-xs",
-                        children: martialArt
+            children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+                className: martialArtShortName,
+                children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+                    className: "pl-8 pt-8  ".concat(verifiedCheckClasses),
+                    children: /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
+                        className: "mt-auto mb-8",
+                        children: [
+                            /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+                                className: "mt-24 fw-500 tt-u",
+                                children: rank
+                            }),
+                            /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+                                className: "text-xs",
+                                children: martialArt
+                            })
+                        ]
                     })
-                ]
+                })
             })
         })
     });
