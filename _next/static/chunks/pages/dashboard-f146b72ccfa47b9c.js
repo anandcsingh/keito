@@ -7,84 +7,11 @@
     (window.__NEXT_P = window.__NEXT_P || []).push([
       "/dashboard",
       function () {
-        return __webpack_require__(4544);
+        return __webpack_require__(8878);
       }
     ]);
     if(false) {}
   
-
-/***/ }),
-
-/***/ 5435:
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5893);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7294);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(5697);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4184);
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_2__);
-
-
-
-
-const propTypes = {
-    tag: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().elementType),
-    color: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().string),
-    size: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().string),
-    loading: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().bool),
-    wide: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().bool),
-    wideMobile: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().bool),
-    disabled: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().bool)
-};
-const defaultProps = {
-    tag: "button",
-    color: "",
-    size: "",
-    loading: false,
-    wide: false,
-    wideMobile: false,
-    disabled: false
-};
-const Button = (param)=>{
-    let { className , tag , color , size , loading , wide , wideMobile , disabled , ...props } = param;
-    const classes = classnames__WEBPACK_IMPORTED_MODULE_2___default()("button", color && "button-".concat(color), size && "button-".concat(size), loading && "is-loading", wide && "button-block", wideMobile && "button-wide-mobile", className);
-    const Component = tag;
-    return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(Component, {
-        ...props,
-        className: classes,
-        disabled: disabled
-    });
-};
-Button.propTypes = propTypes;
-Button.defaultProps = defaultProps;
-/* harmony default export */ __webpack_exports__["Z"] = (Button);
-
-
-/***/ }),
-
-/***/ 2969:
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5893);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7294);
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4184);
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_2__);
-
-
-
-const ButtonGroup = (param)=>{
-    let { className , ...props } = param;
-    const classes = classnames__WEBPACK_IMPORTED_MODULE_2___default()("button-group", className);
-    return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-        ...props,
-        className: classes
-    });
-};
-/* harmony default export */ __webpack_exports__["Z"] = (ButtonGroup);
-
 
 /***/ }),
 
@@ -293,7 +220,7 @@ const Authentication = {
 
 /***/ }),
 
-/***/ 4544:
+/***/ 8878:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -313,99 +240,12 @@ var Header = __webpack_require__(7331);
 var react_dom = __webpack_require__(3935);
 // EXTERNAL MODULE: ./modules/Authentication.js
 var Authentication = __webpack_require__(4557);
-// EXTERNAL MODULE: ./components/elements/ButtonGroup.js
-var ButtonGroup = __webpack_require__(2969);
-// EXTERNAL MODULE: ./components/elements/Button.js
-var Button = __webpack_require__(5435);
-;// CONCATENATED MODULE: ./components/auth/Login.js
-
-
-
-
-
-const loginClicked = (e)=>{
-    const loggedIn = Authentication/* default.login */.Z.login();
-    if (loggedIn) {}
-};
-const Login = ()=>{
-    return /*#__PURE__*/ (0,jsx_runtime.jsxs)(jsx_runtime.Fragment, {
-        children: [
-            /*#__PURE__*/ (0,jsx_runtime.jsx)(Header/* default */.Z, {
-                navPosition: "right",
-                className: "reveal-from-bottom",
-                hideNav: false,
-                hideSignin: true,
-                bottomOuterDivider: false,
-                bottomDivider: false
-            }),
-            /*#__PURE__*/ (0,jsx_runtime.jsx)("main", {
-                className: "site-content",
-                children: /*#__PURE__*/ (0,jsx_runtime.jsx)("section", {
-                    className: "hero section center-content has-top-divider",
-                    children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
-                        className: "container-sm",
-                        children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
-                            className: "hero-inner section-inner",
-                            children: /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
-                                className: "hero-content",
-                                children: [
-                                    /*#__PURE__*/ (0,jsx_runtime.jsxs)("h1", {
-                                        className: "mt-0 mb-16 reveal-from-bottom",
-                                        "data-reveal-delay": "200",
-                                        children: [
-                                            "Login to ",
-                                            /*#__PURE__*/ (0,jsx_runtime.jsx)("span", {
-                                                className: "text-color-primary",
-                                                children: "keito"
-                                            })
-                                        ]
-                                    }),
-                                    /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
-                                        className: "container-xs",
-                                        children: [
-                                            /*#__PURE__*/ (0,jsx_runtime.jsxs)("p", {
-                                                className: "m-0 mb-32 reveal-from-bottom",
-                                                "data-reveal-delay": "400",
-                                                children: [
-                                                    "Login into to the ",
-                                                    /*#__PURE__*/ (0,jsx_runtime.jsx)("span", {
-                                                        className: "text-color-primary",
-                                                        children: "keito"
-                                                    }),
-                                                    " zkapp with your Mina wallet"
-                                                ]
-                                            }),
-                                            /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
-                                                className: "reveal-from-bottom",
-                                                "data-reveal-delay": "600",
-                                                children: /*#__PURE__*/ (0,jsx_runtime.jsx)(ButtonGroup/* default */.Z, {
-                                                    children: /*#__PURE__*/ (0,jsx_runtime.jsx)("a", {
-                                                        className: "login-btn button button-primary",
-                                                        href: "#",
-                                                        onClick: loginClicked,
-                                                        children: "Login"
-                                                    })
-                                                })
-                                            })
-                                        ]
-                                    })
-                                ]
-                            })
-                        })
-                    })
-                })
-            })
-        ]
-    });
-};
-/* harmony default export */ var auth_Login = (Login);
-
 // EXTERNAL MODULE: ./node_modules/react/index.js
 var react = __webpack_require__(7294);
 // EXTERNAL MODULE: ./node_modules/next/router.js
 var router = __webpack_require__(1163);
+var router_default = /*#__PURE__*/__webpack_require__.n(router);
 ;// CONCATENATED MODULE: ./components/auth/AuthenticatedPage.js
-
 
 
 
@@ -414,16 +254,14 @@ var router = __webpack_require__(1163);
 
 const AuthenticatedPage = (param)=>{
     let { children  } = param;
-    if (!Authentication/* default.loggedIn */.Z.loggedIn) {
-        //useEffect(() => Router.push('/login'));
-        return /*#__PURE__*/ (0,jsx_runtime.jsx)(jsx_runtime.Fragment, {
-            children: /*#__PURE__*/ (0,jsx_runtime.jsx)(auth_Login, {})
-        });
-    } else {
-        return /*#__PURE__*/ (0,jsx_runtime.jsx)(jsx_runtime.Fragment, {
-            children: children
-        });
-    }
+    (0,react.useEffect)(()=>{
+        if (!Authentication/* default.loggedIn */.Z.loggedIn) {
+            router_default().push("/login");
+        }
+    });
+    return /*#__PURE__*/ (0,jsx_runtime.jsx)(jsx_runtime.Fragment, {
+        children: children
+    });
 };
 /* harmony default export */ var auth_AuthenticatedPage = (AuthenticatedPage);
 
@@ -570,7 +408,7 @@ function Home() {
 /***/ 1163:
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
-/* unused reexport */ __webpack_require__(880)
+module.exports = __webpack_require__(880)
 
 
 /***/ })
