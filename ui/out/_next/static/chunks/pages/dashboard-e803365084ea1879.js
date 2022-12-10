@@ -75,7 +75,7 @@ var Authentication = __webpack_require__(4557);
 ;// CONCATENATED MODULE: ./modules/Snackbar.js
 const Snackbar = (text, duration)=>{
     const div = document.createElement("div");
-    div.setAttribute("style", "-webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;animation: fadein 0.5s, fadeout 0.5s 2.5s;;min-width: 250px;margin-left: -125px; background-color: rgba(0, 0, 0, 0.257); color: #fff; text-align: center; border-radius: 2px; padding: 16px; position: fixed; z-index: 1; left: 50%;top: 30px;");
+    div.setAttribute("style", "-webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;animation: fadein 0.5s, fadeout 0.5s 2.5s;;min-width: 250px;margin-left: -125px; background-color: rgba(0, 0, 0, 0.257); color: #fff; text-align: center; border-radius: 2px; padding: 16px; position: fixed; z-index: 1; left: 50%;top: 70px;");
     const node = document.createTextNode(text);
     div.appendChild(node);
     const body = document.getElementsByTagName("body")[0];
@@ -102,6 +102,7 @@ var router = __webpack_require__(1163);
 const propTypes = {
     navPosition: (prop_types_default()).string,
     hideNav: (prop_types_default()).bool,
+    hideExtraNav: (prop_types_default()).bool,
     hideSignin: (prop_types_default()).bool,
     bottomOuterDivider: (prop_types_default()).bool,
     bottomDivider: (prop_types_default()).bool
@@ -109,12 +110,13 @@ const propTypes = {
 const defaultProps = {
     navPosition: "",
     hideNav: false,
+    hideExtraNav: false,
     hideSignin: false,
     bottomOuterDivider: false,
     bottomDivider: false
 };
 const Header = (param)=>{
-    let { className , navPosition , hideNav , hideSignin , bottomOuterDivider , bottomDivider , ...props } = param;
+    let { className , navPosition , hideNav , hideExtraNav , hideSignin , bottomOuterDivider , bottomDivider , ...props } = param;
     console.log(Authentication/* default.loggedIn */.Z.loggedIn);
     const [isActive, setIsactive] = (0,react.useState)(false);
     const nav = (0,react.useRef)(null);
@@ -187,11 +189,12 @@ const Header = (param)=>{
                                 children: /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
                                     className: "header-nav-inner",
                                     children: [
-                                        /*#__PURE__*/ (0,jsx_runtime.jsxs)("ul", {
+                                        !hideExtraNav && /*#__PURE__*/ (0,jsx_runtime.jsxs)("ul", {
                                             className: classnames_default()("list-reset text-xs", navPosition && "header-nav-center"),
                                             children: [
                                                 /*#__PURE__*/ (0,jsx_runtime.jsx)("li", {
                                                     children: /*#__PURE__*/ (0,jsx_runtime.jsx)((link_default()), {
+                                                        className: "button button-dark button-wide-mobile button-sm",
                                                         href: "#0",
                                                         onClick: closeMenu,
                                                         children: "Rank"
@@ -199,6 +202,7 @@ const Header = (param)=>{
                                                 }),
                                                 /*#__PURE__*/ (0,jsx_runtime.jsx)("li", {
                                                     children: /*#__PURE__*/ (0,jsx_runtime.jsx)((link_default()), {
+                                                        className: "button button-dark button-wide-mobile button-sm",
                                                         href: "#0",
                                                         onClick: closeMenu,
                                                         children: "Lineage"
@@ -206,6 +210,7 @@ const Header = (param)=>{
                                                 }),
                                                 /*#__PURE__*/ (0,jsx_runtime.jsx)("li", {
                                                     children: /*#__PURE__*/ (0,jsx_runtime.jsx)((link_default()), {
+                                                        className: "button button-dark button-wide-mobile button-sm",
                                                         href: "#0",
                                                         onClick: closeMenu,
                                                         children: "Students"
@@ -435,6 +440,7 @@ function Home() {
         children: /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
             children: [
                 /*#__PURE__*/ (0,jsx_runtime.jsx)(Header/* default */.Z, {
+                    hideExtraNav: false,
                     navPosition: "right",
                     className: "reveal-from-bottom",
                     hideNav: false,
