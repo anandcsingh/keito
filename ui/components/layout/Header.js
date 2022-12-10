@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Logo from './partials/Logo';
 import Profile from '../../modules/profile'
 import Authentication from '../../modules/Authentication'
+import Snackbar from '../../modules/Snackbar'
 import { useRouter } from 'next/router';
 const propTypes = {
   navPosition: PropTypes.string,
@@ -55,8 +56,10 @@ const Header = ({
     setIsactive(true);
   }
 
-  const copyAndClose = () => {
-    
+  const copyAndClose = (e) => {
+
+    navigator.clipboard.writeText(e.currentTarget.title)
+    Snackbar("Copied wallet address", 1500);
     closeMenu();
   }
   const closeMenu = () => {
@@ -125,7 +128,7 @@ const Header = ({
                           :
 
                           <div>
-                            <button className="button button-dark rounded">
+                            <button className="button button-dark rounded" title={Authentication.address} onClick={copyAndClose}>
                               <img src='/auro.svg' className="mr-12 auro-login-img" width={20} height={20} />
                               <span>{Authentication.getShortAddress()}</span>
                             </button>
