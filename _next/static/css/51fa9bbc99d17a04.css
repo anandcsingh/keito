@@ -3103,3 +3103,10 @@ body {
 .auro-login-img {
   margin-top: 2px;
 }
+.login-btn {
+  background-image: url(/keito/_next/static/media/auro.0d9efb4d.svg);
+  background-size: 20px 20px;
+  background-position: 80% 50%;
+  background-repeat: no-repeat;
+  width: 150px;
+}

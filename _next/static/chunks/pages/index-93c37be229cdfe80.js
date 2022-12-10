@@ -1,17 +1,90 @@
-(self["webpackChunk_N_E"] = self["webpackChunk_N_E"] || []).push([[832],{
+(self["webpackChunk_N_E"] = self["webpackChunk_N_E"] || []).push([[405],{
 
-/***/ 6109:
+/***/ 9208:
 /***/ (function(__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
 
 
     (window.__NEXT_P = window.__NEXT_P || []).push([
-      "/welcome",
+      "/",
       function () {
-        return __webpack_require__(8012);
+        return __webpack_require__(5128);
       }
     ]);
     if(false) {}
   
+
+/***/ }),
+
+/***/ 5435:
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5893);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7294);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(5697);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4184);
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+
+const propTypes = {
+    tag: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().elementType),
+    color: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().string),
+    size: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().string),
+    loading: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().bool),
+    wide: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().bool),
+    wideMobile: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().bool),
+    disabled: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().bool)
+};
+const defaultProps = {
+    tag: "button",
+    color: "",
+    size: "",
+    loading: false,
+    wide: false,
+    wideMobile: false,
+    disabled: false
+};
+const Button = (param)=>{
+    let { className , tag , color , size , loading , wide , wideMobile , disabled , ...props } = param;
+    const classes = classnames__WEBPACK_IMPORTED_MODULE_2___default()("button", color && "button-".concat(color), size && "button-".concat(size), loading && "is-loading", wide && "button-block", wideMobile && "button-wide-mobile", className);
+    const Component = tag;
+    return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(Component, {
+        ...props,
+        className: classes,
+        disabled: disabled
+    });
+};
+Button.propTypes = propTypes;
+Button.defaultProps = defaultProps;
+/* harmony default export */ __webpack_exports__["Z"] = (Button);
+
+
+/***/ }),
+
+/***/ 2969:
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5893);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7294);
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4184);
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+const ButtonGroup = (param)=>{
+    let { className , ...props } = param;
+    const classes = classnames__WEBPACK_IMPORTED_MODULE_2___default()("button-group", className);
+    return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+        ...props,
+        className: classes
+    });
+};
+/* harmony default export */ __webpack_exports__["Z"] = (ButtonGroup);
+
 
 /***/ }),
 
@@ -70,7 +143,10 @@ const Profile = {
 };
 /* harmony default export */ var profile = (Profile);
 
+// EXTERNAL MODULE: ./modules/Authentication.js
+var Authentication = __webpack_require__(4557);
 ;// CONCATENATED MODULE: ./components/layout/Header.js
+
 
 
 
@@ -94,7 +170,7 @@ const defaultProps = {
 };
 const Header = (param)=>{
     let { className , navPosition , hideNav , hideSignin , bottomOuterDivider , bottomDivider , ...props } = param;
-    console.log(profile.loggedIn);
+    console.log(Authentication/* default.loggedIn */.Z.loggedIn);
     const [isActive, setIsactive] = (0,react.useState)(false);
     const nav = (0,react.useRef)(null);
     const hamburger = (0,react.useRef)(null);
@@ -202,7 +278,7 @@ Header.defaultProps = defaultProps;
 
 /***/ }),
 
-/***/ 2929:
+/***/ 9647:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -281,63 +357,16 @@ const SectionTilesProps = {
     }
 };
 
-;// CONCATENATED MODULE: ./components/elements/ButtonGroup.js
-
-
-
-const ButtonGroup = (param)=>{
-    let { className , ...props } = param;
-    const classes = classnames_default()("button-group", className);
-    return /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
-        ...props,
-        className: classes
-    });
-};
-/* harmony default export */ var elements_ButtonGroup = (ButtonGroup);
-
-;// CONCATENATED MODULE: ./components/elements/Button.js
-
-
-
-
-const propTypes = {
-    tag: (prop_types_default()).elementType,
-    color: (prop_types_default()).string,
-    size: (prop_types_default()).string,
-    loading: (prop_types_default()).bool,
-    wide: (prop_types_default()).bool,
-    wideMobile: (prop_types_default()).bool,
-    disabled: (prop_types_default()).bool
-};
-const defaultProps = {
-    tag: "button",
-    color: "",
-    size: "",
-    loading: false,
-    wide: false,
-    wideMobile: false,
-    disabled: false
-};
-const Button = (param)=>{
-    let { className , tag , color , size , loading , wide , wideMobile , disabled , ...props } = param;
-    const classes = classnames_default()("button", color && "button-".concat(color), size && "button-".concat(size), loading && "is-loading", wide && "button-block", wideMobile && "button-wide-mobile", className);
-    const Component = tag;
-    return /*#__PURE__*/ (0,jsx_runtime.jsx)(Component, {
-        ...props,
-        className: classes,
-        disabled: disabled
-    });
-};
-Button.propTypes = propTypes;
-Button.defaultProps = defaultProps;
-/* harmony default export */ var elements_Button = (Button);
-
+// EXTERNAL MODULE: ./components/elements/ButtonGroup.js
+var ButtonGroup = __webpack_require__(2969);
+// EXTERNAL MODULE: ./components/elements/Button.js
+var Button = __webpack_require__(5435);
 ;// CONCATENATED MODULE: ./components/elements/Modal.js
 
 
 
 
-const Modal_propTypes = {
+const propTypes = {
     children: (prop_types_default()).node,
     handleClose: (prop_types_default()).func.isRequired,
     show: (prop_types_default()).bool.isRequired,
@@ -348,7 +377,7 @@ const Modal_propTypes = {
         "video"
     ])
 };
-const Modal_defaultProps = {
+const defaultProps = {
     children: null,
     show: false,
     closeHidden: false,
@@ -422,13 +451,17 @@ const Modal = (param)=>{
         })
     });
 };
-Modal.propTypes = Modal_propTypes;
-Modal.defaultProps = Modal_defaultProps;
+Modal.propTypes = propTypes;
+Modal.defaultProps = defaultProps;
 /* harmony default export */ var elements_Modal = (Modal);
 
 // EXTERNAL MODULE: ./node_modules/next/image.js
 var next_image = __webpack_require__(5675);
+// EXTERNAL MODULE: ./node_modules/next/link.js
+var next_link = __webpack_require__(1664);
+var link_default = /*#__PURE__*/__webpack_require__.n(next_link);
 ;// CONCATENATED MODULE: ./components/sections/Hero.js
+
 
 
 
@@ -489,14 +522,14 @@ const Hero = (param)=>{
                                     /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
                                         className: "reveal-from-bottom",
                                         "data-reveal-delay": "600",
-                                        children: /*#__PURE__*/ (0,jsx_runtime.jsxs)(elements_ButtonGroup, {
+                                        children: /*#__PURE__*/ (0,jsx_runtime.jsxs)(ButtonGroup/* default */.Z, {
                                             children: [
-                                                /*#__PURE__*/ (0,jsx_runtime.jsx)("a", {
-                                                    className: "button button-primary button-wide-mobile",
+                                                /*#__PURE__*/ (0,jsx_runtime.jsx)((link_default()), {
                                                     href: "dashboard",
+                                                    className: "button button-primary button-wide-mobile",
                                                     children: "Launch App"
                                                 }),
-                                                /*#__PURE__*/ (0,jsx_runtime.jsx)(elements_Button, {
+                                                /*#__PURE__*/ (0,jsx_runtime.jsx)(Button/* default */.Z, {
                                                     tag: "a",
                                                     color: "dark",
                                                     wideMobile: true,
@@ -547,21 +580,36 @@ Hero.defaultProps = Hero_defaultProps;
 
 /***/ }),
 
-/***/ 8012:
+/***/ 4557:
+/***/ (function(__unused_webpack_module, __webpack_exports__) {
+
+"use strict";
+const Authentication = {
+    loggedIn: false,
+    login: function() {
+        this.loggedIn = true;
+    }
+};
+/* harmony default export */ __webpack_exports__["Z"] = (Authentication);
+
+
+/***/ }),
+
+/***/ 5128:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": function() { return /* binding */ Welcome; }
+/* harmony export */   "default": function() { return /* binding */ Home; }
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5893);
 /* harmony import */ var _components_layout_Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7331);
-/* harmony import */ var _components_sections_Hero__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(2929);
+/* harmony import */ var _components_sections_Hero__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9647);
 
 
 
-function Welcome() {
+function Home() {
     return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
         children: [
             /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_layout_Header__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z, {
@@ -594,7 +642,7 @@ function Welcome() {
 },
 /******/ function(__webpack_require__) { // webpackRuntimeModules
 /******/ var __webpack_exec__ = function(moduleId) { return __webpack_require__(__webpack_require__.s = moduleId); }
-/******/ __webpack_require__.O(0, [678,675,774,888,179], function() { return __webpack_exec__(6109); });
+/******/ __webpack_require__.O(0, [678,675,774,888,179], function() { return __webpack_exec__(9208); });
 /******/ var __webpack_exports__ = __webpack_require__.O();
 /******/ _N_E = __webpack_exports__;
 /******/ }

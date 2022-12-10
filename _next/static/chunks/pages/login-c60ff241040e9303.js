@@ -1,13 +1,13 @@
-(self["webpackChunk_N_E"] = self["webpackChunk_N_E"] || []).push([[26],{
+(self["webpackChunk_N_E"] = self["webpackChunk_N_E"] || []).push([[459],{
 
-/***/ 9637:
+/***/ 4250:
 /***/ (function(__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
 
 
     (window.__NEXT_P = window.__NEXT_P || []).push([
-      "/dashboard",
+      "/login",
       function () {
-        return __webpack_require__(4895);
+        return __webpack_require__(870);
       }
     ]);
     if(false) {}
@@ -70,7 +70,10 @@ const Profile = {
 };
 /* harmony default export */ var profile = (Profile);
 
+// EXTERNAL MODULE: ./modules/Authentication.js
+var Authentication = __webpack_require__(4557);
 ;// CONCATENATED MODULE: ./components/layout/Header.js
+
 
 
 
@@ -94,7 +97,7 @@ const defaultProps = {
 };
 const Header = (param)=>{
     let { className , navPosition , hideNav , hideSignin , bottomOuterDivider , bottomDivider , ...props } = param;
-    console.log(profile.loggedIn);
+    console.log(Authentication/* default.loggedIn */.Z.loggedIn);
     const [isActive, setIsactive] = (0,react.useState)(false);
     const nav = (0,react.useRef)(null);
     const hamburger = (0,react.useRef)(null);
@@ -202,179 +205,53 @@ Header.defaultProps = defaultProps;
 
 /***/ }),
 
-/***/ 4895:
+/***/ 4557:
+/***/ (function(__unused_webpack_module, __webpack_exports__) {
+
+"use strict";
+const Authentication = {
+    loggedIn: false,
+    login: function() {
+        this.loggedIn = true;
+    }
+};
+/* harmony default export */ __webpack_exports__["Z"] = (Authentication);
+
+
+/***/ }),
+
+/***/ 870:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-// ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
-
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, {
-  "default": function() { return /* binding */ Home; }
-});
-
-// EXTERNAL MODULE: ./node_modules/react/jsx-runtime.js
-var jsx_runtime = __webpack_require__(5893);
-// EXTERNAL MODULE: ./components/layout/Header.js + 2 modules
-var Header = __webpack_require__(7331);
-// EXTERNAL MODULE: ./node_modules/react-dom/index.js
-var react_dom = __webpack_require__(3935);
-;// CONCATENATED MODULE: ./components/layout/AuthenticatedPage.js
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ Login; }
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5893);
+/* harmony import */ var _components_layout_Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7331);
 
 
-
-const AuthenticatedPage = (param)=>{
-    let { children  } = param;
-    const loggedIn = true;
-    if (!loggedIn) {
-        return /*#__PURE__*/ (0,jsx_runtime.jsx)("h1", {
-            children: "Please log IN"
-        });
-    } else {
-        return /*#__PURE__*/ (0,jsx_runtime.jsx)(jsx_runtime.Fragment, {
-            children: children
-        });
-    }
-};
-/* harmony default export */ var layout_AuthenticatedPage = (AuthenticatedPage);
-
-// EXTERNAL MODULE: ./node_modules/react/index.js
-var react = __webpack_require__(7294);
-// EXTERNAL MODULE: ./node_modules/prop-types/index.js
-var prop_types = __webpack_require__(5697);
-var prop_types_default = /*#__PURE__*/__webpack_require__.n(prop_types);
-;// CONCATENATED MODULE: ./components/sections/partials/RankItem.js
-
-
-
-const propTypes = {
-    martialArtShortName: (prop_types_default()).string,
-    rank: (prop_types_default()).string,
-    martialArt: (prop_types_default()).string,
-    certified: (prop_types_default()).bool
-};
-const defaultProps = {
-    martialArtShortName: "",
-    rank: "",
-    martialArt: "",
-    certified: false
-};
-const RankItem = (param)=>{
-    let { martialArtShortName , rank , martialArt , certified , ...props } = param;
-    const verifiedClasses = certified ? "verified-ma" : "unverified-ma";
-    const verifiedCheckClasses = certified ? "check" : "uncheck";
-    return /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
-        className: "tiles-item",
-        children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
-            className: verifiedClasses,
-            children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
-                className: martialArtShortName,
-                children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
-                    className: "pl-8 pt-8  ".concat(verifiedCheckClasses),
-                    children: /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
-                        className: "mt-auto mb-8",
-                        children: [
-                            /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
-                                className: "mt-24 fw-500 tt-u",
-                                children: rank
-                            }),
-                            /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
-                                className: "text-xs",
-                                children: martialArt
-                            })
-                        ]
+function Login() {
+    return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+        children: [
+            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_layout_Header__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z, {
+                navPosition: "right",
+                className: "reveal-from-bottom",
+                hideNav: false,
+                hideSignin: true,
+                bottomOuterDivider: false,
+                bottomDivider: false
+            }),
+            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("main", {
+                className: "site-content",
+                children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+                    children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h1", {
+                        children: "Login"
                     })
                 })
             })
-        })
-    });
-};
-/* harmony default export */ var partials_RankItem = (RankItem);
-
-;// CONCATENATED MODULE: ./components/sections/RankTiles.js
-
-
-
-const RankTiles = ()=>{
-    const items = [
-        {
-            certified: true,
-            shortName: "ibjjf",
-            rank: "Red Belt",
-            martialArt: "Brazilian Jiu Jitsu"
-        },
-        {
-            certified: false,
-            shortName: "itf",
-            rank: "Green Belt",
-            martialArt: "Taekwon-Do"
-        },
-        {
-            certified: true,
-            shortName: "wkf",
-            rank: "Yellow Belt",
-            martialArt: "Karate"
-        }
-    ];
-    const tiles = items.map((i, index)=>/*#__PURE__*/ (0,jsx_runtime.jsx)(partials_RankItem, {
-            martialArtShortName: i.shortName,
-            rank: i.rank,
-            martialArt: i.martialArt,
-            certified: i.certified
-        }, index));
-    return /*#__PURE__*/ (0,jsx_runtime.jsx)("section", {
-        className: "section",
-        children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
-            className: "container",
-            children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
-                className: "section-inner",
-                children: /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
-                    className: "tiles-wrap",
-                    children: [
-                        tiles,
-                        /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
-                            className: "tiles-item",
-                            title: "Add new Martial Art",
-                            children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
-                                className: "ma-add-btn",
-                                children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
-                                    className: "pl-8 pt-8 text-sm",
-                                    children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {})
-                                })
-                            })
-                        })
-                    ]
-                })
-            })
-        })
-    });
-};
-/* harmony default export */ var sections_RankTiles = (RankTiles);
-
-;// CONCATENATED MODULE: ./pages/dashboard.page.tsx
-
-
-
-
-function Home() {
-    return /*#__PURE__*/ (0,jsx_runtime.jsx)(layout_AuthenticatedPage, {
-        children: /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
-            children: [
-                /*#__PURE__*/ (0,jsx_runtime.jsx)(Header/* default */.Z, {
-                    navPosition: "right",
-                    className: "reveal-from-bottom",
-                    hideNav: false,
-                    hideSignin: false,
-                    bottomOuterDivider: false,
-                    bottomDivider: false
-                }),
-                /*#__PURE__*/ (0,jsx_runtime.jsx)("main", {
-                    className: "site-content",
-                    children: /*#__PURE__*/ (0,jsx_runtime.jsx)(sections_RankTiles, {})
-                })
-            ]
-        })
+        ]
     });
 }
 
@@ -384,7 +261,7 @@ function Home() {
 },
 /******/ function(__webpack_require__) { // webpackRuntimeModules
 /******/ var __webpack_exec__ = function(moduleId) { return __webpack_require__(__webpack_require__.s = moduleId); }
-/******/ __webpack_require__.O(0, [678,774,888,179], function() { return __webpack_exec__(9637); });
+/******/ __webpack_require__.O(0, [678,774,888,179], function() { return __webpack_exec__(4250); });
 /******/ var __webpack_exports__ = __webpack_require__.O();
 /******/ _N_E = __webpack_exports__;
 /******/ }
