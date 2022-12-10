@@ -499,7 +499,7 @@ const Hero = (param)=>{
                                                     tag: "a",
                                                     color: "primary",
                                                     wideMobile: true,
-                                                    href: "/dashboard",
+                                                    href: "dashboard",
                                                     children: "Launch App"
                                                 }),
                                                 /*#__PURE__*/ (0,jsx_runtime.jsx)(elements_Button, {
