@@ -3112,3 +3112,9 @@ body {
   background-repeat: no-repeat;
   width: 230px;
 }
+
+.header-nav-center a {
+  background-color: #212D43;
+  width: 150px;
+}
+

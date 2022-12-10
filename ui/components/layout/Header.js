@@ -10,6 +10,7 @@ import { useRouter } from 'next/router';
 const propTypes = {
   navPosition: PropTypes.string,
   hideNav: PropTypes.bool,
+  hideExtraNav: PropTypes.bool,
   hideSignin: PropTypes.bool,
   bottomOuterDivider: PropTypes.bool,
   bottomDivider: PropTypes.bool
@@ -18,6 +19,7 @@ const propTypes = {
 const defaultProps = {
   navPosition: '',
   hideNav: false,
+  hideExtraNav: false,
   hideSignin: false,
   bottomOuterDivider: false,
   bottomDivider: false
@@ -27,6 +29,7 @@ const Header = ({
   className,
   navPosition,
   hideNav,
+  hideExtraNav,
   hideSignin,
   bottomOuterDivider,
   bottomDivider,
@@ -116,20 +119,21 @@ const Header = ({
                     isActive && 'is-active'
                   )}>
                 <div className="header-nav-inner">
-                  <ul className={
+                {!hideExtraNav &&
+                <ul className={
                     classNames(
                       'list-reset text-xs',
                       navPosition && `header-nav-center`
                     )}>
                     <li>
-                      <Link href="#0" onClick={closeMenu}>Rank</Link>
+                      <Link className='button button-dark button-wide-mobile button-sm' href="#0" onClick={closeMenu}>Rank</Link>
                     </li>
                     <li>
-                      <Link href="#0" onClick={closeMenu}>Lineage</Link>
+                      <Link className='button button-dark button-wide-mobile button-sm' href="#0" onClick={closeMenu}>Lineage</Link>
                     </li>
-                    <li><Link href="#0" onClick={closeMenu}>Students</Link>
+                    <li><Link className='button button-dark button-wide-mobile button-sm' href="#0" onClick={closeMenu}>Students</Link>
                     </li>
-                  </ul>
+                  </ul>}
 
                   {!hideSignin &&
                     <ul

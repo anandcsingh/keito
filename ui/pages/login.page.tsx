@@ -18,7 +18,7 @@ export default function Login() {
   }
   return (
     <>
-    <Header navPosition="right" className="reveal-from-bottom" hideNav={false} hideSignin={true} bottomOuterDivider={false} bottomDivider={false} />
+    <Header hideExtraNav={true} navPosition="right" className="reveal-from-bottom" hideNav={false} hideSignin={true} bottomOuterDivider={false} bottomDivider={false} />
   <main className="site-content">
   <section className="hero section center-content has-top-divider"
 >

@@ -14,7 +14,7 @@ export default function Home() {
       
       <AuthenticatedPage>
         <div>
-          <Header navPosition="right" className="reveal-from-bottom" hideNav={false} hideSignin={false} bottomOuterDivider={false} bottomDivider={false}  />
+          <Header hideExtraNav={false} navPosition="right" className="reveal-from-bottom" hideNav={false} hideSignin={false} bottomOuterDivider={false} bottomDivider={false}  />
           <main className="site-content">
             <RankTiles />
           </main>
