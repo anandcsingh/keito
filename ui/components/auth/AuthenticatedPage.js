@@ -1,31 +1,22 @@
 import PropTypes from 'prop-types';
 import { render } from 'react-dom';
 import Authentication from '../../modules/Authentication'
-import Login from './Login'
-
 import React, { useEffect } from "react";
 import Router from 'next/router';
 
-
-const AuthenticatedPage = ({children}) => {
-  
+const AuthenticatedPage = ({ children }) => {
+  useEffect(() => {
     if (!Authentication.loggedIn) {
-      //useEffect(() => Router.push('/login'));
-      return (
-        <>
-          <Login />
-        </>
-      );
+      Router.push('/login');
     }
-    else {
-    return (
-        <>
-          {children}
-        </>
-      );
-    }
+
+  });
+  return (
+    <>
+      {children}
+    </>
+  );
+
 };
-
-
 
 export default AuthenticatedPage;

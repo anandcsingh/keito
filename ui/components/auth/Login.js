@@ -2,14 +2,21 @@ import Header from '../layout/Header'
 import ButtonGroup from '../elements/ButtonGroup';
 import Button from '../elements/Button';
 import Authentication from '../../modules/Authentication';
-const loginClicked = (e) => {
-    const loggedIn = Authentication.login();
-    if(loggedIn) {
+import React, { useState, useRef, useEffect } from 'react';
 
-    }
-  }  
 
 const Login = () => {
+    const loginClicked = (e) => {
+        const loggedIn = Authentication.login();
+        if(Authentication.loggedIn) {
+            useEffect(() => {
+                const router = useRouter()
+                router.push('dashboard')
+                console.log("logged refreshed?");
+              });
+        }
+      } 
+
     return (
         <>
         <Header navPosition="right" className="reveal-from-bottom" hideNav={false} hideSignin={true} bottomOuterDivider={false} bottomDivider={false} />
