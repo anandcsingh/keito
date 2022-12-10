@@ -495,10 +495,8 @@ const Hero = (param)=>{
                                         "data-reveal-delay": "600",
                                         children: /*#__PURE__*/ (0,jsx_runtime.jsxs)(elements_ButtonGroup, {
                                             children: [
-                                                /*#__PURE__*/ (0,jsx_runtime.jsx)(elements_Button, {
-                                                    tag: "a",
-                                                    color: "primary",
-                                                    wideMobile: true,
+                                                /*#__PURE__*/ (0,jsx_runtime.jsx)("a", {
+                                                    className: "button button-primary button-wide-mobile",
                                                     href: "dashboard",
                                                     children: "Launch App"
                                                 }),
