@@ -116,6 +116,20 @@ const Header = ({
                     isActive && 'is-active'
                   )}>
                 <div className="header-nav-inner">
+                  <ul className={
+                    classNames(
+                      'list-reset text-xs',
+                      navPosition && `header-nav-center`
+                    )}>
+                    <li>
+                      <Link href="#0" onClick={closeMenu}>Rank</Link>
+                    </li>
+                    <li>
+                      <Link href="#0" onClick={closeMenu}>Lineage</Link>
+                    </li>
+                    <li><Link href="#0" onClick={closeMenu}>Students</Link>
+                    </li>
+                  </ul>
 
                   {!hideSignin &&
                     <ul
