@@ -123,13 +123,12 @@ const Header = ({
                     >
                       <li>
                         {!Authentication.loggedIn || useRouter().pathname == '/welcome' ?
-                          <Link href="dashboard" className="button button-primary button-wide-mobile button-sm" onClick={copyAndClose}>Launch App</Link>
+                          <Link href="dashboard" className="button button-primary button-wide-mobile button-sm" onClick={closeMenu}>Launch App</Link>
 
                           :
 
                           <div>
-                            <button className="button button-dark rounded" title={Authentication.address} onClick={copyAndClose}>
-                              <img src='/auro.svg' className="mr-12 auro-login-img" width={20} height={20} />
+                            <button className="button button-dark rounded auth-address" title={Authentication.address} onClick={copyAndClose}>
                               <span>{Authentication.getShortAddress()}</span>
                             </button>
                           </div>
