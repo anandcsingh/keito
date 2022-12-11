@@ -3104,6 +3104,9 @@ body {
   background-repeat: no-repeat;
   width: 150px;
 }
+.login-btn-container {
+  margin-top: 75px;
+}
 
 .auth-address {
   background-image: url(../pages/assets/images/auro.svg);
@@ -3118,3 +3121,47 @@ body {
   width: 150px;
 }
 
+.login-subtext {
+  background-color: #212D43;
+  border-radius: 10px;
+}
+
+.loading-snarky  {
+  -moz-transition:all 0.5s ease-in-out;
+    -webkit-transition:all 0.5s ease-in-out;
+    -o-transition:all 0.5s ease-in-out;
+    -ms-transition:all 0.5s ease-in-out;
+    transition:all 0.5s ease-in-out;
+    -moz-animation:blink normal 1.5s infinite ease-in-out;
+    /* Firefox */
+    -webkit-animation:blink normal 1.5s infinite ease-in-out;
+    /* Webkit */
+    -ms-animation:blink normal 1.5s infinite ease-in-out;
+    /* IE */
+    animation:blink normal 1.5s infinite ease-in-out;
+}
+
+
+
+@keyframes blink {
+  0% {
+         background-color: #212D43
+  }
+  50% {
+         background-color: #0a1732
+  }
+  100% {
+         background-color: #212D43
+  }
+}
+@-webkit-keyframes blink {
+  0% {
+         background-color: #212D43
+  }
+  50% {
+         background-color: #212d43c0
+  }
+  100% {
+         background-color: #212D43
+  }
+}

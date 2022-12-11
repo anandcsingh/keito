@@ -1,12 +1,18 @@
 
-
 const Authentication = {
     loggedIn: false,
-    login: function() {
-        this.loggedIn = true;
+    zkClient: null,
+    setZkClient: function(client) {
+        this.zkClient = client;
     },
-    address: 'B62qpzAWcbZSjzQH9hiTKvHbDx1eCsmRR7dDzK2DuYjRT2sTyW9vSpR',
-    getShortAddress: function() {
+    login: async function () {
+        const mina = window.mina;
+        this.address = (await mina.requestAccounts())[0];
+        this.loggedIn = true;
+        return true;
+    },
+    address: '',
+    getShortAddress: function () {
         return this.address.substring(0, 5) + "..." + this.address.substring(this.address.length - 5, this.address.length);
     }
 }

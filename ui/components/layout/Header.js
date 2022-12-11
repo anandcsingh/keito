@@ -141,7 +141,7 @@ const Header = ({
                     >
                       <li>
                         {!Authentication.loggedIn || useRouter().pathname == '/welcome' ?
-                          <Link href="dashboard" className="button button-primary button-wide-mobile button-sm" onClick={closeMenu}>Launch App</Link>
+                          <Link href="rank" className="button button-primary button-wide-mobile button-sm" onClick={closeMenu}>Launch App</Link>
 
                           :
 

@@ -70,7 +70,7 @@ const Hero = ({
                 </p>
               <div className="reveal-from-bottom" data-reveal-delay="600">
                 <ButtonGroup>
-                <Link href="dashboard" className="button button-primary button-wide-mobile">Launch App</Link>
+                <Link href="rank" className="button button-primary button-wide-mobile">Launch App</Link>
 
                   <Button tag="a" color="dark" wideMobile href="https://github.com/anandcsingh/keito">
                     View on Github
