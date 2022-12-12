@@ -151,7 +151,8 @@ const Header = ({
                             </button>
                           </div>
 
-                        }</li>
+                        }
+                        </li>
                     </ul>}
                 </div>
               </nav>

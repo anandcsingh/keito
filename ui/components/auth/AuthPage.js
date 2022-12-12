@@ -1,15 +1,12 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
-import styles from '../styles/Home.module.css'
-import Header from '../components/layout/Header'
-import AuthenticatedPage from '../components/auth/AuthenticatedPage'
-import RankTiles from '../components/sections/RankTiles';
-import Authentication from '../modules/Authentication';
+import Header from '../layout/Header'
+import Authentication from '../../modules/Authentication';
 import Router from 'next/router';
 import { useEffect, useState } from "react";
-import ZkappWorkerClient from '../modules/zkappWorkerClient';
-import Snackbar from '../modules/Snackbar';
+import ZkappWorkerClient from '../../modules/zkappWorkerClient';
+import Snackbar from '../../modules/Snackbar'
 
 
 import {
@@ -18,17 +15,16 @@ import {
   Field,
 } from 'snarkyjs'
 
-
-export default function Rank() {
+const AuthPage = ({ children }) => {
 
   let [state, setState] = useState({
     authentication: null,
-    hasWallet: null as null | boolean,
+    hasWallet: null,
     hasBeenSetup: false,
     accountExists: false,
-    currentNum: null as null | Field,
-    publicKey: null as null | PublicKey,
-    zkappPublicKey: null as null | PublicKey,
+    currentNum: null,
+    publicKey: null,
+    zkappPublicKey: null,
     creatingTransaction: false,
     snarkyLoaded: false,
     showRequestingAccount: false,
@@ -39,63 +35,65 @@ export default function Rank() {
 
   useEffect(() => {
     (async () => {
-      if (!state.hasBeenSetup) {
+      if (!Authentication.loggedIn) {
+        if (!state.hasBeenSetup) {
 
-        const zkappWorkerClient = new ZkappWorkerClient();
-        Authentication.setZkClient(zkappWorkerClient);
-        console.log('Loading SnarkyJS...');
-        await zkappWorkerClient.loadSnarkyJS();
-        console.log('done');
-        setState({ ...state, snarkyLoaded: true });
+          const zkappWorkerClient = new ZkappWorkerClient();
+          Authentication.setZkClient(zkappWorkerClient);
+          console.log('Loading SnarkyJS...');
+          await zkappWorkerClient.loadSnarkyJS();
+          console.log('done');
+          setState({ ...state, snarkyLoaded: true });
 
-        await zkappWorkerClient.setActiveInstanceToBerkeley();
+          await zkappWorkerClient.setActiveInstanceToBerkeley();
 
-        const mina = (window as any).mina;
+          const mina = window.mina;
 
-        if (mina == null) {
-          setState({ ...state, hasWallet: false, snarkyLoaded: true });
-          return;
-        }
-        else {
-          setState({ ...state, hasWallet: true, snarkyLoaded: true, showRequestingAccount: true });
-        }
-        try {
-          await Authentication.login();
-        }
-        catch (e) {
-          const error = e as any;
-          if (error.message == "user reject") {
-            Snackbar("You cancelled connection with Mina wallet!", 1500);
+          if (mina == null) {
+            setState({ ...state, hasWallet: false, snarkyLoaded: true });
+            return;
           }
-          else if (error.message == "please create or restore wallet first") {
-            setState({ ...state, showCreateWallet: true, hasWallet: true, snarkyLoaded: true, showRequestingAccount: false });
+          else {
+            setState({ ...state, hasWallet: true, snarkyLoaded: true, showRequestingAccount: true });
           }
+          try {
+            await Authentication.login();
+          }
+          catch (e) {
+            
+            if (e.message == "user reject") {
+              Snackbar("You cancelled connection with Mina wallet!", 1500);
+            }
+            else if (e.message == "please create or restore wallet first") {
+              setState({ ...state, showCreateWallet: true, hasWallet: true, snarkyLoaded: true, showRequestingAccount: false });
+            }
+          }
+
+          const publicKey = PublicKey.fromBase58(Authentication.address);
+
+          console.log('checking if account exists...');
+          const res = await zkappWorkerClient.fetchAccount({ publicKey: publicKey });
+          const accountExists = res.error == null;
+          if (!accountExists) {
+            setState({ ...state, showFundAccount: true, showCreateWallet: false, hasWallet: true, snarkyLoaded: true, showRequestingAccount: false });
+          }
+          else {
+
+
+            setState({ ...state, showLoadingContracts: true, showFundAccount: false, showCreateWallet: false, hasWallet: true, snarkyLoaded: true, showRequestingAccount: false });
+            await zkappWorkerClient.loadContract();
+
+            console.log('compiling zkApp');
+            await zkappWorkerClient.compileContract();
+            console.log('zkApp compiled');
+
+            const zkappPublicKey = PublicKey.fromBase58('B62qqEme9EYMj3KC4vSXij2vAwt8qxLiKLsrHPprQeYXXmjTFUH16wF');
+
+            await zkappWorkerClient.initZkappInstance(zkappPublicKey);
+            setState({ ...state, hasBeenSetup: true, showLoadingContracts: false, showFundAccount: false, showCreateWallet: false, hasWallet: true, snarkyLoaded: true, showRequestingAccount: false });
+          }
+
         }
-
-        const publicKey = PublicKey.fromBase58(Authentication.address);
-
-        console.log('checking if account exists...');
-        const res = await zkappWorkerClient.fetchAccount({ publicKey: publicKey! });
-        const accountExists = res.error == null;
-        if (!accountExists) {
-          setState({ ...state, showFundAccount: true, showCreateWallet: false, hasWallet: true, snarkyLoaded: true, showRequestingAccount: false });
-        }
-        else {
-
-
-          setState({ ...state, showLoadingContracts: true, showFundAccount: false, showCreateWallet: false, hasWallet: true, snarkyLoaded: true, showRequestingAccount: false });
-          await zkappWorkerClient.loadContract();
-
-          console.log('compiling zkApp');
-          await zkappWorkerClient.compileContract();
-          console.log('zkApp compiled');
-
-          const zkappPublicKey = PublicKey.fromBase58('B62qqEme9EYMj3KC4vSXij2vAwt8qxLiKLsrHPprQeYXXmjTFUH16wF');
-
-          await zkappWorkerClient.initZkappInstance(zkappPublicKey);
-          setState({ ...state, hasBeenSetup: true, showLoadingContracts: false, showFundAccount: false, showCreateWallet: false, hasWallet: true, snarkyLoaded: true, showRequestingAccount: false });
-        }
-
       }
     })();
   }, []);
@@ -110,9 +108,8 @@ export default function Rank() {
       }
     }
     catch (e) {
-      const error = e as any;
-      console.log("Login Failed", error.message);
-      if (error.message == "user reject") {
+      console.log("Login Failed", e.message);
+      if (e.message == "user reject") {
         Snackbar("You cancelled connection with Mina wallet!", 1500);
       }
     }
@@ -176,7 +173,9 @@ export default function Rank() {
               </div>
             </section>
             :
-            <RankTiles />
+            <div>
+            {children}
+            </div>
           }
         </main>
       </div>
@@ -186,3 +185,5 @@ export default function Rank() {
   );
 
 }
+
+export default AuthPage;
