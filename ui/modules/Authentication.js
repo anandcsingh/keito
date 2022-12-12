@@ -1,14 +1,79 @@
+import ZkappWorkerClient from './zkappWorkerClient';
 
+import {
+    PublicKey,
+    PrivateKey,
+    Field,
+  } from 'snarkyjs'
+  
 const Authentication = {
     loggedIn: false,
     zkClient: null,
-    setZkClient: function(client) {
+    authentication: null,
+    hasWallet: null,
+    hasBeenSetup: false,
+    accountExists: false,
+    currentNum: null,
+    publicKey: null,
+    zkappPublicKey: null,
+    creatingTransaction: false,
+    snarkyLoaded: false,
+    showRequestingAccount: false,
+    showCreateWallet: false,
+    fundAccount: false,
+    showLoadingContracts: false,
+    setZkClient: function (client) {
         this.zkClient = client;
     },
-    login: async function () {
+    loadSnarky: async function () {
+        await this.zkClient.loadSnarkyJS();
+        await this.zkClient.setActiveInstanceToBerkeley();
+        this.snarkyLoaded = true;
+        return true;
+    },
+    checkForWallet: async function () {
         const mina = window.mina;
-        this.address = (await mina.requestAccounts())[0];
-        this.loggedIn = true;
+        this.hasWallet = mina != null;
+        return this.hasWallet;
+    },
+    login: async function () {
+        try {
+            const mina = window.mina;
+            this.address = (await mina.requestAccounts())[0];
+            this.loggedIn = true;
+            return {
+                success: true
+            };
+        } catch (e) {
+
+            this.loggedIn = false;
+            var result = {
+                success: false
+            };
+            if (e.message == "user reject") {
+                result.error = e.message;
+                result.message = "You cancelled connection with Mina wallet!";
+            }
+            else if (e.message == "please create or restore wallet first") {
+                result.error = e.message;
+                result.message = "Please create or restore a wallet first!";
+            }
+            return result;
+        }
+    },
+    doesAccountExist: async function () {
+        const publicKey = PublicKey.fromBase58(this.address);
+        const res = await this.zkClient.fetchAccount({ publicKey: publicKey });
+        this.fundAccount = res.error != null;
+        return !this.fundAccount;
+    },
+    setupContracts: async function () {
+        await this.zkClient.loadContract();
+        await this.zkClient.compileContract();
+        const contractAddress = 'B62qqEme9EYMj3KC4vSXij2vAwt8qxLiKLsrHPprQeYXXmjTFUH16wF';
+        const zkappPublicKey = PublicKey.fromBase58(contractAddress);
+        await this.zkClient.initZkappInstance(zkappPublicKey);
+        this.hasBeenSetup = true;
         return true;
     },
     address: '',
