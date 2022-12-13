@@ -8,12 +8,12 @@ import RankTiles from '../components/sections/RankTiles';
 export default function Rank() {
 
   return (
-    
-      
-      <AuthPage>
-        <RankTiles />
-      </AuthPage>
-    
+
+
+    <AuthPage>
+      <RankTiles />
+    </AuthPage>
+
   )
 
 }

@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 import RankItem from './partials/RankItem';
 
@@ -17,13 +18,17 @@ const RankTiles = () => {
                 <div className="section-inner">
                     <div className="tiles-wrap">
                          {tiles} 
+                         <Link href="addrank">
                         <div className="tiles-item" title='Add new Martial Art'>
                             <div className="ma-add-btn">
                                 <div className='pl-8 pt-8 text-sm'>
-                                    <div></div>
+                                    <div>
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        </Link>
                     </div>
                 </div>
             </div>

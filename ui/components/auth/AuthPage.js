@@ -159,7 +159,7 @@ const AuthPage = ({ children }) => {
             </div>
           }
         </main>
-      <Footer className="footer-container" topOuterDivider="false" topDivider="false" />
+      <Footer className="footer-container" topOuterDivider={false} topDivider={false} />
       </div>
 
     </div>
