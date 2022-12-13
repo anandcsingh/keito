@@ -4,8 +4,8 @@ import {
     PublicKey,
     PrivateKey,
     Field,
-  } from 'snarkyjs'
-  
+} from 'snarkyjs'
+
 const Authentication = {
     loggedIn: false,
     zkClient: null,
@@ -75,6 +75,18 @@ const Authentication = {
         await this.zkClient.initZkappInstance(zkappPublicKey);
         this.hasBeenSetup = true;
         return true;
+    },
+    getNum: async function () {
+        if (this.hasBeenSetup) {
+            const zkappPublicKey = PublicKey.fromBase58('B62qqEme9EYMj3KC4vSXij2vAwt8qxLiKLsrHPprQeYXXmjTFUH16wF');
+            await this.zkClient.fetchAccount({ publicKey: zkappPublicKey })
+
+            const currentNum = await this.zkClient.getNum();
+            console.log('current state:', currentNum.toString());
+        }
+        else {
+            console.log("has not been setup");
+        }
     },
     address: '',
     getShortAddress: function () {

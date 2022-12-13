@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import Header from '../layout/Header'
+import Footer from '../layout/Footer'
 import Authentication from '../../modules/Authentication';
 import ZkappWorkerClient from '../../modules/zkappWorkerClient';
 import Router from 'next/router';
@@ -17,7 +18,7 @@ import {
 
 const AuthPage = ({ children }) => {
   // load from Authentication values
-
+  Authentication.getNum();
   let [state, setState] = useState({
     authentication: null,
     hasWallet: Authentication.hasWallet,
@@ -158,6 +159,7 @@ const AuthPage = ({ children }) => {
             </div>
           }
         </main>
+      <Footer className="footer-container" topOuterDivider="false" topDivider="false" />
       </div>
 
     </div>

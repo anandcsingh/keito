@@ -11,9 +11,15 @@ export default function Students() {
     
       
       <AuthPage>
-        <h1>Students</h1>
-        <Link href="lineage">Lineage</Link>
-        <RankTiles />
+        <section className="section">
+            <div className="container">
+                <div className="section-inner">
+                <div className="container-xs">
+                  <h2 className="mt-0 mb-16">Martial Arts Students</h2>
+                  </div>
+                </div>
+            </div>
+        </section>
       </AuthPage>
     
   )

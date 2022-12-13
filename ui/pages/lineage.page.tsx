@@ -10,9 +10,15 @@ export default function Lineage() {
     
       
       <AuthPage>
-        <h1>Lineage</h1>
-        <Link href="students">Students</Link>
-        <RankTiles />
+        <section className="section">
+            <div className="container">
+                <div className="section-inner">
+                <div className="container-xs">
+                  <h2 className="mt-0 mb-16">Martial Arts Lineage</h2>
+                  </div>
+                </div>
+            </div>
+        </section>
       </AuthPage>
     
   )
