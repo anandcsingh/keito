@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const FooterNav = ({
   className,
@@ -17,20 +18,20 @@ const FooterNav = ({
       {...props}
       className={classes}
     >
-      <ul className="list-reset">
-        <li>
-          <Link to="#0">Contact</Link>
-        </li>
-        <li>
-          <Link to="#0">About us</Link>
-        </li>
-        <li>
-          <Link to="#0">FAQ's</Link>
-        </li>
-        <li>
-          <Link to="#0">Support</Link>
-        </li>
-      </ul>
+
+      {useRouter().pathname != '/welcome' &&
+        <ul className="list-reset">
+          <li>
+            <Link href="rank">Rank</Link>
+          </li>
+          <li>
+            <Link href="lineage">Lineage</Link>
+          </li>
+          <li><Link href="students">Students</Link>
+          </li>
+
+        </ul>
+      }
     </nav>
   );
 }

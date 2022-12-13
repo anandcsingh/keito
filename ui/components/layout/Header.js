@@ -126,12 +126,12 @@ const Header = ({
                       navPosition && `header-nav-center`
                     )}>
                     <li>
-                      <Link className='button button-dark button-wide-mobile button-sm' href="#0" onClick={closeMenu}>Rank</Link>
+                      <Link className='button button-dark button-wide-mobile button-sm' href="rank" onClick={closeMenu}>Rank</Link>
                     </li>
                     <li>
-                      <Link className='button button-dark button-wide-mobile button-sm' href="#0" onClick={closeMenu}>Lineage</Link>
+                      <Link className='button button-dark button-wide-mobile button-sm' href="lineage" onClick={closeMenu}>Lineage</Link>
                     </li>
-                    <li><Link className='button button-dark button-wide-mobile button-sm' href="#0" onClick={closeMenu}>Students</Link>
+                    <li><Link className='button button-dark button-wide-mobile button-sm' href="students" onClick={closeMenu}>Students</Link>
                     </li>
                   </ul>}
 
@@ -151,7 +151,8 @@ const Header = ({
                             </button>
                           </div>
 
-                        }</li>
+                        }
+                        </li>
                     </ul>}
                 </div>
               </nav>
