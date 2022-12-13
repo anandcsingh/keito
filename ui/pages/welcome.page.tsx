@@ -14,7 +14,7 @@ export default function Welcome() {
       <main className="site-content">
         <Hero className="illustration-section-01" topOuterDivider={null} bottomOuterDivider={false} topDivider={false} bottomDivider={false} hasBgColor={false} invertColor={false} />
       </main>
-      <Footer className="footer-container" topOuterDivider="false" topDivider="false" />
+      <Footer className="footer-container" topOuterDivider={false} topDivider={false} />
 
     </>
   )

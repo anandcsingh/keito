@@ -3088,6 +3088,7 @@ body {
   background-image: url(../pages/assets/images/plus.png);
   background-position: center;
   background-repeat: no-repeat;
+  width: 330px;
 }
 
 .rounded {
