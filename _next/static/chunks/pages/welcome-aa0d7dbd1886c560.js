@@ -376,6 +376,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_layout_Footer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5439);
 /* harmony import */ var _components_layout_Header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9329);
 /* harmony import */ var _components_sections_Hero__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(2929);
+/* harmony import */ var _reactCOIServiceWorker__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(8285);
+/* harmony import */ var _reactCOIServiceWorker__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_reactCOIServiceWorker__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 
@@ -427,7 +430,7 @@ function Welcome() {
 },
 /******/ function(__webpack_require__) { // webpackRuntimeModules
 /******/ var __webpack_exec__ = function(moduleId) { return __webpack_require__(__webpack_require__.s = moduleId); }
-/******/ __webpack_require__.O(0, [829,863,675,893,774,888,179], function() { return __webpack_exec__(6109); });
+/******/ __webpack_require__.O(0, [829,863,675,771,774,888,179], function() { return __webpack_exec__(6109); });
 /******/ var __webpack_exports__ = __webpack_require__.O();
 /******/ _N_E = __webpack_exports__;
 /******/ }

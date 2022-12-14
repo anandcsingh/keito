@@ -558,7 +558,10 @@ const AuthenticatedPage = (param)=>{
 
 // EXTERNAL MODULE: ./components/sections/RankTiles.js + 1 modules
 var RankTiles = __webpack_require__(9685);
+// EXTERNAL MODULE: ./pages/reactCOIServiceWorker.ts
+var reactCOIServiceWorker = __webpack_require__(8285);
 ;// CONCATENATED MODULE: ./pages/dashboard.page.tsx
+
 
 
 
@@ -584,6 +587,21 @@ function Home() {
         })
     });
 }
+
+
+/***/ }),
+
+/***/ 8285:
+/***/ (function() {
+
+function loadCOIServiceWorker() {
+    if ( true && window.location.hostname != "localhost") {
+        const coi = window.document.createElement("script");
+        coi.setAttribute("src", "/keito/coi-serviceworker.min.js");
+        window.document.head.appendChild(coi);
+    }
+}
+loadCOIServiceWorker();
 
 
 /***/ }),

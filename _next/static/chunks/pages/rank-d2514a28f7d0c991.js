@@ -1,13 +1,13 @@
-(self["webpackChunk_N_E"] = self["webpackChunk_N_E"] || []).push([[810],{
+(self["webpackChunk_N_E"] = self["webpackChunk_N_E"] || []).push([[361],{
 
-/***/ 7350:
+/***/ 3160:
 /***/ (function(__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
 
 
     (window.__NEXT_P = window.__NEXT_P || []).push([
-      "/lineage",
+      "/rank",
       function () {
-        return __webpack_require__(7402);
+        return __webpack_require__(7639);
       }
     ]);
     if(false) {}
@@ -275,36 +275,160 @@ const AuthPage = (param)=>{
 
 /***/ }),
 
-/***/ 7402:
+/***/ 9685:
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "Z": function() { return /* binding */ sections_RankTiles; }
+});
+
+// EXTERNAL MODULE: ./node_modules/react/jsx-runtime.js
+var jsx_runtime = __webpack_require__(5893);
+// EXTERNAL MODULE: ./node_modules/next/link.js
+var next_link = __webpack_require__(1664);
+var link_default = /*#__PURE__*/__webpack_require__.n(next_link);
+// EXTERNAL MODULE: ./node_modules/react/index.js
+var react = __webpack_require__(7294);
+// EXTERNAL MODULE: ./node_modules/prop-types/index.js
+var prop_types = __webpack_require__(5697);
+var prop_types_default = /*#__PURE__*/__webpack_require__.n(prop_types);
+;// CONCATENATED MODULE: ./components/sections/partials/RankItem.js
+
+
+
+const propTypes = {
+    martialArtShortName: (prop_types_default()).string,
+    rank: (prop_types_default()).string,
+    martialArt: (prop_types_default()).string,
+    certified: (prop_types_default()).bool
+};
+const defaultProps = {
+    martialArtShortName: "",
+    rank: "",
+    martialArt: "",
+    certified: false
+};
+const RankItem = (param)=>{
+    let { martialArtShortName , rank , martialArt , certified , ...props } = param;
+    const verifiedClasses = certified ? "verified-ma" : "unverified-ma";
+    const verifiedCheckClasses = certified ? "check" : "uncheck";
+    return /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+        className: "tiles-item",
+        children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+            className: verifiedClasses,
+            children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+                className: martialArtShortName,
+                children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+                    className: "pl-8 pt-8  ".concat(verifiedCheckClasses),
+                    children: /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
+                        className: "mt-auto mb-8",
+                        children: [
+                            /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+                                className: "mt-24 fw-500 tt-u",
+                                children: rank
+                            }),
+                            /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+                                className: "text-xs",
+                                children: martialArt
+                            })
+                        ]
+                    })
+                })
+            })
+        })
+    });
+};
+/* harmony default export */ var partials_RankItem = (RankItem);
+
+;// CONCATENATED MODULE: ./components/sections/RankTiles.js
+
+
+
+
+
+const RankTiles = ()=>{
+    const [error, setError] = (0,react.useState)(null);
+    const [isLoaded, setIsLoaded] = (0,react.useState)(false);
+    const [items, setItems] = (0,react.useState)([]);
+    var address = "B62qpzAWcbZSjzQH9hiTKvHbDx1eCsmRR7dDzK2DuYjRT2sTyW9vSpR";
+    // Note: the empty deps array [] means
+    // this useEffect will run once
+    // similar to componentDidMount()
+    (0,react.useEffect)(()=>{
+        fetch("api/user/".concat(address)).then((res)=>res.json()).then((result)=>{
+            setIsLoaded(true);
+            setItems(result.martialArts);
+        }, // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error)=>{
+            setIsLoaded(true);
+            setError(error);
+        });
+    }, []);
+    return /*#__PURE__*/ (0,jsx_runtime.jsx)("section", {
+        className: "section",
+        children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+            className: "container",
+            children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+                className: "section-inner",
+                children: /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
+                    className: "tiles-wrap",
+                    children: [
+                        items.map((i, index)=>/*#__PURE__*/ (0,jsx_runtime.jsx)(partials_RankItem, {
+                                martialArtShortName: i.martialArtShortName,
+                                rank: i.rank,
+                                martialArt: i.martialArt,
+                                certified: i.certified
+                            }, index)),
+                        /*#__PURE__*/ (0,jsx_runtime.jsx)((link_default()), {
+                            href: "addrank",
+                            children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+                                className: "tiles-item",
+                                title: "Add new Martial Art",
+                                children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+                                    className: "ma-add-btn",
+                                    children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+                                        className: "pl-8 pt-8 text-sm",
+                                        children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {})
+                                    })
+                                })
+                            })
+                        })
+                    ]
+                })
+            })
+        })
+    });
+};
+/* harmony default export */ var sections_RankTiles = (RankTiles);
+
+
+/***/ }),
+
+/***/ 7639:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": function() { return /* binding */ Lineage; }
+/* harmony export */   "default": function() { return /* binding */ Rank; }
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5893);
 /* harmony import */ var _components_auth_AuthPage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4377);
+/* harmony import */ var _components_sections_RankTiles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9685);
+/* harmony import */ var _reactCOIServiceWorker__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(8285);
+/* harmony import */ var _reactCOIServiceWorker__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_reactCOIServiceWorker__WEBPACK_IMPORTED_MODULE_3__);
 
 
-function Lineage() {
+
+
+function Rank() {
     return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_auth_AuthPage__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z, {
-        children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("section", {
-            className: "section",
-            children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-                className: "container",
-                children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-                    className: "section-inner",
-                    children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-                        className: "container-xs",
-                        children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h2", {
-                            className: "mt-0 mb-16",
-                            children: "Martial Arts Lineage"
-                        })
-                    })
-                })
-            })
-        })
+        children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_sections_RankTiles__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .Z, {})
     });
 }
 
@@ -322,7 +446,7 @@ function Lineage() {
 },
 /******/ function(__webpack_require__) { // webpackRuntimeModules
 /******/ var __webpack_exec__ = function(moduleId) { return __webpack_require__(__webpack_require__.s = moduleId); }
-/******/ __webpack_require__.O(0, [829,863,675,893,774,888,179], function() { return __webpack_exec__(7350); });
+/******/ __webpack_require__.O(0, [829,863,675,771,774,888,179], function() { return __webpack_exec__(3160); });
 /******/ var __webpack_exports__ = __webpack_require__.O();
 /******/ _N_E = __webpack_exports__;
 /******/ }
