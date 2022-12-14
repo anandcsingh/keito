@@ -3169,11 +3169,17 @@ body {
 
 .footer-container {
   background-color: #25282C;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 12.5rem;
 }
 
-#__next {
-  min-height:100vh; 
-  display:flex; 
-  flex-direction:column; 
-  justify-content:space-between
+.keito-page {
+  position: relative;
+  min-height: 100vh;
+}
+
+.keito-content-wrap {
+  padding-bottom: 12.5rem;
 }

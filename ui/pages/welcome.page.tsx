@@ -10,12 +10,15 @@ import Hero from '../components/sections/Hero';
 export default function Welcome() {
   return (
     <>
-      <Header hideExtraNav={true} navPosition="right" className="reveal-from-bottom" hideNav={false} hideSignin={false} bottomOuterDivider={false} bottomDivider={false} />
-      <main className="site-content">
-        <Hero className="illustration-section-01" topOuterDivider={null} bottomOuterDivider={false} topDivider={false} bottomDivider={false} hasBgColor={false} invertColor={false} />
-      </main>
-      <Footer className="footer-container" topOuterDivider={false} topDivider={false} />
-
+      <div className='keito-page'>
+        <div className='keito-content-wrap'>
+          <Header hideExtraNav={true} navPosition="right" className="reveal-from-bottom" hideNav={false} hideSignin={false} bottomOuterDivider={false} bottomDivider={false} />
+          <main className="site-content">
+            <Hero className="illustration-section-01" topOuterDivider={null} bottomOuterDivider={false} topDivider={false} bottomDivider={false} hasBgColor={false} invertColor={false} />
+          </main>
+        </div>
+        <Footer className="footer-container" topOuterDivider={false} topDivider={false} />
+      </div>
     </>
   )
 }

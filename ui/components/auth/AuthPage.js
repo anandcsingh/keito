@@ -100,8 +100,8 @@ const AuthPage = ({ children }) => {
     // }
   }
   return (
-    <div>
-      <div>
+    <div className='keito-page'>
+      <div className='keito-content-wrap'>
         <Header hideExtraNav={false} navPosition="right" className="reveal-from-bottom" hideNav={false} hideSignin={false} bottomOuterDivider={false} bottomDivider={false} />
         <main className="site-content">
           {!state.hasBeenSetup ?
@@ -119,7 +119,7 @@ const AuthPage = ({ children }) => {
                           Loading <span className="text-color-primary">SnarkyJS</span>...
                         </div>
                         {state.hasWallet != null && !state.hasWallet &&
-                          <div>
+                          <div className='text-color-warning'>
                             Could not find a wallet. Install Auro wallet here <a href='https://www.aurowallet.com/' target="_blank" rel="noreferrer">Auro wallet</a>
                           </div>
                         }
@@ -129,10 +129,10 @@ const AuthPage = ({ children }) => {
                         }
 
                         {state.showCreateWallet &&
-                          <div>Please create or restore a wallet first!</div>
+                          <div className='text-color-warning'>Please create or restore a wallet first!</div>
                         }
                         {state.showFundAccount &&
-                          <div>Your account does not exist, visit the <a href="https://faucet.minaprotocol.com/" target="_blank" rel="noreferrer">faucet</a> to fund it</div>
+                          <div className='text-color-warning'>Your account does not exist, visit the <a href="https://faucet.minaprotocol.com/" target="_blank" rel="noreferrer">faucet</a> to fund it</div>
                         }
 
                         {state.showLoadingContracts &&
@@ -159,9 +159,9 @@ const AuthPage = ({ children }) => {
             </div>
           }
         </main>
-      <Footer className="footer-container" topOuterDivider={false} topDivider={false} />
+      
       </div>
-
+      <Footer className="footer-container" topOuterDivider={false} topDivider={false} />
     </div>
 
   );
