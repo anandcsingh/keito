@@ -4,10 +4,11 @@ import Link from 'next/link'
 import Header from '../layout/Header'
 import Footer from '../layout/Footer'
 import Authentication from '../../modules/Authentication';
-import ZkappWorkerClient from '../../modules/zkappWorkerClient';
+import ZkappWorkerClient from '../../pages/zkappWorkerClient';
 import Router from 'next/router';
 import { useEffect, useState } from "react";
 import Snackbar from '../../modules/Snackbar'
+import Script from 'next/script'
 
 
 import {
@@ -101,6 +102,7 @@ const AuthPage = ({ children }) => {
   }
   return (
     <div className='keito-page'>
+      
       <div className='keito-content-wrap'>
         <Header hideExtraNav={false} navPosition="right" className="reveal-from-bottom" hideNav={false} hideSignin={false} bottomOuterDivider={false} bottomDivider={false} />
         <main className="site-content">

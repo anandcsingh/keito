@@ -5,6 +5,7 @@ import styles from '../styles/Home.module.css'
 import Header from '../components/layout/Header'
 import AuthenticatedPage from '../components/auth/AuthenticatedPage'
 import RankTiles from '../components/sections/RankTiles';
+import './reactCOIServiceWorker';
 
 
 export default function Home() {

@@ -7,6 +7,7 @@ import AuthenticatedPage from '../components/auth/AuthenticatedPage'
 import RankTiles from '../components/sections/RankTiles';
 import Authentication from '../modules/Authentication';
 import Router from 'next/router';
+import './reactCOIServiceWorker';
 
 export default function Login() {
   

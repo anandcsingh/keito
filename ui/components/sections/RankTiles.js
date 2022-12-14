@@ -2,43 +2,55 @@ import Link from 'next/link';
 import React from 'react';
 import RankItem from './partials/RankItem';
 import { useEffect, useState } from "react";
+import { app, database } from '../../modules/firestore';
+import { doc, getDoc } from 'firebase/firestore';
+import Authentication from '../../modules/Authentication';
 
 const RankTiles = () => {
 
-    const [error, setError] = useState(null);
+  const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
-  var address = "B62qpzAWcbZSjzQH9hiTKvHbDx1eCsmRR7dDzK2DuYjRT2sTyW9vSpR";
+  const [maCount, setMaCount] = useState(0);
 
-    // Note: the empty deps array [] means
-  // this useEffect will run once
-  // similar to componentDidMount()
   useEffect(() => {
+    (async () => {
+      var address = Authentication.address != "" ? Authentication.address :"B62qpzAWcbZSjzQH9hiTKvHbDx1eCsmRR7dDzK2DuYjRT2sTyW9vSpR";
+      const docRef = doc(database, "users", address);
+      const docSnap = await getDoc(docRef);
+      
+      if (docSnap.exists()) {
+        console.log("Document data:", docSnap.data());
+        const ma = docSnap.data().martialArts;
+        setIsLoaded(true);
+        setItems(ma);
+        setMaCount(ma.length);
+        setError(ma.length > 0 ? null : "Could not find any Martial Arts. Click the plus button to add one.");
+      } else {
+        setIsLoaded(true);
+        setError("Could not find any Martial Arts. Click the plus button to add one.");
+      }
+    })();
+  }, []);
 
-    
-    fetch(`api/user/${address}`)
-      .then(res => res.json())
-      .then(
-        (result) => {
-          setIsLoaded(true);
-          setItems(result.martialArts);
-        },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
-        (error) => {
-          setIsLoaded(true);
-          setError(error);
-        }
-      )                                     
-  }, [])
-    
  
 
     return (
         <section className="section">
             <div className="container">
                 <div className="section-inner">
+                  <div className='rank-messages'>
+                    {!isLoaded && 
+                      <div className="loading-snarky m-0 mb-32 reveal-from-bottom login-subtext p-16"  data-reveal-delay="400">
+                        Loading Martial Arts...
+                      </div>
+                    }
+                    {isLoaded && (maCount == 0 || error != null) && 
+                      <div className="m-0 mb-32 reveal-from-bottom login-subtext p-16"  data-reveal-delay="400">
+                        {error}
+                      </div>
+                    }
+                  </div>
                     <div className="tiles-wrap">
                         {items.map((i, index) => (
                     <RankItem key={index} martialArtShortName={i.martialArtShortName} rank={i.rank} martialArt={i.martialArt} certified={i.certified} />

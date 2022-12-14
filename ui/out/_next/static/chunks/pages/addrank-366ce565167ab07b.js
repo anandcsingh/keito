@@ -540,28 +540,28 @@ function AddRank() {
                                                             children: "Choose your Rank"
                                                         }),
                                                         /*#__PURE__*/ (0,jsx_runtime.jsx)("option", {
-                                                            children: "White"
+                                                            children: "White Belt"
                                                         }),
                                                         /*#__PURE__*/ (0,jsx_runtime.jsx)("option", {
-                                                            children: "Yellow"
+                                                            children: "Yellow Belt"
                                                         }),
                                                         /*#__PURE__*/ (0,jsx_runtime.jsx)("option", {
-                                                            children: "Green"
+                                                            children: "Green Belt"
                                                         }),
                                                         /*#__PURE__*/ (0,jsx_runtime.jsx)("option", {
-                                                            children: "Blue"
+                                                            children: "Blue Belt"
                                                         }),
                                                         /*#__PURE__*/ (0,jsx_runtime.jsx)("option", {
-                                                            children: "Purple"
+                                                            children: "Purple Belt"
                                                         }),
                                                         /*#__PURE__*/ (0,jsx_runtime.jsx)("option", {
-                                                            children: "Brown"
+                                                            children: "Brown Belt"
                                                         }),
                                                         /*#__PURE__*/ (0,jsx_runtime.jsx)("option", {
-                                                            children: "Black"
+                                                            children: "Black Belt"
                                                         }),
                                                         /*#__PURE__*/ (0,jsx_runtime.jsx)("option", {
-                                                            children: "Coral"
+                                                            children: "Coral Belt"
                                                         })
                                                     ]
                                                 })

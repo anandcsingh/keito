@@ -1,10 +1,23 @@
 import axios from "axios";
 
+import { app, database } from '../modules/firestore';
+import { doc, getDoc, setDoc } from 'firebase/firestore';
+
 const UserApiClient = function () {
     return {
         addMartialArt: async function (address, martialArt, martialArtShortName, rank) {
             var user = null;
             console.log("Address " + address);
+            const docRef = doc(database, "users", address);
+            const docSnap = await getDoc(docRef);
+            
+            if (docSnap.exists()) {
+              console.log("Document data:", docSnap.data());
+              user = docSnap.data();
+              return addIfNotThere(user, address, martialArt, martialArtShortName, rank);
+            } else {
+              return createEmptyUser(address, martialArt, martialArtShortName, rank);
+            }
 
             await axios.get(`api/user/${address}`)
                 .then(r => user = r.data)

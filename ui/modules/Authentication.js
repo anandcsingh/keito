@@ -1,4 +1,4 @@
-import ZkappWorkerClient from './zkappWorkerClient';
+import ZkappWorkerClient from '../pages/zkappWorkerClient';
 
 import {
     PublicKey,
