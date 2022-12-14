@@ -1,13 +1,13 @@
-(self["webpackChunk_N_E"] = self["webpackChunk_N_E"] || []).push([[832],{
+(self["webpackChunk_N_E"] = self["webpackChunk_N_E"] || []).push([[405],{
 
-/***/ 6109:
+/***/ 9208:
 /***/ (function(__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
 
 
     (window.__NEXT_P = window.__NEXT_P || []).push([
-      "/welcome",
+      "/",
       function () {
-        return __webpack_require__(8012);
+        return __webpack_require__(5128);
       }
     ]);
     if(false) {}
@@ -364,41 +364,24 @@ Hero.defaultProps = Hero_defaultProps;
 
 /***/ }),
 
-/***/ 8285:
-/***/ (function() {
-
-function loadCOIServiceWorker() {
-    if ( true && window.location.hostname != "localhost") {
-        const coi = window.document.createElement("script");
-        coi.setAttribute("src", "/keito/coi-serviceworker.min.js");
-        window.document.head.appendChild(coi);
-    }
-}
-loadCOIServiceWorker();
-
-
-/***/ }),
-
-/***/ 8012:
+/***/ 5128:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": function() { return /* binding */ Welcome; }
+/* harmony export */   "default": function() { return /* binding */ Home; }
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5893);
-/* harmony import */ var _components_layout_Footer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5439);
-/* harmony import */ var _components_layout_Header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9329);
+/* harmony import */ var _components_layout_Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9329);
+/* harmony import */ var _components_layout_Footer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(5439);
 /* harmony import */ var _components_sections_Hero__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(2929);
-/* harmony import */ var _reactCOIServiceWorker__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(8285);
-/* harmony import */ var _reactCOIServiceWorker__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_reactCOIServiceWorker__WEBPACK_IMPORTED_MODULE_4__);
 
 
 
 
-
-function Welcome() {
+//import './reactCOIServiceWorker';
+function Home() {
     return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
         children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
             className: "keito-page",
@@ -406,7 +389,7 @@ function Welcome() {
                 /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
                     className: "keito-content-wrap",
                     children: [
-                        /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_layout_Header__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .Z, {
+                        /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_layout_Header__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z, {
                             hideExtraNav: true,
                             navPosition: "right",
                             className: "reveal-from-bottom",
@@ -429,7 +412,7 @@ function Welcome() {
                         })
                     ]
                 }),
-                /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_layout_Footer__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z, {
+                /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_layout_Footer__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .Z, {
                     className: "footer-container",
                     topOuterDivider: false,
                     topDivider: false
@@ -445,7 +428,7 @@ function Welcome() {
 },
 /******/ function(__webpack_require__) { // webpackRuntimeModules
 /******/ var __webpack_exec__ = function(moduleId) { return __webpack_require__(__webpack_require__.s = moduleId); }
-/******/ __webpack_require__.O(0, [829,863,675,893,774,888,179], function() { return __webpack_exec__(6109); });
+/******/ __webpack_require__.O(0, [829,321,765,893,774,888,179], function() { return __webpack_exec__(9208); });
 /******/ var __webpack_exports__ = __webpack_require__.O();
 /******/ _N_E = __webpack_exports__;
 /******/ }
