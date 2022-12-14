@@ -33,8 +33,11 @@
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(1163);
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(7294);
-/* harmony import */ var _modules_Snackbar__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(5542);
-/* harmony import */ var snarkyjs__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(6400);
+/* harmony import */ var _modules_Snackbar__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(5542);
+/* harmony import */ var next_script__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(4298);
+/* harmony import */ var next_script__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(next_script__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var snarkyjs__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(6400);
+
 
 
 
@@ -95,7 +98,7 @@ const AuthPage = (param)=>{
                     }
                     const loginResult = await _modules_Authentication__WEBPACK_IMPORTED_MODULE_6__/* ["default"].login */ .Z.login();
                     if (loginResult.error == "user reject") {
-                        (0,_modules_Snackbar__WEBPACK_IMPORTED_MODULE_11__/* ["default"] */ .Z)("You cancelled connection with Mina wallet!", 1500);
+                        (0,_modules_Snackbar__WEBPACK_IMPORTED_MODULE_12__/* ["default"] */ .Z)("You cancelled connection with Mina wallet!", 1500);
                     } else if (loginResult.error == "please create or restore wallet first") {
                         setState({
                             ...state,
@@ -150,7 +153,7 @@ const AuthPage = (param)=>{
         } catch (e) {
             console.log("Login Failed", e.message);
             if (e.message == "user reject") {
-                (0,_modules_Snackbar__WEBPACK_IMPORTED_MODULE_11__/* ["default"] */ .Z)("You cancelled connection with Mina wallet!", 1500);
+                (0,_modules_Snackbar__WEBPACK_IMPORTED_MODULE_12__/* ["default"] */ .Z)("You cancelled connection with Mina wallet!", 1500);
             }
         }
     // const loggedIn = Authentication.login();
@@ -314,6 +317,21 @@ function Lineage() {
 
 /***/ }),
 
+/***/ 8285:
+/***/ (function() {
+
+function loadCOIServiceWorker() {
+    if ( true && window.location.hostname != "localhost") {
+        const coi = window.document.createElement("script");
+        coi.setAttribute("src", "/keito/coi-serviceworker.min.js");
+        window.document.head.appendChild(coi);
+    }
+}
+loadCOIServiceWorker();
+
+
+/***/ }),
+
 /***/ 9008:
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
@@ -325,7 +343,7 @@ function Lineage() {
 },
 /******/ function(__webpack_require__) { // webpackRuntimeModules
 /******/ var __webpack_exec__ = function(moduleId) { return __webpack_require__(__webpack_require__.s = moduleId); }
-/******/ __webpack_require__.O(0, [829,863,675,771,774,888,179], function() { return __webpack_exec__(7350); });
+/******/ __webpack_require__.O(0, [829,863,675,893,774,888,179], function() { return __webpack_exec__(7350); });
 /******/ var __webpack_exports__ = __webpack_require__.O();
 /******/ _N_E = __webpack_exports__;
 /******/ }
