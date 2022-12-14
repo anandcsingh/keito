@@ -1,9 +1,9 @@
-(self["webpackChunk_N_E"] = self["webpackChunk_N_E"] || []).push([[771],{
+"use strict";
+(self["webpackChunk_N_E"] = self["webpackChunk_N_E"] || []).push([[893],{
 
 /***/ 5439:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
@@ -163,7 +163,6 @@ Footer.defaultProps = defaultProps;
 /***/ 9329:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
@@ -371,7 +370,6 @@ Header.defaultProps = defaultProps;
 /***/ 2393:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5893);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7294);
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4184);
@@ -405,7 +403,6 @@ const Logo = (param)=>{
 /***/ 4557:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 /* harmony import */ var _pages_zkappWorkerClient__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9963);
 /* harmony import */ var snarkyjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6400);
 
@@ -505,7 +502,6 @@ const Authentication = {
 /***/ 5542:
 /***/ (function(__unused_webpack_module, __webpack_exports__) {
 
-"use strict";
 const Snackbar = (text, duration)=>{
     const div = document.createElement("div");
     div.setAttribute("style", "-webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;animation: fadein 0.5s, fadeout 0.5s 2.5s;;min-width: 250px;margin-left: -125px; background-color: rgba(0, 0, 0, 0.257); color: #fff; text-align: center; border-radius: 2px; padding: 16px; position: fixed; z-index: 1; left: 50%;top: 70px;");
@@ -522,25 +518,9 @@ const Snackbar = (text, duration)=>{
 
 /***/ }),
 
-/***/ 8285:
-/***/ (function() {
-
-function loadCOIServiceWorker() {
-    if ( true && window.location.hostname != "localhost") {
-        const coi = window.document.createElement("script");
-        coi.setAttribute("src", "/keito/coi-serviceworker.min.js");
-        window.document.head.appendChild(coi);
-    }
-}
-loadCOIServiceWorker();
-
-
-/***/ }),
-
 /***/ 9963:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Z": function() { return /* binding */ ZkappWorkerClient; }
 /* harmony export */ });
