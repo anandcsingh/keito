@@ -381,38 +381,43 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function Home() {
-    return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-        children: [
-            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_layout_Header__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z, {
-                hideExtraNav: true,
-                navPosition: "right",
-                className: "reveal-from-bottom",
-                hideNav: false,
-                hideSignin: false,
-                bottomOuterDivider: false,
-                bottomDivider: false
-            }),
-            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("main", {
-                className: "site-content",
-                children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_sections_Hero__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .Z, {
-                    className: "illustration-section-01",
-                    topOuterDivider: null,
-                    bottomOuterDivider: false,
-                    topDivider: false,
-                    bottomDivider: false,
-                    hasBgColor: false,
-                    invertColor: false
+    return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+        children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+            className: "keito-page",
+            children: [
+                /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                    className: "keito-content-wrap",
+                    children: [
+                        /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_layout_Header__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z, {
+                            hideExtraNav: true,
+                            navPosition: "right",
+                            className: "reveal-from-bottom",
+                            hideNav: false,
+                            hideSignin: false,
+                            bottomOuterDivider: false,
+                            bottomDivider: false
+                        }),
+                        /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("main", {
+                            className: "site-content",
+                            children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_sections_Hero__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .Z, {
+                                className: "illustration-section-01",
+                                topOuterDivider: null,
+                                bottomOuterDivider: false,
+                                topDivider: false,
+                                bottomDivider: false,
+                                hasBgColor: false,
+                                invertColor: false
+                            })
+                        })
+                    ]
+                }),
+                /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_layout_Footer__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .Z, {
+                    className: "footer-container",
+                    topOuterDivider: false,
+                    topDivider: false
                 })
-            }),
-            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h1", {
-                children: "ok"
-            }),
-            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_layout_Footer__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .Z, {
-                className: "footer-container",
-                topOuterDivider: "false",
-                topDivider: "false"
-            })
-        ]
+            ]
+        })
     });
 }
 
