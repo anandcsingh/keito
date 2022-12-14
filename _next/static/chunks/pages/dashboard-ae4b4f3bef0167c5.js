@@ -344,6 +344,7 @@ const RankTiles = ()=>{
     const [error, setError] = (0,react.useState)(null);
     const [isLoaded, setIsLoaded] = (0,react.useState)(false);
     const [items, setItems] = (0,react.useState)([]);
+    const [maCount, setMaCount] = (0,react.useState)(0);
     (0,react.useEffect)(()=>{
         (async ()=>{
             var address = Authentication/* default.address */.Z.address != "" ? Authentication/* default.address */.Z.address : "B62qpzAWcbZSjzQH9hiTKvHbDx1eCsmRR7dDzK2DuYjRT2sTyW9vSpR";
@@ -351,11 +352,14 @@ const RankTiles = ()=>{
             const docSnap = await (0,index_esm/* getDoc */.QT)(docRef);
             if (docSnap.exists()) {
                 console.log("Document data:", docSnap.data());
+                const ma = docSnap.data().martialArts;
                 setIsLoaded(true);
-                setItems(docSnap.data().martialArts);
+                setItems(ma);
+                setMaCount(ma.length);
+                setError(ma.length > 0 ? null : "Could not find any Martial Arts. Click the plus button to add one.");
             } else {
                 setIsLoaded(true);
-                setError("Could not find Martial Arts. Click the plus button to add one.");
+                setError("Could not find any Martial Arts. Click the plus button to add one.");
             }
         })();
     }, []);
@@ -363,33 +367,50 @@ const RankTiles = ()=>{
         className: "section",
         children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
             className: "container",
-            children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+            children: /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
                 className: "section-inner",
-                children: /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
-                    className: "tiles-wrap",
-                    children: [
-                        items.map((i, index)=>/*#__PURE__*/ (0,jsx_runtime.jsx)(partials_RankItem, {
-                                martialArtShortName: i.martialArtShortName,
-                                rank: i.rank,
-                                martialArt: i.martialArt,
-                                certified: i.certified
-                            }, index)),
-                        /*#__PURE__*/ (0,jsx_runtime.jsx)((link_default()), {
-                            href: "addrank",
-                            children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
-                                className: "tiles-item",
-                                title: "Add new Martial Art",
+                children: [
+                    /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
+                        className: "rank-messages",
+                        children: [
+                            !isLoaded && /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+                                className: "loading-snarky m-0 mb-32 reveal-from-bottom login-subtext p-16",
+                                "data-reveal-delay": "400",
+                                children: "Loading Martial Arts..."
+                            }),
+                            isLoaded && (maCount == 0 || error != null) && /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+                                className: "m-0 mb-32 reveal-from-bottom login-subtext p-16",
+                                "data-reveal-delay": "400",
+                                children: error
+                            })
+                        ]
+                    }),
+                    /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
+                        className: "tiles-wrap",
+                        children: [
+                            items.map((i, index)=>/*#__PURE__*/ (0,jsx_runtime.jsx)(partials_RankItem, {
+                                    martialArtShortName: i.martialArtShortName,
+                                    rank: i.rank,
+                                    martialArt: i.martialArt,
+                                    certified: i.certified
+                                }, index)),
+                            /*#__PURE__*/ (0,jsx_runtime.jsx)((link_default()), {
+                                href: "addrank",
                                 children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
-                                    className: "ma-add-btn",
+                                    className: "tiles-item",
+                                    title: "Add new Martial Art",
                                     children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
-                                        className: "pl-8 pt-8 text-sm",
-                                        children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {})
+                                        className: "ma-add-btn",
+                                        children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+                                            className: "pl-8 pt-8 text-sm",
+                                            children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {})
+                                        })
                                     })
                                 })
                             })
-                        })
-                    ]
-                })
+                        ]
+                    })
+                ]
             })
         })
     });
