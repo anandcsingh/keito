@@ -1,13 +1,13 @@
-(self["webpackChunk_N_E"] = self["webpackChunk_N_E"] || []).push([[609],{
+(self["webpackChunk_N_E"] = self["webpackChunk_N_E"] || []).push([[87],{
 
-/***/ 6307:
+/***/ 3972:
 /***/ (function(__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
 
 
     (window.__NEXT_P = window.__NEXT_P || []).push([
-      "/students",
+      "/addrank",
       function () {
-        return __webpack_require__(7841);
+        return __webpack_require__(604);
       }
     ]);
     if(false) {}
@@ -275,33 +275,278 @@ const AuthPage = (param)=>{
 
 /***/ }),
 
-/***/ 7841:
+/***/ 604:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+// ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": function() { return /* binding */ Students; }
-/* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5893);
-/* harmony import */ var _components_auth_AuthPage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4377);
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "default": function() { return /* binding */ AddRank; }
+});
+
+// EXTERNAL MODULE: ./node_modules/react/jsx-runtime.js
+var jsx_runtime = __webpack_require__(5893);
+// EXTERNAL MODULE: ./node_modules/next/link.js
+var next_link = __webpack_require__(1664);
+var link_default = /*#__PURE__*/__webpack_require__.n(next_link);
+// EXTERNAL MODULE: ./components/auth/AuthPage.js
+var AuthPage = __webpack_require__(4377);
+// EXTERNAL MODULE: ./modules/Authentication.js
+var Authentication = __webpack_require__(4557);
+// EXTERNAL MODULE: ./node_modules/axios/lib/axios.js + 39 modules
+var axios = __webpack_require__(594);
+;// CONCATENATED MODULE: ./modules/UserApiClient.js
+
+const UserApiClient = function() {
+    return {
+        addMartialArt: async function(address, martialArt, martialArtShortName, rank) {
+            var user = null;
+            console.log("Address " + address);
+            await axios/* default.get */.Z.get("api/user/".concat(address)).then((r)=>user = r.data).catch((e)=>console.log(e.message));
+            if (user == null) return createEmptyUser(address, martialArt, martialArtShortName, rank);
+            else return addIfNotThere(user, address, martialArt, martialArtShortName, rank);
+        },
+        getUser: async function(address) {
+            var user = null;
+            console.log("Address " + address);
+            await axios/* default.get */.Z.get("api/user/".concat(address)).then((r)=>user = r.data).catch((e)=>console.log(e.message));
+            return user;
+        }
+    };
+    async function createEmptyUser(address, martialArt, martialArtShortName, rank) {
+        const result = {};
+        await axios/* default.post */.Z.post("api/user", {
+            address,
+            martialArts: [
+                {
+                    martialArt,
+                    rank,
+                    martialArtShortName,
+                    certified: false
+                }
+            ]
+        }).then((response)=>{
+            if (response.status == 200) {
+                result.success = true;
+                result.message = "Martial Art ".concat(martialArt, " and rank ").concat(rank, " added.");
+            } else {
+                result.success = false;
+                result.message = response.statusText;
+            }
+        }).catch((error)=>{
+            result.success = false;
+            result.message = error.message;
+        });
+        return result;
+    }
+    ;
+    async function addIfNotThere(user, address, martialArt, martialArtShortName, rank) {
+        var _user_martialArts;
+        var found = false;
+        const result = {};
+        if (!user.martialArts) {
+            user.martialArts = [];
+        }
+        for(var i = 0; i < ((_user_martialArts = user.martialArts) === null || _user_martialArts === void 0 ? void 0 : _user_martialArts.length); i++){
+            if (user.martialArts[i].martialArt == martialArt) {
+                found = true;
+            }
+        }
+        if (!found) {
+            user.martialArts.push({
+                martialArt,
+                rank,
+                martialArtShortName,
+                certified: false
+            });
+        } else {
+            result.success = false;
+            result.message = "Martial Art ".concat(martialArt, " already added, you can only get promoted by a qualifed instructor.");
+            return result;
+        }
+        await axios/* default.put */.Z.put("api/user/".concat(address), user).then((response)=>{
+            if (response.status == 200) {
+                result.success = true;
+                result.message = "Martial Art ".concat(martialArt, " and rank ").concat(rank, " added.");
+            } else {
+                result.success = false;
+                result.message = response.statusText;
+            }
+        }).catch((error)=>{
+            result.success = false;
+            result.message = error.message;
+        });
+        return result;
+    }
+    ;
+};
+/* harmony default export */ var modules_UserApiClient = (UserApiClient);
+
+// EXTERNAL MODULE: ./pages/reactCOIServiceWorker.ts
+var reactCOIServiceWorker = __webpack_require__(8285);
+// EXTERNAL MODULE: ./node_modules/react/index.js
+var react = __webpack_require__(7294);
+;// CONCATENATED MODULE: ./pages/addrank.page.tsx
 
 
-function Students() {
-    return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_auth_AuthPage__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z, {
-        children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("section", {
+
+
+
+
+
+function AddRank() {
+    const address = Authentication/* default.address */.Z.address;
+    let [state, setState] = (0,react.useState)({
+        addSuccess: false,
+        addAttempt: false,
+        addMessage: ""
+    });
+    const addClicked = async (event)=>{
+        event.preventDefault();
+        const { martialArt , rank  } = event.target.elements;
+        console.log("ma " + martialArt);
+        const result = await modules_UserApiClient().addMartialArt(address, martialArt.options[martialArt.selectedIndex].text, martialArt.value, rank.value);
+        console.log(result);
+        setState({
+            ...state,
+            addAttempt: true,
+            addSuccess: result.success,
+            addMessage: result.message
+        });
+    };
+    return /*#__PURE__*/ (0,jsx_runtime.jsx)(AuthPage/* default */.Z, {
+        children: /*#__PURE__*/ (0,jsx_runtime.jsx)("section", {
             className: "section",
-            children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+            children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
                 className: "container",
-                children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+                children: /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
                     className: "section-inner",
-                    children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-                        className: "container-xs",
-                        children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h2", {
-                            className: "mt-0 mb-16",
-                            children: "Martial Arts Students"
+                    children: [
+                        /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+                            className: "section-header",
+                            children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+                                className: "container-xs",
+                                children: /*#__PURE__*/ (0,jsx_runtime.jsx)("h2", {
+                                    className: "mt-0 mb-16",
+                                    children: "Add Martial Art and Rank"
+                                })
+                            })
+                        }),
+                        /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+                            children:  true ? /*#__PURE__*/ (0,jsx_runtime.jsx)("form", {
+                                onSubmit: addClicked,
+                                children: /*#__PURE__*/ (0,jsx_runtime.jsxs)("fieldset", {
+                                    children: [
+                                        /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
+                                            className: "mb-16",
+                                            children: [
+                                                /*#__PURE__*/ (0,jsx_runtime.jsx)("label", {
+                                                    className: "form-label",
+                                                    htmlFor: "martialArt",
+                                                    children: "Martial Art"
+                                                }),
+                                                /*#__PURE__*/ (0,jsx_runtime.jsxs)("select", {
+                                                    id: "martialArt",
+                                                    name: "martialArt",
+                                                    className: "form-select",
+                                                    children: [
+                                                        /*#__PURE__*/ (0,jsx_runtime.jsx)("option", {
+                                                            hidden: true,
+                                                            children: "Choose your Martial Art"
+                                                        }),
+                                                        /*#__PURE__*/ (0,jsx_runtime.jsx)("option", {
+                                                            value: "ibjjf",
+                                                            children: "Brazilian Jiu Jitsu"
+                                                        }),
+                                                        /*#__PURE__*/ (0,jsx_runtime.jsx)("option", {
+                                                            value: "itf",
+                                                            children: "Taekwon-Do"
+                                                        }),
+                                                        /*#__PURE__*/ (0,jsx_runtime.jsx)("option", {
+                                                            value: "wkf",
+                                                            children: "Karate"
+                                                        })
+                                                    ]
+                                                })
+                                            ]
+                                        }),
+                                        /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
+                                            className: "mb-16",
+                                            children: [
+                                                /*#__PURE__*/ (0,jsx_runtime.jsx)("label", {
+                                                    className: "form-label",
+                                                    htmlFor: "rank",
+                                                    children: "Rank"
+                                                }),
+                                                /*#__PURE__*/ (0,jsx_runtime.jsxs)("select", {
+                                                    id: "rank",
+                                                    name: "rank",
+                                                    className: "form-select",
+                                                    children: [
+                                                        /*#__PURE__*/ (0,jsx_runtime.jsx)("option", {
+                                                            hidden: true,
+                                                            children: "Choose your Rank"
+                                                        }),
+                                                        /*#__PURE__*/ (0,jsx_runtime.jsx)("option", {
+                                                            children: "White"
+                                                        }),
+                                                        /*#__PURE__*/ (0,jsx_runtime.jsx)("option", {
+                                                            children: "Yellow"
+                                                        }),
+                                                        /*#__PURE__*/ (0,jsx_runtime.jsx)("option", {
+                                                            children: "Green"
+                                                        }),
+                                                        /*#__PURE__*/ (0,jsx_runtime.jsx)("option", {
+                                                            children: "Blue"
+                                                        }),
+                                                        /*#__PURE__*/ (0,jsx_runtime.jsx)("option", {
+                                                            children: "Purple"
+                                                        }),
+                                                        /*#__PURE__*/ (0,jsx_runtime.jsx)("option", {
+                                                            children: "Brown"
+                                                        }),
+                                                        /*#__PURE__*/ (0,jsx_runtime.jsx)("option", {
+                                                            children: "Black"
+                                                        }),
+                                                        /*#__PURE__*/ (0,jsx_runtime.jsx)("option", {
+                                                            children: "Coral"
+                                                        })
+                                                    ]
+                                                })
+                                            ]
+                                        }),
+                                        /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
+                                            className: "mt-24",
+                                            children: [
+                                                /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
+                                                    className: "button-group",
+                                                    children: [
+                                                        /*#__PURE__*/ (0,jsx_runtime.jsx)("button", {
+                                                            type: "submit",
+                                                            className: "button button-primary button-wide-mobile",
+                                                            children: "Submit"
+                                                        }),
+                                                        /*#__PURE__*/ (0,jsx_runtime.jsx)((link_default()), {
+                                                            href: "rank",
+                                                            className: "button-link text-xs",
+                                                            children: "Cancel"
+                                                        })
+                                                    ]
+                                                }),
+                                                state.addAttempt && state.addMessage != null && /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+                                                    className: "form-hint",
+                                                    children: state.addMessage
+                                                })
+                                            ]
+                                        })
+                                    ]
+                                })
+                            }) : /*#__PURE__*/ 0
                         })
-                    })
+                    ]
                 })
             })
         })
@@ -309,20 +554,12 @@ function Students() {
 }
 
 
-/***/ }),
-
-/***/ 9008:
-/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
-
-/* unused reexport */ __webpack_require__(3121)
-
-
 /***/ })
 
 },
 /******/ function(__webpack_require__) { // webpackRuntimeModules
 /******/ var __webpack_exec__ = function(moduleId) { return __webpack_require__(__webpack_require__.s = moduleId); }
-/******/ __webpack_require__.O(0, [829,863,675,893,774,888,179], function() { return __webpack_exec__(6307); });
+/******/ __webpack_require__.O(0, [829,863,675,518,771,774,888,179], function() { return __webpack_exec__(3972); });
 /******/ var __webpack_exports__ = __webpack_require__.O();
 /******/ _N_E = __webpack_exports__;
 /******/ }

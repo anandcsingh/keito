@@ -390,6 +390,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_Authentication__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4557);
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1163);
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _reactCOIServiceWorker__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(8285);
+/* harmony import */ var _reactCOIServiceWorker__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_reactCOIServiceWorker__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 
@@ -470,6 +473,21 @@ function Login() {
         ]
     });
 }
+
+
+/***/ }),
+
+/***/ 8285:
+/***/ (function() {
+
+function loadCOIServiceWorker() {
+    if ( true && window.location.hostname != "localhost") {
+        const coi = window.document.createElement("script");
+        coi.setAttribute("src", "/keito/coi-serviceworker.min.js");
+        window.document.head.appendChild(coi);
+    }
+}
+loadCOIServiceWorker();
 
 
 /***/ }),
