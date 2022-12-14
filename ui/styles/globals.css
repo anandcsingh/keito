@@ -3170,3 +3170,10 @@ body {
 .footer-container {
   background-color: #25282C;
 }
+
+#__next {
+  min-height:100vh; 
+  display:flex; 
+  flex-direction:column; 
+  justify-content:space-between
+}
