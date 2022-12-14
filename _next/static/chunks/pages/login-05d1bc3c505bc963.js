@@ -1,13 +1,79 @@
-(self["webpackChunk_N_E"] = self["webpackChunk_N_E"] || []).push([[26],{
+(self["webpackChunk_N_E"] = self["webpackChunk_N_E"] || []).push([[459],{
 
-/***/ 9637:
+/***/ 4184:
+/***/ (function(module, exports) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+	Copyright (c) 2018 Jed Watson.
+	Licensed under the MIT License (MIT), see
+	http://jedwatson.github.io/classnames
+*/
+/* global define */
+
+(function () {
+	'use strict';
+
+	var hasOwn = {}.hasOwnProperty;
+	var nativeCodeString = '[native code]';
+
+	function classNames() {
+		var classes = [];
+
+		for (var i = 0; i < arguments.length; i++) {
+			var arg = arguments[i];
+			if (!arg) continue;
+
+			var argType = typeof arg;
+
+			if (argType === 'string' || argType === 'number') {
+				classes.push(arg);
+			} else if (Array.isArray(arg)) {
+				if (arg.length) {
+					var inner = classNames.apply(null, arg);
+					if (inner) {
+						classes.push(inner);
+					}
+				}
+			} else if (argType === 'object') {
+				if (arg.toString !== Object.prototype.toString && !arg.toString.toString().includes('[native code]')) {
+					classes.push(arg.toString());
+					continue;
+				}
+
+				for (var key in arg) {
+					if (hasOwn.call(arg, key) && arg[key]) {
+						classes.push(key);
+					}
+				}
+			}
+		}
+
+		return classes.join(' ');
+	}
+
+	if ( true && module.exports) {
+		classNames.default = classNames;
+		module.exports = classNames;
+	} else if (true) {
+		// register as 'classnames', consistent with npm package name
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function () {
+			return classNames;
+		}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else {}
+}());
+
+
+/***/ }),
+
+/***/ 4250:
 /***/ (function(__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
 
 
     (window.__NEXT_P = window.__NEXT_P || []).push([
-      "/dashboard",
+      "/login",
       function () {
-        return __webpack_require__(1343);
+        return __webpack_require__(870);
       }
     ]);
     if(false) {}
@@ -257,140 +323,6 @@ const Logo = (param)=>{
 
 /***/ }),
 
-/***/ 9685:
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, {
-  "Z": function() { return /* binding */ sections_RankTiles; }
-});
-
-// EXTERNAL MODULE: ./node_modules/react/jsx-runtime.js
-var jsx_runtime = __webpack_require__(5893);
-// EXTERNAL MODULE: ./node_modules/next/link.js
-var next_link = __webpack_require__(1664);
-var link_default = /*#__PURE__*/__webpack_require__.n(next_link);
-// EXTERNAL MODULE: ./node_modules/react/index.js
-var react = __webpack_require__(7294);
-// EXTERNAL MODULE: ./node_modules/prop-types/index.js
-var prop_types = __webpack_require__(5697);
-var prop_types_default = /*#__PURE__*/__webpack_require__.n(prop_types);
-;// CONCATENATED MODULE: ./components/sections/partials/RankItem.js
-
-
-
-const propTypes = {
-    martialArtShortName: (prop_types_default()).string,
-    rank: (prop_types_default()).string,
-    martialArt: (prop_types_default()).string,
-    certified: (prop_types_default()).bool
-};
-const defaultProps = {
-    martialArtShortName: "",
-    rank: "",
-    martialArt: "",
-    certified: false
-};
-const RankItem = (param)=>{
-    let { martialArtShortName , rank , martialArt , certified , ...props } = param;
-    const verifiedClasses = certified ? "verified-ma" : "unverified-ma";
-    const verifiedCheckClasses = certified ? "check" : "uncheck";
-    return /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
-        className: "tiles-item",
-        children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
-            className: verifiedClasses,
-            children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
-                className: martialArtShortName,
-                children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
-                    className: "pl-8 pt-8  ".concat(verifiedCheckClasses),
-                    children: /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
-                        className: "mt-auto mb-8",
-                        children: [
-                            /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
-                                className: "mt-24 fw-500 tt-u",
-                                children: rank
-                            }),
-                            /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
-                                className: "text-xs",
-                                children: martialArt
-                            })
-                        ]
-                    })
-                })
-            })
-        })
-    });
-};
-/* harmony default export */ var partials_RankItem = (RankItem);
-
-;// CONCATENATED MODULE: ./components/sections/RankTiles.js
-
-
-
-
-
-const RankTiles = ()=>{
-    const [error, setError] = (0,react.useState)(null);
-    const [isLoaded, setIsLoaded] = (0,react.useState)(false);
-    const [items, setItems] = (0,react.useState)([]);
-    var address = "B62qpzAWcbZSjzQH9hiTKvHbDx1eCsmRR7dDzK2DuYjRT2sTyW9vSpR";
-    // Note: the empty deps array [] means
-    // this useEffect will run once
-    // similar to componentDidMount()
-    (0,react.useEffect)(()=>{
-        fetch("api/user/".concat(address)).then((res)=>res.json()).then((result)=>{
-            setIsLoaded(true);
-            setItems(result.martialArts);
-        }, // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
-        (error)=>{
-            setIsLoaded(true);
-            setError(error);
-        });
-    }, []);
-    return /*#__PURE__*/ (0,jsx_runtime.jsx)("section", {
-        className: "section",
-        children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
-            className: "container",
-            children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
-                className: "section-inner",
-                children: /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
-                    className: "tiles-wrap",
-                    children: [
-                        items.map((i, index)=>/*#__PURE__*/ (0,jsx_runtime.jsx)(partials_RankItem, {
-                                martialArtShortName: i.martialArtShortName,
-                                rank: i.rank,
-                                martialArt: i.martialArt,
-                                certified: i.certified
-                            }, index)),
-                        /*#__PURE__*/ (0,jsx_runtime.jsx)((link_default()), {
-                            href: "addrank",
-                            children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
-                                className: "tiles-item",
-                                title: "Add new Martial Art",
-                                children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
-                                    className: "ma-add-btn",
-                                    children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
-                                        className: "pl-8 pt-8 text-sm",
-                                        children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {})
-                                    })
-                                })
-                            })
-                        })
-                    ]
-                })
-            })
-        })
-    });
-};
-/* harmony default export */ var sections_RankTiles = (RankTiles);
-
-
-/***/ }),
-
 /***/ 4557:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
@@ -511,80 +443,100 @@ const Snackbar = (text, duration)=>{
 
 /***/ }),
 
-/***/ 1343:
+/***/ 870:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-// ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
-
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, {
-  "default": function() { return /* binding */ Home; }
-});
-
-// EXTERNAL MODULE: ./node_modules/react/jsx-runtime.js
-var jsx_runtime = __webpack_require__(5893);
-// EXTERNAL MODULE: ./components/layout/Header.js + 1 modules
-var Header = __webpack_require__(9329);
-// EXTERNAL MODULE: ./node_modules/react-dom/index.js
-var react_dom = __webpack_require__(3935);
-// EXTERNAL MODULE: ./modules/Authentication.js
-var Authentication = __webpack_require__(4557);
-// EXTERNAL MODULE: ./node_modules/react/index.js
-var react = __webpack_require__(7294);
-// EXTERNAL MODULE: ./node_modules/next/router.js
-var router = __webpack_require__(1163);
-var router_default = /*#__PURE__*/__webpack_require__.n(router);
-;// CONCATENATED MODULE: ./components/auth/AuthenticatedPage.js
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ Login; }
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5893);
+/* harmony import */ var _components_layout_Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9329);
+/* harmony import */ var _modules_Authentication__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4557);
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1163);
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _reactCOIServiceWorker__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(8285);
+/* harmony import */ var _reactCOIServiceWorker__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_reactCOIServiceWorker__WEBPACK_IMPORTED_MODULE_4__);
 
 
 
 
 
-
-const AuthenticatedPage = (param)=>{
-    let { children  } = param;
-    (0,react.useEffect)(()=>{
-        if (!Authentication/* default.loggedIn */.Z.loggedIn) {
-            router_default().push("/login");
+function Login() {
+    const loginClicked = ()=>{
+        const loggedIn = _modules_Authentication__WEBPACK_IMPORTED_MODULE_2__/* ["default"].login */ .Z.login();
+        if (_modules_Authentication__WEBPACK_IMPORTED_MODULE_2__/* ["default"].loggedIn */ .Z.loggedIn) {
+            next_router__WEBPACK_IMPORTED_MODULE_3___default().push("/dashboard");
         }
-    });
-    return /*#__PURE__*/ (0,jsx_runtime.jsx)(jsx_runtime.Fragment, {
-        children: children
-    });
-};
-/* harmony default export */ var auth_AuthenticatedPage = (AuthenticatedPage);
-
-// EXTERNAL MODULE: ./components/sections/RankTiles.js + 1 modules
-var RankTiles = __webpack_require__(9685);
-// EXTERNAL MODULE: ./pages/reactCOIServiceWorker.ts
-var reactCOIServiceWorker = __webpack_require__(8285);
-;// CONCATENATED MODULE: ./pages/dashboard.page.tsx
-
-
-
-
-
-function Home() {
-    return /*#__PURE__*/ (0,jsx_runtime.jsx)(auth_AuthenticatedPage, {
-        children: /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
-            children: [
-                /*#__PURE__*/ (0,jsx_runtime.jsx)(Header/* default */.Z, {
-                    hideExtraNav: false,
-                    navPosition: "right",
-                    className: "reveal-from-bottom",
-                    hideNav: false,
-                    hideSignin: false,
-                    bottomOuterDivider: false,
-                    bottomDivider: false
-                }),
-                /*#__PURE__*/ (0,jsx_runtime.jsx)("main", {
-                    className: "site-content",
-                    children: /*#__PURE__*/ (0,jsx_runtime.jsx)(RankTiles/* default */.Z, {})
+    };
+    return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+        children: [
+            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_layout_Header__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z, {
+                hideExtraNav: true,
+                navPosition: "right",
+                className: "reveal-from-bottom",
+                hideNav: false,
+                hideSignin: true,
+                bottomOuterDivider: false,
+                bottomDivider: false
+            }),
+            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("main", {
+                className: "site-content",
+                children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("section", {
+                    className: "hero section center-content has-top-divider",
+                    children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+                        className: "container-sm",
+                        children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+                            className: "hero-inner section-inner",
+                            children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                                className: "hero-content",
+                                children: [
+                                    /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("h1", {
+                                        className: "mt-0 mb-16 reveal-from-bottom",
+                                        "data-reveal-delay": "200",
+                                        children: [
+                                            "Login to ",
+                                            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
+                                                className: "text-color-primary",
+                                                children: "keito"
+                                            })
+                                        ]
+                                    }),
+                                    /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                                        className: "container-xs",
+                                        children: [
+                                            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("p", {
+                                                className: "m-0 mb-32 reveal-from-bottom",
+                                                "data-reveal-delay": "400",
+                                                children: [
+                                                    "Login into to the ",
+                                                    /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
+                                                        className: "text-color-primary",
+                                                        children: "keito"
+                                                    }),
+                                                    " zkapp with your Mina wallet"
+                                                ]
+                                            }),
+                                            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+                                                className: "reveal-from-bottom",
+                                                "data-reveal-delay": "600",
+                                                children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", {
+                                                    className: "login-btn button button-primary",
+                                                    href: "#",
+                                                    onClick: loginClicked,
+                                                    children: "Login"
+                                                })
+                                            })
+                                        ]
+                                    })
+                                ]
+                            })
+                        })
+                    })
                 })
-            ]
-        })
+            })
+        ]
     });
 }
 
@@ -683,12 +635,132 @@ class ZkappWorkerClient {
 
 
 
+/***/ }),
+
+/***/ 1163:
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+module.exports = __webpack_require__(880)
+
+
+/***/ }),
+
+/***/ 2703:
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+
+
+var ReactPropTypesSecret = __webpack_require__(414);
+
+function emptyFunction() {}
+function emptyFunctionWithReset() {}
+emptyFunctionWithReset.resetWarningCache = emptyFunction;
+
+module.exports = function() {
+  function shim(props, propName, componentName, location, propFullName, secret) {
+    if (secret === ReactPropTypesSecret) {
+      // It is still safe when called from React.
+      return;
+    }
+    var err = new Error(
+      'Calling PropTypes validators directly is not supported by the `prop-types` package. ' +
+      'Use PropTypes.checkPropTypes() to call them. ' +
+      'Read more at http://fb.me/use-check-prop-types'
+    );
+    err.name = 'Invariant Violation';
+    throw err;
+  };
+  shim.isRequired = shim;
+  function getShim() {
+    return shim;
+  };
+  // Important!
+  // Keep this list in sync with production version in `./factoryWithTypeCheckers.js`.
+  var ReactPropTypes = {
+    array: shim,
+    bigint: shim,
+    bool: shim,
+    func: shim,
+    number: shim,
+    object: shim,
+    string: shim,
+    symbol: shim,
+
+    any: shim,
+    arrayOf: getShim,
+    element: shim,
+    elementType: shim,
+    instanceOf: getShim,
+    node: shim,
+    objectOf: getShim,
+    oneOf: getShim,
+    oneOfType: getShim,
+    shape: getShim,
+    exact: getShim,
+
+    checkPropTypes: emptyFunctionWithReset,
+    resetWarningCache: emptyFunction
+  };
+
+  ReactPropTypes.PropTypes = ReactPropTypes;
+
+  return ReactPropTypes;
+};
+
+
+/***/ }),
+
+/***/ 5697:
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+if (false) { var throwOnDirectAccess, ReactIs; } else {
+  // By explicitly using `prop-types` you are opting into new production behavior.
+  // http://fb.me/prop-types-in-prod
+  module.exports = __webpack_require__(2703)();
+}
+
+
+/***/ }),
+
+/***/ 414:
+/***/ (function(module) {
+
+"use strict";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+
+
+var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
+
+module.exports = ReactPropTypesSecret;
+
+
 /***/ })
 
 },
 /******/ function(__webpack_require__) { // webpackRuntimeModules
 /******/ var __webpack_exec__ = function(moduleId) { return __webpack_require__(__webpack_require__.s = moduleId); }
-/******/ __webpack_require__.O(0, [829,863,774,888,179], function() { return __webpack_exec__(9637); });
+/******/ __webpack_require__.O(0, [829,321,774,888,179], function() { return __webpack_exec__(4250); });
 /******/ var __webpack_exports__ = __webpack_require__.O();
 /******/ _N_E = __webpack_exports__;
 /******/ }
