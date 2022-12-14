@@ -9,10 +9,9 @@ export default function Rank() {
 
   return (
 
-
-    <AuthPage>
-      <RankTiles />
-    </AuthPage>
+     <AuthPage>
+       <RankTiles />
+ </AuthPage>
 
   )
 

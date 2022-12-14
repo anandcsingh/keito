@@ -23,6 +23,7 @@ const RankItem = ({
   }) => {
     const verifiedClasses = certified ? "verified-ma" : "unverified-ma";
     const verifiedCheckClasses = certified ? "check" : "uncheck";
+
     return (
         <div className="tiles-item">
             <div className={verifiedClasses}>

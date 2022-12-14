@@ -8,25 +8,34 @@ import Select from '../components/elements/Select';
 import Checkbox from '../components/elements/Checkbox';
 import Radio from '../components/elements/Radio';
 import Button from '../components/elements/Button';
+import Authentication from '../modules/Authentication';
+import UserApiClient from '../modules/UserApiClient';
+
 import { useEffect, useState } from "react";
+import axios from 'axios';
 
 export default function AddRank() {
+const address = Authentication.address;
+  let [state, setState] = useState({
+    addSuccess: false,
+    addAttempt: false,
+    addMessage: ""
+  });
 
-  let [addFinished, setState] = useState(false);
-
-  const addClicked = (event) => {
+  const addClicked = async (event) => {
     event.preventDefault();
-    const { martialArt, rank } = event.target.elements
-    console.log(`adding ${martialArt.value} @ ${rank.value}`);
+    const { martialArt, rank } = event.target.elements;
+    console.log("ma " + martialArt);
+    const result:any = await UserApiClient().addMartialArt(address, martialArt.options[martialArt.selectedIndex].text, martialArt.value, rank.value);
+    console.log(result);
+    setState({ ...state, addAttempt: true, addSuccess: result.success, addMessage: result.message  })
+  };
 
-    //setState(true);
-
-  }
 
   return (
 
 
-    <AuthPage>
+     <AuthPage>
 
       <section className="section">
         <div className="container">
@@ -37,15 +46,15 @@ export default function AddRank() {
               </div>
             </div>
             <div>
-              {!addFinished ?
+              {true ?
                 <form onSubmit={addClicked}>
                   <fieldset>
                     <div className="mb-16">
                       <Select id="martialArt" label="Martial Art" required>
                         <option hidden>Choose your Martial Art</option>
-                        <option>Brazilian Jiu Jitsu</option>
-                        <option>Taekwon-Do</option>
-                        <option>Karate</option>
+                        <option value="ibjjf">Brazilian Jiu Jitsu</option>
+                        <option value="itf">Taekwon-Do</option>
+                        <option value="wkf">Karate</option>
                       </Select>
                     </div>
                     <div className="mb-16">
@@ -66,6 +75,9 @@ export default function AddRank() {
                         <button type='submit' className="button button-primary button-wide-mobile">Submit</button>
                         <Link href="rank" className="button-link text-xs">Cancel</Link>
                       </div>
+                      {state.addAttempt && state.addMessage != null &&
+                      <div className='form-hint'>{state.addMessage}</div>
+                      }
                     </div>
                   </fieldset>
                 </form>
