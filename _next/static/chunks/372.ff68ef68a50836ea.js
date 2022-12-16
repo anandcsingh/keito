@@ -66,6 +66,17 @@ const functions = {
         const wkf = await state.zkapp.wkf.get();
         return JSON.stringify(wkf.toJSON());
     },
+    getRank: async (args)=>{
+        let field = null;
+        if (args.martialArt == "ibjjf") {
+            field = await state.zkapp.ibjjf.get();
+        } else if (args.martialArt == "itf") {
+            field = await state.zkapp.itf.get();
+        } else if (args.martialArt == "wkf") {
+            field = await state.zkapp.wkf.get();
+        }
+        return JSON.stringify(field.toJSON());
+    },
     createUpdateBlackBeltTransaction: async (args)=>{
         const transaction = await snarkyjs__WEBPACK_IMPORTED_MODULE_0__/* .Mina.transaction */ .No.transaction(()=>{
             state.zkapp.changeBlackBelt(args.newBlackBelt);
@@ -229,7 +240,7 @@ var __dirname = "/";
 /******/ 			// return url for filenames not based on template
 /******/ 			if (chunkId === 829) return "static/chunks/cc8f0cfa-e58aeb1592f9a5bc.js";
 /******/ 			// return url for filenames based on template
-/******/ 			return "static/chunks/" + chunkId + "." + "cc52e3411b303be7" + ".js";
+/******/ 			return "static/chunks/" + chunkId + "." + "57ce158a07ade945" + ".js";
 /******/ 		};
 /******/ 	}();
 /******/ 	

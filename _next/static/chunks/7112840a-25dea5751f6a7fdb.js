@@ -7,9 +7,10 @@
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "JU": function() { return /* binding */ Aa; },
 /* harmony export */   "QT": function() { return /* binding */ Ol; },
-/* harmony export */   "ad": function() { return /* binding */ oh; }
+/* harmony export */   "ad": function() { return /* binding */ oh; },
+/* harmony export */   "pl": function() { return /* binding */ Ul; }
 /* harmony export */ });
-/* unused harmony exports AbstractUserDataWriter, AggregateField, AggregateQuerySnapshot, Bytes, CACHE_SIZE_UNLIMITED, CollectionReference, DocumentReference, DocumentSnapshot, FieldPath, FieldValue, Firestore, FirestoreError, GeoPoint, LoadBundleTask, Query, QueryCompositeFilterConstraint, QueryConstraint, QueryDocumentSnapshot, QueryEndAtConstraint, QueryFieldFilterConstraint, QueryLimitConstraint, QueryOrderByConstraint, QuerySnapshot, QueryStartAtConstraint, SnapshotMetadata, Timestamp, Transaction, WriteBatch, _DatabaseId, _DocumentKey, _EmptyAppCheckTokenProvider, _EmptyAuthCredentialsProvider, _FieldPath, _cast, _debugAssert, _isBase64Available, _logWarn, _validateIsNotUsedTogether, addDoc, aggregateQuerySnapshotEqual, and, arrayRemove, arrayUnion, clearIndexedDbPersistence, collection, collectionGroup, connectFirestoreEmulator, deleteDoc, deleteField, disableNetwork, documentId, enableIndexedDbPersistence, enableMultiTabIndexedDbPersistence, enableNetwork, endAt, endBefore, ensureFirestoreConfigured, executeWrite, getCountFromServer, getDocFromCache, getDocFromServer, getDocs, getDocsFromCache, getDocsFromServer, increment, initializeFirestore, limit, limitToLast, loadBundle, namedQuery, onSnapshot, onSnapshotsInSync, or, orderBy, query, queryEqual, refEqual, runTransaction, serverTimestamp, setDoc, setIndexConfiguration, setLogLevel, snapshotEqual, startAfter, startAt, terminate, updateDoc, waitForPendingWrites, where, writeBatch */
+/* unused harmony exports AbstractUserDataWriter, AggregateField, AggregateQuerySnapshot, Bytes, CACHE_SIZE_UNLIMITED, CollectionReference, DocumentReference, DocumentSnapshot, FieldPath, FieldValue, Firestore, FirestoreError, GeoPoint, LoadBundleTask, Query, QueryCompositeFilterConstraint, QueryConstraint, QueryDocumentSnapshot, QueryEndAtConstraint, QueryFieldFilterConstraint, QueryLimitConstraint, QueryOrderByConstraint, QuerySnapshot, QueryStartAtConstraint, SnapshotMetadata, Timestamp, Transaction, WriteBatch, _DatabaseId, _DocumentKey, _EmptyAppCheckTokenProvider, _EmptyAuthCredentialsProvider, _FieldPath, _cast, _debugAssert, _isBase64Available, _logWarn, _validateIsNotUsedTogether, addDoc, aggregateQuerySnapshotEqual, and, arrayRemove, arrayUnion, clearIndexedDbPersistence, collection, collectionGroup, connectFirestoreEmulator, deleteDoc, deleteField, disableNetwork, documentId, enableIndexedDbPersistence, enableMultiTabIndexedDbPersistence, enableNetwork, endAt, endBefore, ensureFirestoreConfigured, executeWrite, getCountFromServer, getDocFromCache, getDocFromServer, getDocs, getDocsFromCache, getDocsFromServer, increment, initializeFirestore, limit, limitToLast, loadBundle, namedQuery, onSnapshot, onSnapshotsInSync, or, orderBy, query, queryEqual, refEqual, runTransaction, serverTimestamp, setIndexConfiguration, setLogLevel, snapshotEqual, startAfter, startAt, terminate, updateDoc, waitForPendingWrites, where, writeBatch */
 /* harmony import */ var _firebase_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(7144);
 /* harmony import */ var _firebase_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5033);
 /* harmony import */ var _firebase_logger__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9803);
@@ -4952,7 +4953,7 @@ function es(t) {
     }
 }
 
-class rs extends (/* unused pure expression or super */ null && (Wn)) {
+class rs extends Wn {
     constructor(t, e) {
         super(), this.key = t, this.precondition = e, this.type = 3 /* MutationType.Verify */ , 
         this.fieldTransforms = [];
@@ -13577,7 +13578,7 @@ class Tu {
  * okay to use the same streamToken for the calls to writeMutations.
  *
  * TODO(b/33271235): Use proto types
- */ class Au extends (/* unused pure expression or super */ null && (Tu)) {
+ */ class Au extends Tu {
     constructor(t, e, n, s, i, r) {
         super(t, "write_stream_connection_backoff" /* TimerId.WriteStreamConnectionBackoff */ , "write_stream_idle" /* TimerId.WriteStreamIdle */ , "health_check_timeout" /* TimerId.HealthCheckTimeout */ , e, n, s, r), 
         this.yt = i, this.Jo = !1;
@@ -18584,7 +18585,7 @@ class $h extends (/* unused pure expression or super */ null && (Ah)) {
     if (Gh(
     // Unwrap the API type from the Compat SDK. This will return the API type
     // from firestore-exp.
-    t = getModularInstance(t))) return Qh("Unsupported field value:", e, t), Kh(t, e);
+    t = (0,_firebase_util__WEBPACK_IMPORTED_MODULE_3__/* .getModularInstance */ .m9)(t))) return Qh("Unsupported field value:", e, t), Kh(t, e);
     if (t instanceof Ah) 
     // FieldValues usually parse into transforms (except deleteField())
     // in which case we do not want to include this field in our parsed data
@@ -18643,7 +18644,7 @@ class $h extends (/* unused pure expression or super */ null && (Ah)) {
         }(t, e);
     }
     return function(t, e) {
-        if (null === (t = getModularInstance(t))) return {
+        if (null === (t = (0,_firebase_util__WEBPACK_IMPORTED_MODULE_3__/* .getModularInstance */ .m9)(t))) return {
             nullValue: "NULL_VALUE"
         };
         if ("number" == typeof t) return Sn(e.yt, t);
@@ -18729,7 +18730,7 @@ function Qh(t, e, n) {
     if ((
     // If required, replace the FieldPath Compat class with with the firestore-exp
     // FieldPath.
-    e = getModularInstance(e)) instanceof Th) return e._internalPath;
+    e = (0,_firebase_util__WEBPACK_IMPORTED_MODULE_3__/* .getModularInstance */ .m9)(e)) instanceof Th) return e._internalPath;
     if ("string" == typeof e) return zh(t, e);
     throw Hh("Field path arguments must be of type string or ", t, 
     /* hasConverter= */ !1, 

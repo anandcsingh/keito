@@ -1,4 +1,19 @@
-(self["webpackChunk_N_E"] = self["webpackChunk_N_E"] || []).push([[869],{
+(self["webpackChunk_N_E"] = self["webpackChunk_N_E"] || []).push([[361],{
+
+/***/ 3160:
+/***/ (function(__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
+
+
+    (window.__NEXT_P = window.__NEXT_P || []).push([
+      "/rank",
+      function () {
+        return __webpack_require__(7639);
+      }
+    ]);
+    if(false) {}
+  
+
+/***/ }),
 
 /***/ 4377:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
@@ -263,6 +278,342 @@ const AuthPage = (param)=>{
 
 /***/ }),
 
+/***/ 9685:
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "Z": function() { return /* binding */ sections_RankTiles; }
+});
+
+// EXTERNAL MODULE: ./node_modules/react/jsx-runtime.js
+var jsx_runtime = __webpack_require__(5893);
+// EXTERNAL MODULE: ./node_modules/next/link.js
+var next_link = __webpack_require__(1664);
+var link_default = /*#__PURE__*/__webpack_require__.n(next_link);
+// EXTERNAL MODULE: ./node_modules/react/index.js
+var react = __webpack_require__(7294);
+// EXTERNAL MODULE: ./node_modules/prop-types/index.js
+var prop_types = __webpack_require__(5697);
+var prop_types_default = /*#__PURE__*/__webpack_require__.n(prop_types);
+// EXTERNAL MODULE: ./modules/Authentication.js + 1 modules
+var Authentication = __webpack_require__(3051);
+// EXTERNAL MODULE: ./modules/Rank.ts
+var Rank = __webpack_require__(2581);
+// EXTERNAL MODULE: ./modules/RankedV1ContractVerifier.ts
+var RankedV1ContractVerifier = __webpack_require__(4910);
+// EXTERNAL MODULE: ./node_modules/snarkyjs/dist/web/index.js
+var web = __webpack_require__(6400);
+;// CONCATENATED MODULE: ./components/sections/partials/RankItem.js
+
+
+
+
+
+
+
+
+const propTypes = {
+    martialArtShortName: (prop_types_default()).string,
+    rank: (prop_types_default()).string,
+    martialArt: (prop_types_default()).string,
+    certified: (prop_types_default()).bool,
+    verifiedCallback: (prop_types_default()).func,
+    verifyingCallback: (prop_types_default()).func
+};
+const defaultProps = {
+    martialArtShortName: "",
+    rank: "",
+    martialArt: "",
+    certified: false,
+    verifiedCallback: null,
+    verifyingCallback: null
+};
+const RankItem = (param)=>{
+    let { martialArtShortName , rank , martialArt , certified , verifiedCallback , verifyingCallback , ...props } = param;
+    let [veri, setVerfied] = (0,react.useState)(false);
+    (0,react.useEffect)(()=>{
+        (async ()=>{
+            const rankVerifier = new RankedV1ContractVerifier/* RankedV1ContractVerifier */.K(Authentication/* default.zkClient */.Z.zkClient);
+            const ma = new Rank/* Rank */.y();
+            ma.address = Authentication/* default.address */.Z.address;
+            ma.martialArt = martialArtShortName;
+            ma.rank = rank;
+            verifyingCallback(ma);
+            const verified = await rankVerifier.verify(ma);
+            verifiedCallback(ma, verified);
+            console.log(ma.martialArt, ":", verified);
+            setVerfied(verified);
+            const verifiedClasses = verified ? "verified-ma" : "unverified-ma";
+            const verifiedCheckClasses = verified ? "check" : "uncheck";
+        })();
+    }, []);
+    return /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+        className: "tiles-item",
+        children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+            className: veri ? "verified-ma" : "unverified-ma",
+            children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+                className: martialArtShortName,
+                children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+                    className: "pl-8 pt-8  ".concat(veri ? "check" : "uncheck"),
+                    children: /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
+                        className: "mt-auto mb-8",
+                        children: [
+                            /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+                                className: "mt-24 fw-500 tt-u",
+                                children: rank
+                            }),
+                            /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+                                className: "text-xs",
+                                children: martialArt
+                            })
+                        ]
+                    })
+                })
+            })
+        })
+    });
+};
+/* harmony default export */ var partials_RankItem = (RankItem);
+
+// EXTERNAL MODULE: ./modules/firestore.js
+var firestore = __webpack_require__(6525);
+// EXTERNAL MODULE: ./node_modules/firebase/firestore/dist/esm/index.esm.js
+var index_esm = __webpack_require__(9828);
+;// CONCATENATED MODULE: ./components/sections/RankTiles.js
+
+
+
+
+
+
+
+
+
+const RankTiles = ()=>{
+    const [error, setError] = (0,react.useState)(null);
+    const [isLoaded, setIsLoaded] = (0,react.useState)(false);
+    const [items, setItems] = (0,react.useState)([]);
+    const [maCount, setMaCount] = (0,react.useState)(0);
+    const [verifying, setVerifying] = (0,react.useState)(false);
+    (0,react.useEffect)(()=>{
+        (async ()=>{
+            var address = Authentication/* default.address */.Z.address != "" ? Authentication/* default.address */.Z.address : "B62qpzAWcbZSjzQH9hiTKvHbDx1eCsmRR7dDzK2DuYjRT2sTyW9vSpR";
+            const docRef = (0,index_esm/* doc */.JU)(firestore/* database */.F, "users", address);
+            const docSnap = await (0,index_esm/* getDoc */.QT)(docRef);
+            if (docSnap.exists()) {
+                console.log("Document data:", docSnap.data());
+                const ma = docSnap.data().martialArts;
+                setIsLoaded(true);
+                setItems(ma);
+                setMaCount(ma.length);
+                setError(ma.length > 0 ? null : "Could not find any Martial Arts. Click the plus button to add one.");
+            } else {
+                setIsLoaded(true);
+                setError("Could not find any Martial Arts. Click the plus button to add one.");
+            }
+        })();
+    }, []);
+    const checkedVerification = function(rank, verfied) {
+        console.log("verified ", rank.martialArt, verfied);
+        setVerifying(false);
+    };
+    const verifyingCallback = function(rank) {
+        console.log("verifying ", rank.martialArt);
+        setVerifying(true);
+    };
+    return /*#__PURE__*/ (0,jsx_runtime.jsx)("section", {
+        className: "section",
+        children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+            className: "container",
+            children: /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
+                className: "section-inner",
+                children: [
+                    /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
+                        className: "rank-messages",
+                        children: [
+                            !isLoaded && /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+                                className: "loading-snarky m-0 mb-32 reveal-from-bottom login-subtext p-16",
+                                "data-reveal-delay": "400",
+                                children: "Loading Martial Arts..."
+                            }),
+                            isLoaded && (maCount == 0 || error != null) && /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+                                className: "m-0 mb-32 reveal-from-bottom login-subtext p-16",
+                                "data-reveal-delay": "400",
+                                children: error
+                            }),
+                            verifying && /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+                                className: "loading-snarky m-0 mb-32 reveal-from-bottom login-subtext p-16",
+                                "data-reveal-delay": "400",
+                                children: "Verifying Martial Arts on Mina..."
+                            })
+                        ]
+                    }),
+                    /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
+                        className: "tiles-wrap",
+                        children: [
+                            items.map((i, index)=>/*#__PURE__*/ (0,jsx_runtime.jsx)(partials_RankItem, {
+                                    verifyingCallback: verifyingCallback,
+                                    verifiedCallback: checkedVerification,
+                                    martialArtShortName: i.martialArtShortName,
+                                    rank: i.rank,
+                                    martialArt: i.martialArt,
+                                    certified: i.certified
+                                }, index)),
+                            /*#__PURE__*/ (0,jsx_runtime.jsx)((link_default()), {
+                                href: "addrank",
+                                children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+                                    className: "tiles-item",
+                                    title: "Add new Martial Art",
+                                    children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+                                        className: "ma-add-btn",
+                                        children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+                                            className: "pl-8 pt-8 text-sm",
+                                            children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {})
+                                        })
+                                    })
+                                })
+                            })
+                        ]
+                    })
+                ]
+            })
+        })
+    });
+};
+/* harmony default export */ var sections_RankTiles = (RankTiles);
+
+
+/***/ }),
+
+/***/ 2581:
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "y": function() { return /* binding */ Rank; }
+/* harmony export */ });
+class Rank {
+}
+
+
+/***/ }),
+
+/***/ 4910:
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "K": function() { return /* binding */ RankedV1ContractVerifier; }
+/* harmony export */ });
+/* harmony import */ var _Rank__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(2581);
+/* harmony import */ var snarkyjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6400);
+/* harmony import */ var _firestore__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6525);
+/* harmony import */ var firebase_firestore__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9828);
+/* harmony import */ var _Authentication__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(3051);
+/* harmony import */ var _UserApiClient__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(4953);
+
+
+
+
+
+
+class RankedV1ContractVerifier {
+    async promote(certifier, newRank) {
+        let result = {
+            successful: false,
+            message: null
+        };
+        try {
+            const currentField = await this.getCurrentRankHash(newRank);
+            const newField = this.getHashFromRank(newRank);
+            await this.zkClient.fetchAccount({
+                publicKey: snarkyjs__WEBPACK_IMPORTED_MODULE_0__/* .PublicKey.fromBase58 */ .nh.fromBase58(_Authentication__WEBPACK_IMPORTED_MODULE_3__/* ["default"].contractAddress */ .Z.contractAddress)
+            });
+            await this.zkClient.createCertifyTransaction(newRank.martialArt, certifier, currentField, newField);
+            console.log("current rank hash:", currentField.toString());
+            console.log("new rank hash:", newField.toString());
+            // proof etc
+            console.log("creating proof...");
+            await this.zkClient.proveUpdateTransaction();
+            console.log("getting Transaction JSON...");
+            const transactionJSON = await this.zkClient.getTransactionJSON();
+            console.log("requesting send transaction...");
+            let transactionFee = 0.1;
+            const { hash  } = await window.mina.sendTransaction({
+                transaction: transactionJSON,
+                feePayer: {
+                    fee: transactionFee,
+                    memo: ""
+                }
+            });
+            console.log("See transaction at https://berkeley.minaexplorer.com/transaction/" + hash);
+            // update DB with Rank
+            let martialArtsDictionary = {
+                "ibjjf": "Brazilian Jiu Jitsu",
+                "itf": "Taekwon-Do",
+                "wkf": "Karate"
+            };
+            const maLongName = martialArtsDictionary[newRank.martialArt];
+            console.log("on the way to firebase");
+            return await (0,_UserApiClient__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .Z)().promoteStudent(newRank.address.toBase58(), maLongName, newRank.martialArt, newRank.rank);
+        } catch (e) {
+            result.successful = false;
+            result.message = e.message;
+        }
+    }
+    async getCurrentRankHash(rank) {
+        await this.zkClient.fetchAccount({
+            publicKey: snarkyjs__WEBPACK_IMPORTED_MODULE_0__/* .PublicKey.fromBase58 */ .nh.fromBase58(_Authentication__WEBPACK_IMPORTED_MODULE_3__/* ["default"].contractAddress */ .Z.contractAddress)
+        });
+        let martialArtHash = (0,snarkyjs__WEBPACK_IMPORTED_MODULE_0__/* .Field */ .gN)(0);
+        martialArtHash = await this.zkClient.getRank(rank.martialArt);
+        console.log("from current hash:", martialArtHash.toString());
+        return martialArtHash;
+    }
+    async getCurrentRank(address, martialArt) {
+        const docRef = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__/* .doc */ .JU)(_firestore__WEBPACK_IMPORTED_MODULE_1__/* .database */ .F, "users", address.toBase58());
+        const docSnap = await (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__/* .getDoc */ .QT)(docRef);
+        if (docSnap.exists()) {
+            const ma = docSnap.data().martialArts;
+            for(var i = 0; i < ma.length; i++){
+                let one = ma[i];
+                if (one.martialArtShortName == martialArt) {
+                    let rank = new _Rank__WEBPACK_IMPORTED_MODULE_5__/* .Rank */ .y();
+                    rank.address = address;
+                    rank.martialArt = one.martialArtShortName;
+                    rank.rank = one.martialArtShortName;
+                    return rank;
+                }
+            }
+        }
+        return new _Rank__WEBPACK_IMPORTED_MODULE_5__/* .Rank */ .y();
+    }
+    getHashFromRank(rank) {
+        console.log(JSON.stringify(rank));
+        const stringData = snarkyjs__WEBPACK_IMPORTED_MODULE_0__/* .CircuitString.fromString */ ._G.fromString(JSON.stringify(rank));
+        const fields = stringData.toFields();
+        const data = snarkyjs__WEBPACK_IMPORTED_MODULE_0__/* .Poseidon.hash */ .jm.hash(fields);
+        return data;
+    }
+    constructor(zkClient){
+        this.verify = async (rank)=>{
+            const rankField = this.getHashFromRank(rank);
+            console.log("rank from verify", rank.martialArt, rankField.toString());
+            const verify = false;
+            console.log("contract adddress: ", _Authentication__WEBPACK_IMPORTED_MODULE_3__/* ["default"].contractAddress */ .Z.contractAddress);
+            let martialArtHash = await this.getCurrentRankHash(rank);
+            return rankField.toString() == martialArtHash.toString();
+        };
+        this.zkClient = zkClient;
+    }
+}
+
+
+/***/ }),
+
 /***/ 4953:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
@@ -277,78 +628,111 @@ const UserApiClient = function() {
     return {
         addMartialArt: async function(address, martialArt, martialArtShortName, rank) {
             var user = null;
-            console.log("Address " + address);
+            console.log("begin add ma here Address " + address);
             const docRef = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__/* .doc */ .JU)(_modules_firestore__WEBPACK_IMPORTED_MODULE_0__/* .database */ .F, "users", address);
             const docSnap = await (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__/* .getDoc */ .QT)(docRef);
             if (docSnap.exists()) {
                 console.log("Document data:", docSnap.data());
                 user = docSnap.data();
-                return addIfNotThere(user, address, martialArt, martialArtShortName, rank);
+                return addIfNotThere(user, address, martialArt, martialArtShortName, rank, false);
             } else {
+                console.log("NO Document data:");
                 return createEmptyUser(address, martialArt, martialArtShortName, rank);
             }
-            await axios__WEBPACK_IMPORTED_MODULE_2__/* ["default"].get */ .Z.get("api/user/".concat(address)).then((r)=>user = r.data).catch((e)=>console.log(e.message));
-            if (user == null) return createEmptyUser(address, martialArt, martialArtShortName, rank);
-            else return addIfNotThere(user, address, martialArt, martialArtShortName, rank);
         },
         getUser: async function(address) {
             var user = null;
             console.log("Address " + address);
             await axios__WEBPACK_IMPORTED_MODULE_2__/* ["default"].get */ .Z.get("api/user/".concat(address)).then((r)=>user = r.data).catch((e)=>console.log(e.message));
             return user;
+        },
+        promoteStudent: async function(address, martialArt, martialArtShortName, rank) {
+            var user = null;
+            console.log("promo");
+            const docRef = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__/* .doc */ .JU)(_modules_firestore__WEBPACK_IMPORTED_MODULE_0__/* .database */ .F, "users", address);
+            const docSnap = await (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__/* .getDoc */ .QT)(docRef);
+            if (docSnap.exists()) {
+                user = docSnap.data();
+                return addIfNotThere(user, address, martialArt, martialArtShortName, rank, true);
+            } else {
+                let result = {};
+                result.success = false;
+                result.message = "Student not found with address ".concat(address, ". Ensure you entered the correct address or ask the student to join Ranked.");
+                return result;
+            }
         }
     };
     async function createEmptyUser(address, martialArt, martialArtShortName, rank) {
-        const result = {};
-        await axios__WEBPACK_IMPORTED_MODULE_2__/* ["default"].post */ .Z.post("api/user", {
-            address,
-            martialArts: [
-                {
+        let result = {};
+        try {
+            const docRef = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__/* .doc */ .JU)(_modules_firestore__WEBPACK_IMPORTED_MODULE_0__/* .database */ .F, "users", address);
+            const data = {
+                address,
+                martialArts: [
+                    {
+                        martialArt,
+                        rank,
+                        martialArtShortName,
+                        certified: false
+                    }
+                ]
+            };
+            const docSnap = await (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__/* .getDoc */ .QT)(docRef);
+            await (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__/* .setDoc */ .pl)(docRef, data);
+            console.log("first add");
+            result.success = true;
+            result.message = "Martial Art ".concat(martialArt, " and rank ").concat(rank, " added.");
+        } catch (error) {
+            result.success = false;
+            result.message = error.message;
+        }
+        return result;
+    }
+    ;
+    async function addIfNotThere(user, address, martialArt, martialArtShortName, rank, allowUpdate) {
+        let result = {};
+        try {
+            var _user_martialArts;
+            var found = false;
+            var foundMaIndex = -1;
+            console.log("adding if not there");
+            if (!user.martialArts) {
+                user.martialArts = [];
+            }
+            for(var i = 0; i < ((_user_martialArts = user.martialArts) === null || _user_martialArts === void 0 ? void 0 : _user_martialArts.length); i++){
+                if (user.martialArts[i].martialArt == martialArt) {
+                    found = true;
+                    foundMaIndex = i;
+                }
+            }
+            if (!found) {
+                user.martialArts.push({
                     martialArt,
                     rank,
                     martialArtShortName,
                     certified: false
-                }
-            ]
-        }).then((response)=>{
-            if (response.status == 200) {
-                result.success = true;
-                result.message = "Martial Art ".concat(martialArt, " and rank ").concat(rank, " added.");
+                });
+            } else if (found && allowUpdate) {
+                user.martialArts[foundMaIndex] = {
+                    martialArt,
+                    rank,
+                    martialArtShortName,
+                    certified: false
+                };
             } else {
                 result.success = false;
-                result.message = response.statusText;
+                result.message = "Martial Art ".concat(martialArt, " already added, you can only get promoted by a qualifed instructor.");
             }
-        }).catch((error)=>{
+            const docRef = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__/* .doc */ .JU)(_modules_firestore__WEBPACK_IMPORTED_MODULE_0__/* .database */ .F, "users", address);
+            const docSnap = await (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__/* .getDoc */ .QT)(docRef);
+            await (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__/* .setDoc */ .pl)(docRef, user);
+            result.success = true;
+            result.message = allowUpdate ? result.message = "Student ".concat(address, " promoted to ").concat(rank, " in Martial Art ").concat(martialArt, ".") : result.message;
+        } catch (error) {
             result.success = false;
             result.message = error.message;
-        });
+        }
         return result;
-    }
-    ;
-    async function addIfNotThere(user, address, martialArt, martialArtShortName, rank) {
-        var _user_martialArts;
-        var found = false;
-        const result = {};
-        if (!user.martialArts) {
-            user.martialArts = [];
-        }
-        for(var i = 0; i < ((_user_martialArts = user.martialArts) === null || _user_martialArts === void 0 ? void 0 : _user_martialArts.length); i++){
-            if (user.martialArts[i].martialArt == martialArt) {
-                found = true;
-            }
-        }
-        if (!found) {
-            user.martialArts.push({
-                martialArt,
-                rank,
-                martialArtShortName,
-                certified: false
-            });
-        } else {
-            result.success = false;
-            result.message = "Martial Art ".concat(martialArt, " already added, you can only get promoted by a qualifed instructor.");
-            return result;
-        }
         await axios__WEBPACK_IMPORTED_MODULE_2__/* ["default"].put */ .Z.put("api/user/".concat(address), user).then((response)=>{
             if (response.status == 200) {
                 result.success = true;
@@ -397,6 +781,32 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = (0,firebase_app__WEBPACK_IMPORTED_MODULE_0__/* .initializeApp */ .ZF)(firebaseConfig);
 const database = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__/* .getFirestore */ .ad)(app);
+
+
+/***/ }),
+
+/***/ 7639:
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ Rank; }
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5893);
+/* harmony import */ var _components_auth_AuthPage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4377);
+/* harmony import */ var _components_sections_RankTiles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9685);
+/* harmony import */ var _reactCOIServiceWorker__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(8285);
+/* harmony import */ var _reactCOIServiceWorker__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_reactCOIServiceWorker__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
+
+function Rank() {
+    return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_auth_AuthPage__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z, {
+        children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_sections_RankTiles__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .Z, {})
+    });
+}
 
 
 /***/ }),
@@ -450,6 +860,12 @@ class RankedWorkerClient {
     }
     async getWkf() {
         const result = await this._call("getIbjjf", {});
+        return snarkyjs__WEBPACK_IMPORTED_MODULE_0__/* .Field.fromJSON */ .gN.fromJSON(JSON.parse(result));
+    }
+    async getRank(martialArt) {
+        const result = await this._call("getRank", {
+            martialArt
+        });
         return snarkyjs__WEBPACK_IMPORTED_MODULE_0__/* .Field.fromJSON */ .gN.fromJSON(JSON.parse(result));
     }
     createUpdateBlackBeltTransaction(newBlackBelt) {
@@ -515,6 +931,21 @@ function loadCOIServiceWorker() {
 loadCOIServiceWorker();
 
 
+/***/ }),
+
+/***/ 9008:
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+/* unused reexport */ __webpack_require__(3121)
+
+
 /***/ })
 
-}]);
+},
+/******/ function(__webpack_require__) { // webpackRuntimeModules
+/******/ var __webpack_exec__ = function(moduleId) { return __webpack_require__(__webpack_require__.s = moduleId); }
+/******/ __webpack_require__.O(0, [829,16,863,675,312,893,774,888,179], function() { return __webpack_exec__(3160); });
+/******/ var __webpack_exports__ = __webpack_require__.O();
+/******/ _N_E = __webpack_exports__;
+/******/ }
+]);

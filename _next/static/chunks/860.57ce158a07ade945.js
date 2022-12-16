@@ -33,7 +33,7 @@ class Ranked extends snarkyjs__WEBPACK_IMPORTED_MODULE_0__/* .SmartContract */ .
             ...snarkyjs__WEBPACK_IMPORTED_MODULE_0__/* .Permissions["default"] */ .Pl["default"](),
             editState: snarkyjs__WEBPACK_IMPORTED_MODULE_0__/* .Permissions.proofOrSignature */ .Pl.proofOrSignature(),
         });
-        this.blackBelt.set(snarkyjs__WEBPACK_IMPORTED_MODULE_0__/* .PublicKey.fromBase58 */ .nh.fromBase58("B62qpzAWcbZSjzQH9hiTKvHbDx1eCsmRR7dDzK2DuYjRT2sTyW9vSpR"));
+        this.blackBelt.set(snarkyjs__WEBPACK_IMPORTED_MODULE_0__/* .PublicKey.fromBase58 */ .nh.fromBase58('B62qpzAWcbZSjzQH9hiTKvHbDx1eCsmRR7dDzK2DuYjRT2sTyW9vSpR'));
     }
     initState(instructor, ibjjfState, itfState, wkfState) {
         this.blackBelt.set(instructor);
@@ -92,7 +92,10 @@ __decorate([
 __decorate([
     snarkyjs__WEBPACK_IMPORTED_MODULE_0__/* .method */ .UD,
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [snarkyjs__WEBPACK_IMPORTED_MODULE_0__/* .PublicKey */ .nh, snarkyjs__WEBPACK_IMPORTED_MODULE_0__/* .Field */ .gN, snarkyjs__WEBPACK_IMPORTED_MODULE_0__/* .Field */ .gN, snarkyjs__WEBPACK_IMPORTED_MODULE_0__/* .Field */ .gN]),
+    __metadata("design:paramtypes", [snarkyjs__WEBPACK_IMPORTED_MODULE_0__/* .PublicKey */ .nh,
+        snarkyjs__WEBPACK_IMPORTED_MODULE_0__/* .Field */ .gN,
+        snarkyjs__WEBPACK_IMPORTED_MODULE_0__/* .Field */ .gN,
+        snarkyjs__WEBPACK_IMPORTED_MODULE_0__/* .Field */ .gN]),
     __metadata("design:returntype", void 0)
 ], Ranked.prototype, "initState", null);
 __decorate([
@@ -110,19 +113,25 @@ __decorate([
 __decorate([
     snarkyjs__WEBPACK_IMPORTED_MODULE_0__/* .method */ .UD,
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [snarkyjs__WEBPACK_IMPORTED_MODULE_0__/* .PublicKey */ .nh, snarkyjs__WEBPACK_IMPORTED_MODULE_0__/* .Field */ .gN, snarkyjs__WEBPACK_IMPORTED_MODULE_0__/* .Field */ .gN]),
+    __metadata("design:paramtypes", [snarkyjs__WEBPACK_IMPORTED_MODULE_0__/* .PublicKey */ .nh,
+        snarkyjs__WEBPACK_IMPORTED_MODULE_0__/* .Field */ .gN,
+        snarkyjs__WEBPACK_IMPORTED_MODULE_0__/* .Field */ .gN]),
     __metadata("design:returntype", void 0)
 ], Ranked.prototype, "certifyIbjjf", null);
 __decorate([
     snarkyjs__WEBPACK_IMPORTED_MODULE_0__/* .method */ .UD,
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [snarkyjs__WEBPACK_IMPORTED_MODULE_0__/* .PublicKey */ .nh, snarkyjs__WEBPACK_IMPORTED_MODULE_0__/* .Field */ .gN, snarkyjs__WEBPACK_IMPORTED_MODULE_0__/* .Field */ .gN]),
+    __metadata("design:paramtypes", [snarkyjs__WEBPACK_IMPORTED_MODULE_0__/* .PublicKey */ .nh,
+        snarkyjs__WEBPACK_IMPORTED_MODULE_0__/* .Field */ .gN,
+        snarkyjs__WEBPACK_IMPORTED_MODULE_0__/* .Field */ .gN]),
     __metadata("design:returntype", void 0)
 ], Ranked.prototype, "certifyWkf", null);
 __decorate([
     snarkyjs__WEBPACK_IMPORTED_MODULE_0__/* .method */ .UD,
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [snarkyjs__WEBPACK_IMPORTED_MODULE_0__/* .PublicKey */ .nh, snarkyjs__WEBPACK_IMPORTED_MODULE_0__/* .Field */ .gN, snarkyjs__WEBPACK_IMPORTED_MODULE_0__/* .Field */ .gN]),
+    __metadata("design:paramtypes", [snarkyjs__WEBPACK_IMPORTED_MODULE_0__/* .PublicKey */ .nh,
+        snarkyjs__WEBPACK_IMPORTED_MODULE_0__/* .Field */ .gN,
+        snarkyjs__WEBPACK_IMPORTED_MODULE_0__/* .Field */ .gN]),
     __metadata("design:returntype", void 0)
 ], Ranked.prototype, "certifyItf", null);
 //# sourceMappingURL=Ranked.js.map

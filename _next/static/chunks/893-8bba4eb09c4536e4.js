@@ -1,24 +1,168 @@
-(self["webpackChunk_N_E"] = self["webpackChunk_N_E"] || []).push([[26],{
+"use strict";
+(self["webpackChunk_N_E"] = self["webpackChunk_N_E"] || []).push([[893],{
 
-/***/ 9637:
-/***/ (function(__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
+/***/ 5439:
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 
-    (window.__NEXT_P = window.__NEXT_P || []).push([
-      "/dashboard",
-      function () {
-        return __webpack_require__(1343);
-      }
-    ]);
-    if(false) {}
-  
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "Z": function() { return /* binding */ layout_Footer; }
+});
+
+// EXTERNAL MODULE: ./node_modules/react/jsx-runtime.js
+var jsx_runtime = __webpack_require__(5893);
+// EXTERNAL MODULE: ./node_modules/react/index.js
+var react = __webpack_require__(7294);
+// EXTERNAL MODULE: ./node_modules/prop-types/index.js
+var prop_types = __webpack_require__(5697);
+var prop_types_default = /*#__PURE__*/__webpack_require__.n(prop_types);
+// EXTERNAL MODULE: ./node_modules/classnames/index.js
+var classnames = __webpack_require__(4184);
+var classnames_default = /*#__PURE__*/__webpack_require__.n(classnames);
+// EXTERNAL MODULE: ./components/layout/partials/Logo.js
+var Logo = __webpack_require__(2393);
+// EXTERNAL MODULE: ./node_modules/next/link.js
+var next_link = __webpack_require__(1664);
+var link_default = /*#__PURE__*/__webpack_require__.n(next_link);
+// EXTERNAL MODULE: ./node_modules/next/router.js
+var router = __webpack_require__(1163);
+;// CONCATENATED MODULE: ./components/layout/partials/FooterNav.js
+
+
+
+
+
+const FooterNav = (param)=>{
+    let { className , ...props } = param;
+    const classes = classnames_default()("footer-nav", className);
+    return /*#__PURE__*/ (0,jsx_runtime.jsx)("nav", {
+        ...props,
+        className: classes,
+        children: (0,router.useRouter)().pathname != "/welcome" && /*#__PURE__*/ (0,jsx_runtime.jsxs)("ul", {
+            className: "list-reset",
+            children: [
+                /*#__PURE__*/ (0,jsx_runtime.jsx)("li", {
+                    children: /*#__PURE__*/ (0,jsx_runtime.jsx)((link_default()), {
+                        href: "rank",
+                        children: "Rank"
+                    })
+                }),
+                /*#__PURE__*/ (0,jsx_runtime.jsx)("li", {
+                    children: /*#__PURE__*/ (0,jsx_runtime.jsx)((link_default()), {
+                        href: "lineage",
+                        children: "Lineage"
+                    })
+                }),
+                /*#__PURE__*/ (0,jsx_runtime.jsx)("li", {
+                    children: /*#__PURE__*/ (0,jsx_runtime.jsx)((link_default()), {
+                        href: "students",
+                        children: "Students"
+                    })
+                })
+            ]
+        })
+    });
+};
+/* harmony default export */ var partials_FooterNav = (FooterNav);
+
+;// CONCATENATED MODULE: ./components/layout/partials/FooterSocial.js
+
+
+
+const FooterSocial = (param)=>{
+    let { className , ...props } = param;
+    const classes = classnames_default()("footer-social", className);
+    return /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+        ...props,
+        className: classes,
+        children: /*#__PURE__*/ (0,jsx_runtime.jsx)("ul", {
+            className: "list-reset",
+            children: /*#__PURE__*/ (0,jsx_runtime.jsx)("li", {
+                children: /*#__PURE__*/ (0,jsx_runtime.jsx)("a", {
+                    href: "https://twitter.com/anandcsingh",
+                    target: "_blank",
+                    children: /*#__PURE__*/ (0,jsx_runtime.jsxs)("svg", {
+                        width: "16",
+                        height: "16",
+                        viewBox: "0 0 16 16",
+                        xmlns: "http://www.w3.org/2000/svg",
+                        children: [
+                            /*#__PURE__*/ (0,jsx_runtime.jsx)("title", {
+                                children: "Twitter"
+                            }),
+                            /*#__PURE__*/ (0,jsx_runtime.jsx)("path", {
+                                d: "M16 3c-.6.3-1.2.4-1.9.5.7-.4 1.2-1 1.4-1.8-.6.4-1.3.6-2.1.8-.6-.6-1.5-1-2.4-1-1.7 0-3.2 1.5-3.2 3.3 0 .3 0 .5.1.7-2.7-.1-5.2-1.4-6.8-3.4-.3.5-.4 1-.4 1.7 0 1.1.6 2.1 1.5 2.7-.5 0-1-.2-1.5-.4C.7 7.7 1.8 9 3.3 9.3c-.3.1-.6.1-.9.1-.2 0-.4 0-.6-.1.4 1.3 1.6 2.3 3.1 2.3-1.1.9-2.5 1.4-4.1 1.4H0c1.5.9 3.2 1.5 5 1.5 6 0 9.3-5 9.3-9.3v-.4C15 4.3 15.6 3.7 16 3z"
+                            })
+                        ]
+                    })
+                })
+            })
+        })
+    });
+};
+/* harmony default export */ var partials_FooterSocial = (FooterSocial);
+
+;// CONCATENATED MODULE: ./components/layout/Footer.js
+
+
+
+
+
+
+
+
+const propTypes = {
+    topOuterDivider: (prop_types_default()).bool,
+    topDivider: (prop_types_default()).bool
+};
+const defaultProps = {
+    topOuterDivider: false,
+    topDivider: false
+};
+const Footer = (param)=>{
+    let { className , topOuterDivider , topDivider , ...props } = param;
+    const classes = classnames_default()("site-footer center-content-mobile", topOuterDivider && "has-top-divider", className);
+    return /*#__PURE__*/ (0,jsx_runtime.jsx)("footer", {
+        ...props,
+        className: classes,
+        children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+            className: "container",
+            children: /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
+                className: classnames_default()("site-footer-inner", topDivider && "has-top-divider"),
+                children: [
+                    /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
+                        className: "footer-top space-between text-xxs",
+                        children: [
+                            /*#__PURE__*/ (0,jsx_runtime.jsx)(Logo/* default */.Z, {}),
+                            /*#__PURE__*/ (0,jsx_runtime.jsx)(partials_FooterSocial, {})
+                        ]
+                    }),
+                    /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
+                        className: "footer-bottom space-between text-xxs invert-order-desktop",
+                        children: [
+                            /*#__PURE__*/ (0,jsx_runtime.jsx)(partials_FooterNav, {}),
+                            /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+                                className: "footer-copyright",
+                                children: "smood.."
+                            })
+                        ]
+                    })
+                ]
+            })
+        })
+    });
+};
+Footer.propTypes = propTypes;
+Footer.defaultProps = defaultProps;
+/* harmony default export */ var layout_Footer = (Footer);
+
 
 /***/ }),
 
 /***/ 9329:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
@@ -226,7 +370,6 @@ Header.defaultProps = defaultProps;
 /***/ 2393:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5893);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7294);
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4184);
@@ -257,186 +400,9 @@ const Logo = (param)=>{
 
 /***/ }),
 
-/***/ 9685:
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, {
-  "Z": function() { return /* binding */ sections_RankTiles; }
-});
-
-// EXTERNAL MODULE: ./node_modules/react/jsx-runtime.js
-var jsx_runtime = __webpack_require__(5893);
-// EXTERNAL MODULE: ./node_modules/next/link.js
-var next_link = __webpack_require__(1664);
-var link_default = /*#__PURE__*/__webpack_require__.n(next_link);
-// EXTERNAL MODULE: ./node_modules/react/index.js
-var react = __webpack_require__(7294);
-// EXTERNAL MODULE: ./node_modules/prop-types/index.js
-var prop_types = __webpack_require__(5697);
-var prop_types_default = /*#__PURE__*/__webpack_require__.n(prop_types);
-// EXTERNAL MODULE: ./modules/Authentication.js + 1 modules
-var Authentication = __webpack_require__(3051);
-// EXTERNAL MODULE: ./modules/Rank.ts
-var Rank = __webpack_require__(2581);
-// EXTERNAL MODULE: ./modules/RankedV1ContractVerifier.ts
-var RankedV1ContractVerifier = __webpack_require__(4910);
-;// CONCATENATED MODULE: ./components/sections/partials/RankItem.js
-
-
-
-
-
-
-const propTypes = {
-    martialArtShortName: (prop_types_default()).string,
-    rank: (prop_types_default()).string,
-    martialArt: (prop_types_default()).string,
-    certified: (prop_types_default()).bool
-};
-const defaultProps = {
-    martialArtShortName: "",
-    rank: "",
-    martialArt: "",
-    certified: false
-};
-const RankItem = (param)=>{
-    let { martialArtShortName , rank , martialArt , certified , ...props } = param;
-    const rankVerifier = new RankedV1ContractVerifier/* RankedV1ContractVerifier */.K(Authentication/* default.zkClient */.Z.zkClient);
-    const ma = new Rank/* Rank */.y();
-    ma.address = Authentication/* default.address */.Z.address;
-    ma.martialArt = martialArtShortName;
-    ma.rank = rank;
-    const verified = true; // rankVerifier.verify(new Rank());
-    const verifiedClasses = verified ? "verified-ma" : "unverified-ma";
-    const verifiedCheckClasses = verified ? "check" : "uncheck";
-    return /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
-        className: "tiles-item",
-        children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
-            className: verifiedClasses,
-            children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
-                className: martialArtShortName,
-                children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
-                    className: "pl-8 pt-8  ".concat(verifiedCheckClasses),
-                    children: /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
-                        className: "mt-auto mb-8",
-                        children: [
-                            /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
-                                className: "mt-24 fw-500 tt-u",
-                                children: rank
-                            }),
-                            /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
-                                className: "text-xs",
-                                children: martialArt
-                            })
-                        ]
-                    })
-                })
-            })
-        })
-    });
-};
-/* harmony default export */ var partials_RankItem = (RankItem);
-
-// EXTERNAL MODULE: ./modules/firestore.js
-var firestore = __webpack_require__(6525);
-// EXTERNAL MODULE: ./node_modules/firebase/firestore/dist/esm/index.esm.js
-var index_esm = __webpack_require__(9828);
-;// CONCATENATED MODULE: ./components/sections/RankTiles.js
-
-
-
-
-
-
-
-
-const RankTiles = ()=>{
-    const [error, setError] = (0,react.useState)(null);
-    const [isLoaded, setIsLoaded] = (0,react.useState)(false);
-    const [items, setItems] = (0,react.useState)([]);
-    const [maCount, setMaCount] = (0,react.useState)(0);
-    (0,react.useEffect)(()=>{
-        (async ()=>{
-            var address = Authentication/* default.address */.Z.address != "" ? Authentication/* default.address */.Z.address : "B62qpzAWcbZSjzQH9hiTKvHbDx1eCsmRR7dDzK2DuYjRT2sTyW9vSpR";
-            const docRef = (0,index_esm/* doc */.JU)(firestore/* database */.F, "users", address);
-            const docSnap = await (0,index_esm/* getDoc */.QT)(docRef);
-            if (docSnap.exists()) {
-                console.log("Document data:", docSnap.data());
-                const ma = docSnap.data().martialArts;
-                setIsLoaded(true);
-                setItems(ma);
-                setMaCount(ma.length);
-                setError(ma.length > 0 ? null : "Could not find any Martial Arts. Click the plus button to add one.");
-            } else {
-                setIsLoaded(true);
-                setError("Could not find any Martial Arts. Click the plus button to add one.");
-            }
-        })();
-    }, []);
-    return /*#__PURE__*/ (0,jsx_runtime.jsx)("section", {
-        className: "section",
-        children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
-            className: "container",
-            children: /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
-                className: "section-inner",
-                children: [
-                    /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
-                        className: "rank-messages",
-                        children: [
-                            !isLoaded && /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
-                                className: "loading-snarky m-0 mb-32 reveal-from-bottom login-subtext p-16",
-                                "data-reveal-delay": "400",
-                                children: "Loading Martial Arts..."
-                            }),
-                            isLoaded && (maCount == 0 || error != null) && /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
-                                className: "m-0 mb-32 reveal-from-bottom login-subtext p-16",
-                                "data-reveal-delay": "400",
-                                children: error
-                            })
-                        ]
-                    }),
-                    /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
-                        className: "tiles-wrap",
-                        children: [
-                            items.map((i, index)=>/*#__PURE__*/ (0,jsx_runtime.jsx)(partials_RankItem, {
-                                    martialArtShortName: i.martialArtShortName,
-                                    rank: i.rank,
-                                    martialArt: i.martialArt,
-                                    certified: i.certified
-                                }, index)),
-                            /*#__PURE__*/ (0,jsx_runtime.jsx)((link_default()), {
-                                href: "addrank",
-                                children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
-                                    className: "tiles-item",
-                                    title: "Add new Martial Art",
-                                    children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
-                                        className: "ma-add-btn",
-                                        children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
-                                            className: "pl-8 pt-8 text-sm",
-                                            children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {})
-                                        })
-                                    })
-                                })
-                            })
-                        ]
-                    })
-                ]
-            })
-        })
-    });
-};
-/* harmony default export */ var sections_RankTiles = (RankTiles);
-
-
-/***/ }),
-
 /***/ 3051:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
@@ -588,6 +554,11 @@ const Authentication = {
         this.hasBeenSetup = true;
         return true;
     },
+    fetchZkappAccount: async function() {
+        await this.zkClient.fetchAccount({
+            publicKey: this.contractAddress
+        });
+    },
     getNum: async function() {
         if (this.hasBeenSetup) {
             //const zkappPublicKey = PublicKey.fromBase58('B62qqEme9EYMj3KC4vSXij2vAwt8qxLiKLsrHPprQeYXXmjTFUH16wF');
@@ -610,86 +581,9 @@ const Authentication = {
 
 /***/ }),
 
-/***/ 2581:
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "y": function() { return /* binding */ Rank; }
-/* harmony export */ });
-class Rank {
-}
-
-
-/***/ }),
-
-/***/ 4910:
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "K": function() { return /* binding */ RankedV1ContractVerifier; }
-/* harmony export */ });
-/* harmony import */ var _Rank__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(2581);
-/* harmony import */ var snarkyjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6400);
-/* harmony import */ var _firestore__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6525);
-/* harmony import */ var firebase_firestore__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9828);
-
-
-
-
-class RankedV1ContractVerifier {
-    async promote(certifier, newRank) {
-        const currentRank = await this.getCurrentRank(newRank.address, newRank.martialArt);
-        const currentField = this.getHashFromRank(currentRank);
-        const newField = this.getHashFromRank(newRank);
-        await this.zkClient.createCertifyTransaction(currentRank.martialArt, certifier, currentField, newField);
-    }
-    async getCurrentRank(address, martialArt) {
-        const docRef = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__/* .doc */ .JU)(_firestore__WEBPACK_IMPORTED_MODULE_1__/* .database */ .F, "users", address.toBase58());
-        const docSnap = await (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__/* .getDoc */ .QT)(docRef);
-        if (docSnap.exists()) {
-            const ma = docSnap.data().martialArts;
-            for(var i = 0; i < ma.length; i++){
-                let one = ma[i];
-                if (one.martialArtShortName == martialArt) {
-                    let rank = new _Rank__WEBPACK_IMPORTED_MODULE_3__/* .Rank */ .y();
-                    rank.address = address;
-                    rank.martialArt = one.martialArtShortName;
-                    rank.rank = one.martialArtShortName;
-                    return rank;
-                }
-            }
-        }
-        return new _Rank__WEBPACK_IMPORTED_MODULE_3__/* .Rank */ .y();
-    }
-    getHashFromRank(rank) {
-        const stringData = snarkyjs__WEBPACK_IMPORTED_MODULE_0__/* .CircuitString.fromString */ ._G.fromString(JSON.stringify(rank));
-        const fields = stringData.toFields();
-        const data = snarkyjs__WEBPACK_IMPORTED_MODULE_0__/* .Poseidon.hash */ .jm.hash(fields);
-        return data;
-    }
-    constructor(zkClient){
-        this.verify = (rank)=>{
-            const rankField = this.getHashFromRank(rank);
-            const verify = false;
-            let martialArtHash;
-            if (rank.martialArt == "ibjjf") martialArtHash = this.zkClient.getIbjjf();
-            if (rank.martialArt == "itf") martialArtHash = this.zkClient.getItf();
-            if (rank.martialArt == "wkf") martialArtHash = this.zkClient.getWkf();
-            return rankField.toString() == martialArtHash.toString();
-        };
-        this.zkClient = zkClient;
-    }
-}
-
-
-/***/ }),
-
 /***/ 5542:
 /***/ (function(__unused_webpack_module, __webpack_exports__) {
 
-"use strict";
 const Snackbar = (text, duration)=>{
     const div = document.createElement("div");
     div.setAttribute("style", "-webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;animation: fadein 0.5s, fadeout 0.5s 2.5s;;min-width: 250px;margin-left: -125px; background-color: rgba(0, 0, 0, 0.257); color: #fff; text-align: center; border-radius: 2px; padding: 16px; position: fixed; z-index: 1; left: 50%;top: 70px;");
@@ -704,139 +598,6 @@ const Snackbar = (text, duration)=>{
 /* harmony default export */ __webpack_exports__["Z"] = (Snackbar);
 
 
-/***/ }),
-
-/***/ 6525:
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "F": function() { return /* binding */ database; }
-/* harmony export */ });
-/* unused harmony export app */
-/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3977);
-/* harmony import */ var firebase_firestore__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9828);
-// Import the functions you need from the SDKs you need
-
-
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-// Your web app's Firebase configuration
-const firebaseConfig = {
-    apiKey: "AIzaSyCtuS9orJ_XKD8Z0OM0kqTwlITVkm3ct_4",
-    authDomain: "keito-7e506.firebaseapp.com",
-    projectId: "keito-7e506",
-    storageBucket: "keito-7e506.appspot.com",
-    messagingSenderId: "632520103184",
-    appId: "1:632520103184:web:3b67a3ca5c5ba30b0d4195"
-};
-// Initialize Firebase
-const app = (0,firebase_app__WEBPACK_IMPORTED_MODULE_0__/* .initializeApp */ .ZF)(firebaseConfig);
-const database = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__/* .getFirestore */ .ad)(app);
-
-
-/***/ }),
-
-/***/ 1343:
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-// ESM COMPAT FLAG
-__webpack_require__.r(__webpack_exports__);
-
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, {
-  "default": function() { return /* binding */ Home; }
-});
-
-// EXTERNAL MODULE: ./node_modules/react/jsx-runtime.js
-var jsx_runtime = __webpack_require__(5893);
-// EXTERNAL MODULE: ./components/layout/Header.js + 1 modules
-var Header = __webpack_require__(9329);
-// EXTERNAL MODULE: ./node_modules/react-dom/index.js
-var react_dom = __webpack_require__(3935);
-// EXTERNAL MODULE: ./modules/Authentication.js + 1 modules
-var Authentication = __webpack_require__(3051);
-// EXTERNAL MODULE: ./node_modules/react/index.js
-var react = __webpack_require__(7294);
-// EXTERNAL MODULE: ./node_modules/next/router.js
-var router = __webpack_require__(1163);
-var router_default = /*#__PURE__*/__webpack_require__.n(router);
-;// CONCATENATED MODULE: ./components/auth/AuthenticatedPage.js
-
-
-
-
-
-
-const AuthenticatedPage = (param)=>{
-    let { children  } = param;
-    (0,react.useEffect)(()=>{
-        if (!Authentication/* default.loggedIn */.Z.loggedIn) {
-            router_default().push("/login");
-        }
-    });
-    return /*#__PURE__*/ (0,jsx_runtime.jsx)(jsx_runtime.Fragment, {
-        children: children
-    });
-};
-/* harmony default export */ var auth_AuthenticatedPage = (AuthenticatedPage);
-
-// EXTERNAL MODULE: ./components/sections/RankTiles.js + 1 modules
-var RankTiles = __webpack_require__(9685);
-// EXTERNAL MODULE: ./pages/reactCOIServiceWorker.ts
-var reactCOIServiceWorker = __webpack_require__(8285);
-;// CONCATENATED MODULE: ./pages/dashboard.page.tsx
-
-
-
-
-
-function Home() {
-    return /*#__PURE__*/ (0,jsx_runtime.jsx)(auth_AuthenticatedPage, {
-        children: /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
-            children: [
-                /*#__PURE__*/ (0,jsx_runtime.jsx)(Header/* default */.Z, {
-                    hideExtraNav: false,
-                    navPosition: "right",
-                    className: "reveal-from-bottom",
-                    hideNav: false,
-                    hideSignin: false,
-                    bottomOuterDivider: false,
-                    bottomDivider: false
-                }),
-                /*#__PURE__*/ (0,jsx_runtime.jsx)("main", {
-                    className: "site-content",
-                    children: /*#__PURE__*/ (0,jsx_runtime.jsx)(RankTiles/* default */.Z, {})
-                })
-            ]
-        })
-    });
-}
-
-
-/***/ }),
-
-/***/ 8285:
-/***/ (function() {
-
-function loadCOIServiceWorker() {
-    if ( true && window.location.hostname != "localhost") {
-        const coi = window.document.createElement("script");
-        coi.setAttribute("src", "/keito/coi-serviceworker.min.js");
-        window.document.head.appendChild(coi);
-    }
-}
-loadCOIServiceWorker();
-
-
 /***/ })
 
-},
-/******/ function(__webpack_require__) { // webpackRuntimeModules
-/******/ var __webpack_exec__ = function(moduleId) { return __webpack_require__(__webpack_require__.s = moduleId); }
-/******/ __webpack_require__.O(0, [829,16,863,52,774,888,179], function() { return __webpack_exec__(9637); });
-/******/ var __webpack_exports__ = __webpack_require__.O();
-/******/ _N_E = __webpack_exports__;
-/******/ }
-]);
+}]);
