@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Header from '../layout/Header'
 import Footer from '../layout/Footer'
 import Authentication from '../../modules/Authentication';
-import ZkappWorkerClient from '../../pages/zkappWorkerClient';
+import ZkappWorkerClient from '../../pages/rankedWorkerClient';
 import Router from 'next/router';
 import { useEffect, useState } from "react";
 import Snackbar from '../../modules/Snackbar'
@@ -19,7 +19,7 @@ import {
 
 const AuthPage = ({ children }) => {
   // load from Authentication values
-  Authentication.getNum();
+  //Authentication.getNum();
   let [state, setState] = useState({
     authentication: null,
     hasWallet: Authentication.hasWallet,

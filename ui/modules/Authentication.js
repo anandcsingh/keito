@@ -7,6 +7,7 @@ import {
 } from 'snarkyjs'
 
 const Authentication = {
+    contractAddress: 'B62qiijS17F93uaP4EGAXPgXKwm9B9YoqUuYRfuMrnoCSGnQ23Y4NBG',
     loggedIn: false,
     zkClient: null,
     authentication: null,
@@ -70,16 +71,16 @@ const Authentication = {
     setupContracts: async function () {
         await this.zkClient.loadContract();
         await this.zkClient.compileContract();
-        const contractAddress = 'B62qqEme9EYMj3KC4vSXij2vAwt8qxLiKLsrHPprQeYXXmjTFUH16wF';
-        const zkappPublicKey = PublicKey.fromBase58(contractAddress);
+        //const contractAddress = 'B62qqEme9EYMj3KC4vSXij2vAwt8qxLiKLsrHPprQeYXXmjTFUH16wF';
+        const zkappPublicKey = PublicKey.fromBase58(this.contractAddress);
         await this.zkClient.initZkappInstance(zkappPublicKey);
         this.hasBeenSetup = true;
         return true;
     },
     getNum: async function () {
         if (this.hasBeenSetup) {
-            const zkappPublicKey = PublicKey.fromBase58('B62qqEme9EYMj3KC4vSXij2vAwt8qxLiKLsrHPprQeYXXmjTFUH16wF');
-            await this.zkClient.fetchAccount({ publicKey: zkappPublicKey })
+            //const zkappPublicKey = PublicKey.fromBase58('B62qqEme9EYMj3KC4vSXij2vAwt8qxLiKLsrHPprQeYXXmjTFUH16wF');
+            await this.zkClient.fetchAccount({ publicKey: this.contractAddress })
 
             const currentNum = await this.zkClient.getNum();
             console.log('current state:', currentNum.toString());
