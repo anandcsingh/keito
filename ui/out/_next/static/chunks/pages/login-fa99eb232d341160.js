@@ -1,168 +1,24 @@
-"use strict";
-(self["webpackChunk_N_E"] = self["webpackChunk_N_E"] || []).push([[893],{
+(self["webpackChunk_N_E"] = self["webpackChunk_N_E"] || []).push([[459],{
 
-/***/ 5439:
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, {
-  "Z": function() { return /* binding */ layout_Footer; }
-});
-
-// EXTERNAL MODULE: ./node_modules/react/jsx-runtime.js
-var jsx_runtime = __webpack_require__(5893);
-// EXTERNAL MODULE: ./node_modules/react/index.js
-var react = __webpack_require__(7294);
-// EXTERNAL MODULE: ./node_modules/prop-types/index.js
-var prop_types = __webpack_require__(5697);
-var prop_types_default = /*#__PURE__*/__webpack_require__.n(prop_types);
-// EXTERNAL MODULE: ./node_modules/classnames/index.js
-var classnames = __webpack_require__(4184);
-var classnames_default = /*#__PURE__*/__webpack_require__.n(classnames);
-// EXTERNAL MODULE: ./components/layout/partials/Logo.js
-var Logo = __webpack_require__(2393);
-// EXTERNAL MODULE: ./node_modules/next/link.js
-var next_link = __webpack_require__(1664);
-var link_default = /*#__PURE__*/__webpack_require__.n(next_link);
-// EXTERNAL MODULE: ./node_modules/next/router.js
-var router = __webpack_require__(1163);
-;// CONCATENATED MODULE: ./components/layout/partials/FooterNav.js
+/***/ 4250:
+/***/ (function(__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
 
 
-
-
-
-const FooterNav = (param)=>{
-    let { className , ...props } = param;
-    const classes = classnames_default()("footer-nav", className);
-    return /*#__PURE__*/ (0,jsx_runtime.jsx)("nav", {
-        ...props,
-        className: classes,
-        children: (0,router.useRouter)().pathname != "/welcome" && /*#__PURE__*/ (0,jsx_runtime.jsxs)("ul", {
-            className: "list-reset",
-            children: [
-                /*#__PURE__*/ (0,jsx_runtime.jsx)("li", {
-                    children: /*#__PURE__*/ (0,jsx_runtime.jsx)((link_default()), {
-                        href: "rank",
-                        children: "Rank"
-                    })
-                }),
-                /*#__PURE__*/ (0,jsx_runtime.jsx)("li", {
-                    children: /*#__PURE__*/ (0,jsx_runtime.jsx)((link_default()), {
-                        href: "lineage",
-                        children: "Lineage"
-                    })
-                }),
-                /*#__PURE__*/ (0,jsx_runtime.jsx)("li", {
-                    children: /*#__PURE__*/ (0,jsx_runtime.jsx)((link_default()), {
-                        href: "students",
-                        children: "Students"
-                    })
-                })
-            ]
-        })
-    });
-};
-/* harmony default export */ var partials_FooterNav = (FooterNav);
-
-;// CONCATENATED MODULE: ./components/layout/partials/FooterSocial.js
-
-
-
-const FooterSocial = (param)=>{
-    let { className , ...props } = param;
-    const classes = classnames_default()("footer-social", className);
-    return /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
-        ...props,
-        className: classes,
-        children: /*#__PURE__*/ (0,jsx_runtime.jsx)("ul", {
-            className: "list-reset",
-            children: /*#__PURE__*/ (0,jsx_runtime.jsx)("li", {
-                children: /*#__PURE__*/ (0,jsx_runtime.jsx)("a", {
-                    href: "https://twitter.com/anandcsingh",
-                    target: "_blank",
-                    children: /*#__PURE__*/ (0,jsx_runtime.jsxs)("svg", {
-                        width: "16",
-                        height: "16",
-                        viewBox: "0 0 16 16",
-                        xmlns: "http://www.w3.org/2000/svg",
-                        children: [
-                            /*#__PURE__*/ (0,jsx_runtime.jsx)("title", {
-                                children: "Twitter"
-                            }),
-                            /*#__PURE__*/ (0,jsx_runtime.jsx)("path", {
-                                d: "M16 3c-.6.3-1.2.4-1.9.5.7-.4 1.2-1 1.4-1.8-.6.4-1.3.6-2.1.8-.6-.6-1.5-1-2.4-1-1.7 0-3.2 1.5-3.2 3.3 0 .3 0 .5.1.7-2.7-.1-5.2-1.4-6.8-3.4-.3.5-.4 1-.4 1.7 0 1.1.6 2.1 1.5 2.7-.5 0-1-.2-1.5-.4C.7 7.7 1.8 9 3.3 9.3c-.3.1-.6.1-.9.1-.2 0-.4 0-.6-.1.4 1.3 1.6 2.3 3.1 2.3-1.1.9-2.5 1.4-4.1 1.4H0c1.5.9 3.2 1.5 5 1.5 6 0 9.3-5 9.3-9.3v-.4C15 4.3 15.6 3.7 16 3z"
-                            })
-                        ]
-                    })
-                })
-            })
-        })
-    });
-};
-/* harmony default export */ var partials_FooterSocial = (FooterSocial);
-
-;// CONCATENATED MODULE: ./components/layout/Footer.js
-
-
-
-
-
-
-
-
-const propTypes = {
-    topOuterDivider: (prop_types_default()).bool,
-    topDivider: (prop_types_default()).bool
-};
-const defaultProps = {
-    topOuterDivider: false,
-    topDivider: false
-};
-const Footer = (param)=>{
-    let { className , topOuterDivider , topDivider , ...props } = param;
-    const classes = classnames_default()("site-footer center-content-mobile", topOuterDivider && "has-top-divider", className);
-    return /*#__PURE__*/ (0,jsx_runtime.jsx)("footer", {
-        ...props,
-        className: classes,
-        children: /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
-            className: "container",
-            children: /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
-                className: classnames_default()("site-footer-inner", topDivider && "has-top-divider"),
-                children: [
-                    /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
-                        className: "footer-top space-between text-xxs",
-                        children: [
-                            /*#__PURE__*/ (0,jsx_runtime.jsx)(Logo/* default */.Z, {}),
-                            /*#__PURE__*/ (0,jsx_runtime.jsx)(partials_FooterSocial, {})
-                        ]
-                    }),
-                    /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
-                        className: "footer-bottom space-between text-xxs invert-order-desktop",
-                        children: [
-                            /*#__PURE__*/ (0,jsx_runtime.jsx)(partials_FooterNav, {}),
-                            /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
-                                className: "footer-copyright",
-                                children: "smood.."
-                            })
-                        ]
-                    })
-                ]
-            })
-        })
-    });
-};
-Footer.propTypes = propTypes;
-Footer.defaultProps = defaultProps;
-/* harmony default export */ var layout_Footer = (Footer);
-
+    (window.__NEXT_P = window.__NEXT_P || []).push([
+      "/login",
+      function () {
+        return __webpack_require__(870);
+      }
+    ]);
+    if(false) {}
+  
 
 /***/ }),
 
 /***/ 9329:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
@@ -370,6 +226,7 @@ Header.defaultProps = defaultProps;
 /***/ 2393:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5893);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7294);
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4184);
@@ -403,6 +260,7 @@ const Logo = (param)=>{
 /***/ 3051:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
@@ -554,6 +412,11 @@ const Authentication = {
         this.hasBeenSetup = true;
         return true;
     },
+    fetchZkappAccount: async function() {
+        await this.zkClient.fetchAccount({
+            publicKey: this.contractAddress
+        });
+    },
     getNum: async function() {
         if (this.hasBeenSetup) {
             //const zkappPublicKey = PublicKey.fromBase58('B62qqEme9EYMj3KC4vSXij2vAwt8qxLiKLsrHPprQeYXXmjTFUH16wF');
@@ -579,6 +442,7 @@ const Authentication = {
 /***/ 5542:
 /***/ (function(__unused_webpack_module, __webpack_exports__) {
 
+"use strict";
 const Snackbar = (text, duration)=>{
     const div = document.createElement("div");
     div.setAttribute("style", "-webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;animation: fadein 0.5s, fadeout 0.5s 2.5s;;min-width: 250px;margin-left: -125px; background-color: rgba(0, 0, 0, 0.257); color: #fff; text-align: center; border-radius: 2px; padding: 16px; position: fixed; z-index: 1; left: 50%;top: 70px;");
@@ -593,6 +457,128 @@ const Snackbar = (text, duration)=>{
 /* harmony default export */ __webpack_exports__["Z"] = (Snackbar);
 
 
+/***/ }),
+
+/***/ 870:
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ Login; }
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5893);
+/* harmony import */ var _components_layout_Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9329);
+/* harmony import */ var _modules_Authentication__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3051);
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1163);
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _reactCOIServiceWorker__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(8285);
+/* harmony import */ var _reactCOIServiceWorker__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_reactCOIServiceWorker__WEBPACK_IMPORTED_MODULE_4__);
+
+
+
+
+
+function Login() {
+    const loginClicked = ()=>{
+        const loggedIn = _modules_Authentication__WEBPACK_IMPORTED_MODULE_2__/* ["default"].login */ .Z.login();
+        if (_modules_Authentication__WEBPACK_IMPORTED_MODULE_2__/* ["default"].loggedIn */ .Z.loggedIn) {
+            next_router__WEBPACK_IMPORTED_MODULE_3___default().push("/dashboard");
+        }
+    };
+    return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+        children: [
+            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_layout_Header__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z, {
+                hideExtraNav: true,
+                navPosition: "right",
+                className: "reveal-from-bottom",
+                hideNav: false,
+                hideSignin: true,
+                bottomOuterDivider: false,
+                bottomDivider: false
+            }),
+            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("main", {
+                className: "site-content",
+                children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("section", {
+                    className: "hero section center-content has-top-divider",
+                    children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+                        className: "container-sm",
+                        children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+                            className: "hero-inner section-inner",
+                            children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                                className: "hero-content",
+                                children: [
+                                    /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("h1", {
+                                        className: "mt-0 mb-16 reveal-from-bottom",
+                                        "data-reveal-delay": "200",
+                                        children: [
+                                            "Login to ",
+                                            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
+                                                className: "text-color-primary",
+                                                children: "keito"
+                                            })
+                                        ]
+                                    }),
+                                    /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                                        className: "container-xs",
+                                        children: [
+                                            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("p", {
+                                                className: "m-0 mb-32 reveal-from-bottom",
+                                                "data-reveal-delay": "400",
+                                                children: [
+                                                    "Login into to the ",
+                                                    /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
+                                                        className: "text-color-primary",
+                                                        children: "keito"
+                                                    }),
+                                                    " zkapp with your Mina wallet"
+                                                ]
+                                            }),
+                                            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+                                                className: "reveal-from-bottom",
+                                                "data-reveal-delay": "600",
+                                                children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", {
+                                                    className: "login-btn button button-primary",
+                                                    href: "#",
+                                                    onClick: loginClicked,
+                                                    children: "Login"
+                                                })
+                                            })
+                                        ]
+                                    })
+                                ]
+                            })
+                        })
+                    })
+                })
+            })
+        ]
+    });
+}
+
+
+/***/ }),
+
+/***/ 8285:
+/***/ (function() {
+
+function loadCOIServiceWorker() {
+    if ( true && window.location.hostname != "localhost") {
+        const coi = window.document.createElement("script");
+        coi.setAttribute("src", "/keito/coi-serviceworker.min.js");
+        window.document.head.appendChild(coi);
+    }
+}
+loadCOIServiceWorker();
+
+
 /***/ })
 
-}]);
+},
+/******/ function(__webpack_require__) { // webpackRuntimeModules
+/******/ var __webpack_exec__ = function(moduleId) { return __webpack_require__(__webpack_require__.s = moduleId); }
+/******/ __webpack_require__.O(0, [829,863,774,888,179], function() { return __webpack_exec__(4250); });
+/******/ var __webpack_exports__ = __webpack_require__.O();
+/******/ _N_E = __webpack_exports__;
+/******/ }
+]);

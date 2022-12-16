@@ -229,15 +229,58 @@ function App() {
     };
     const verifyRank = async ()=>{
         console.log("verifying rank...");
+        var input = JSON.parse(state.input);
+        const promotion1stringData = snarkyjs__WEBPACK_IMPORTED_MODULE_4__/* .CircuitString.fromString */ ._G.fromString(JSON.stringify(input));
+        const promotion1fields = promotion1stringData.toFields();
+        const promotion1Data = snarkyjs__WEBPACK_IMPORTED_MODULE_4__/* .Poseidon.hash */ .jm.hash(promotion1fields);
         await state.zkappWorkerClient.fetchAccount({
             publicKey: state.zkappPublicKey
         });
-        const currentNum = await state.zkappWorkerClient.getIbjjf();
+        const currentNum = await state.zkappWorkerClient.getRank(input.martialArt);
         console.log("current state:", currentNum.toString());
-        const promotion1stringData = snarkyjs__WEBPACK_IMPORTED_MODULE_4__/* .CircuitString.fromString */ ._G.fromString(JSON.stringify(JSON.parse(state.input)));
+        console.log("new state:", promotion1Data.toString());
+        console.log("Valid?: ", promotion1Data.toString() == currentNum.toString());
+    };
+    const promotetoJson = async ()=>{
+        console.log("promoting rank...");
+        const blackbelt = snarkyjs__WEBPACK_IMPORTED_MODULE_4__/* .PublicKey.fromBase58 */ .nh.fromBase58("B62qpzAWcbZSjzQH9hiTKvHbDx1eCsmRR7dDzK2DuYjRT2sTyW9vSpR");
+        let json = {
+            "address": "B62qpzAWcbZSjzQH9hiTKvHbDx1eCsmRR7dDzK2DuYjRT2sTyW9vSpR",
+            "rank": "blue belt"
+        };
+        const originalstringData = snarkyjs__WEBPACK_IMPORTED_MODULE_4__/* .CircuitString.fromString */ ._G.fromString(JSON.stringify(json));
+        const originalfields = originalstringData.toFields();
+        const originalData = snarkyjs__WEBPACK_IMPORTED_MODULE_4__/* .Poseidon.hash */ .jm.hash(originalfields);
+        const promo = JSON.parse(state.input);
+        const promotion1stringData = snarkyjs__WEBPACK_IMPORTED_MODULE_4__/* .CircuitString.fromString */ ._G.fromString(JSON.stringify(promo));
         const promotion1fields = promotion1stringData.toFields();
         const promotion1Data = snarkyjs__WEBPACK_IMPORTED_MODULE_4__/* .Poseidon.hash */ .jm.hash(promotion1fields);
-        console.log("Valid?: ", promotion1Data.toString() == currentNum.toString());
+        await state.zkappWorkerClient.fetchAccount({
+            publicKey: state.zkappPublicKey
+        });
+        let intialState = await state.zkappWorkerClient.getRank(promo.martialArt);
+        console.log("from contract: ", intialState.toString());
+        intialState = originalData;
+        console.log("from json: ", originalData.toString());
+        console.log("from rank: ", promotion1Data.toString());
+        console.log("state zkapp key: ", state.zkappPublicKey.toBase58());
+        await state.zkappWorkerClient.fetchAccount({
+            publicKey: state.zkappPublicKey
+        });
+        await state.zkappWorkerClient.createCertifyTransaction("ibjjf", blackbelt, intialState, promotion1Data);
+        console.log("creating proof...");
+        await state.zkappWorkerClient.proveUpdateTransaction();
+        console.log("getting Transaction JSON...");
+        const transactionJSON = await state.zkappWorkerClient.getTransactionJSON();
+        console.log("requesting send transaction...");
+        const { hash  } = await window.mina.sendTransaction({
+            transaction: transactionJSON,
+            feePayer: {
+                fee: transactionFee,
+                memo: ""
+            }
+        });
+        console.log("See transaction at https://berkeley.minaexplorer.com/transaction/" + hash);
     };
     // -------------------------------------------------------
     // Create UI elements
@@ -316,6 +359,10 @@ function App() {
                 /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
                     onClick: verifyRank,
                     children: " Verify Rank "
+                }),
+                /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
+                    onClick: promotetoJson,
+                    children: " Promote to Rank "
                 })
             ]
         });
@@ -381,6 +428,12 @@ class RankedWorkerClient {
     }
     async getWkf() {
         const result = await this._call("getIbjjf", {});
+        return snarkyjs__WEBPACK_IMPORTED_MODULE_0__/* .Field.fromJSON */ .gN.fromJSON(JSON.parse(result));
+    }
+    async getRank(martialArt) {
+        const result = await this._call("getRank", {
+            martialArt
+        });
         return snarkyjs__WEBPACK_IMPORTED_MODULE_0__/* .Field.fromJSON */ .gN.fromJSON(JSON.parse(result));
     }
     createUpdateBlackBeltTransaction(newBlackBelt) {
