@@ -51,6 +51,12 @@ export default class RankedWorkerClient {
     const result = await this._call('getIbjjf', {});
     return Field.fromJSON(JSON.parse(result as string));
   }
+  async getRank(martialArt: string): Promise<Field> {
+    const result = await this._call('getRank', {
+      martialArt
+    });
+    return Field.fromJSON(JSON.parse(result as string));
+  }
   createUpdateBlackBeltTransaction(newBlackBelt: PublicKey) {
     return this._call('createUpdateBlackBeltTransaction', {
       newBlackBelt

@@ -62,6 +62,17 @@ const functions = {
     const wkf = await state.zkapp!.wkf.get();
     return JSON.stringify(wkf.toJSON());
   },
+  getRank: async (args: {martialArt: string}) => {
+    let field = null;
+    if (args.martialArt == "ibjjf") {
+      field = await state.zkapp!.ibjjf.get();
+    } else if (args.martialArt == "itf") {
+      field = await state.zkapp!.itf.get();
+    } else if (args.martialArt == "wkf") {
+      field = await state.zkapp!.wkf.get();
+    }
+    return JSON.stringify(field!.toJSON());
+  },
   createUpdateBlackBeltTransaction: async (args: { newBlackBelt: PublicKey }) => {
     const transaction = await Mina.transaction(() => {
         state.zkapp!.changeBlackBelt(args.newBlackBelt);

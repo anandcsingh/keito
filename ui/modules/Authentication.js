@@ -77,6 +77,9 @@ const Authentication = {
         this.hasBeenSetup = true;
         return true;
     },
+    fetchZkappAccount: async function() {
+        await this.zkClient.fetchAccount({ publicKey: this.contractAddress });
+    },
     getNum: async function () {
         if (this.hasBeenSetup) {
             //const zkappPublicKey = PublicKey.fromBase58('B62qqEme9EYMj3KC4vSXij2vAwt8qxLiKLsrHPprQeYXXmjTFUH16wF');

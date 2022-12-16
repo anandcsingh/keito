@@ -8,7 +8,11 @@ import { useEffect, useState } from "react";
 import Authentication from '../modules/Authentication';
 import { RankedV1ContractVerifier } from '../modules/RankedV1ContractVerifier';
 import { Rank } from '../modules/Rank';
+import ZkappWorkerClient from './rankedWorkerClient';
+
 import {
+  CircuitString,
+  Poseidon,
   PublicKey,
 } from 'snarkyjs'
 import UserApiClient from '../modules/UserApiClient';
@@ -16,36 +20,40 @@ import UserApiClient from '../modules/UserApiClient';
 
 export default function Students() {
   let [state, setState] = useState({
+    zkappWorkerClient: Authentication.zkClient,
     addSuccess: false,
     addAttempt: false,
-    addMessage: ""
+    addMessage: null
   });
 
   const promoteStudent = async (event: any) => {
+    setState({ ...state, addMessage: null });
+    
     var address = Authentication.address != "" ? Authentication.address : "B62qpzAWcbZSjzQH9hiTKvHbDx1eCsmRR7dDzK2DuYjRT2sTyW9vSpR";
 
     event.preventDefault();
     const { martialArt, rank, student } = event.target.elements;
     const rankVerifier = new RankedV1ContractVerifier(Authentication.zkClient);
+    const cert = PublicKey.fromBase58(address);
     const ma = new Rank();
     ma.address = PublicKey.fromBase58(student.value);
     ma.martialArt = martialArt.value;
     ma.rank = rank.value;
+    console.log("address " + ma.address.toBase58());
+    console.log("martialArt " + ma.martialArt);
+    console.log("rank " + ma.rank);
 
-    const cert = PublicKey.fromBase58(address);
-
-    const verified = await rankVerifier.promote(cert, rank);
-
-    console.log("ma " + martialArt);
-    const result: any = await UserApiClient().addMartialArt(address, martialArt.options[martialArt.selectedIndex].text, martialArt.value, rank.value);
+    const result = await rankVerifier.promote(cert, ma);
     console.log(result);
-    setState({ ...state, addAttempt: true, addSuccess: result.success, addMessage: result.message })
+    //const result: any = await UserApiClient().promoteStudent(address, martialArt.options[martialArt.selectedIndex].text, martialArt.value, rank.value);
+    //console.log(result);
+    setState({ ...state, addAttempt: true, addSuccess: result!.success, addMessage: result!.message })
   };
   return (
-    
-      
-      <AuthPage>
-       
+
+
+    <AuthPage>
+
       <section className="section">
         <div className="container">
           <div className="section-inner">
@@ -103,8 +111,8 @@ export default function Students() {
           </div>
         </div>
       </section>
-      </AuthPage>
-    
+    </AuthPage>
+
   )
 
 }

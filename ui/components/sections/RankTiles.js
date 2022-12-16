@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { app, database } from '../../modules/firestore';
 import { doc, getDoc } from 'firebase/firestore';
 import Authentication from '../../modules/Authentication';
+import { Rank } from '../../modules/Rank';
 
 const RankTiles = () => {
 
@@ -12,6 +13,7 @@ const RankTiles = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
   const [maCount, setMaCount] = useState(0);
+  const [verifying, setVerifying] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -33,8 +35,15 @@ const RankTiles = () => {
     })();
   }, []);
 
- 
-
+  
+  const checkedVerification = function(rank, verfied) {
+    console.log("verified ", rank.martialArt, verfied);
+    setVerifying(false);
+  }
+  const verifyingCallback = function(rank) {
+    console.log("verifying ", rank.martialArt);
+    setVerifying(true);
+  }
     return (
         <section className="section">
             <div className="container">
@@ -50,10 +59,15 @@ const RankTiles = () => {
                         {error}
                       </div>
                     }
+                    {verifying && 
+                      <div className="loading-snarky m-0 mb-32 reveal-from-bottom login-subtext p-16"  data-reveal-delay="400">
+                        Verifying Martial Arts on Mina...
+                      </div>
+                    }
                   </div>
                     <div className="tiles-wrap">
                         {items.map((i, index) => (
-                    <RankItem key={index} martialArtShortName={i.martialArtShortName} rank={i.rank} martialArt={i.martialArt} certified={i.certified} />
+                    <RankItem key={index} verifyingCallback={verifyingCallback} verifiedCallback={checkedVerification} martialArtShortName={i.martialArtShortName} rank={i.rank} martialArt={i.martialArt} certified={i.certified} />
                         
                         ))}
 

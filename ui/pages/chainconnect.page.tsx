@@ -205,14 +205,63 @@ export default function App() {
 
     const verifyRank = async () => {
         console.log('verifying rank...');
-        await state.zkappWorkerClient!.fetchAccount({ publicKey: state.zkappPublicKey! })
-        const currentNum = await state.zkappWorkerClient!.getIbjjf();
-        console.log('current state:', currentNum.toString());
-        
-        const promotion1stringData = CircuitString.fromString(JSON.stringify(JSON.parse(state.input)));
+        var input = JSON.parse(state.input);
+        const promotion1stringData = CircuitString.fromString(JSON.stringify(input));
         const promotion1fields = promotion1stringData.toFields();
         const promotion1Data = Poseidon.hash(promotion1fields);
+
+        await state.zkappWorkerClient!.fetchAccount({ publicKey: state.zkappPublicKey! })
+        const currentNum = await state.zkappWorkerClient!.getRank(input.martialArt);
+        console.log('current state:', currentNum.toString());
+        console.log('new state:', promotion1Data.toString());
+        
         console.log("Valid?: ", promotion1Data.toString() == currentNum.toString());
+    }
+
+    const promotetoJson = async () => {
+        console.log('promoting rank...');
+        const blackbelt = PublicKey.fromBase58("B62qpzAWcbZSjzQH9hiTKvHbDx1eCsmRR7dDzK2DuYjRT2sTyW9vSpR");
+        let json = {
+            "address": "B62qpzAWcbZSjzQH9hiTKvHbDx1eCsmRR7dDzK2DuYjRT2sTyW9vSpR", 
+            "rank": "blue belt"
+        };
+        const originalstringData = CircuitString.fromString(JSON.stringify(json));
+        const originalfields = originalstringData.toFields();
+        const originalData = Poseidon.hash(originalfields);
+        
+
+        const promo = JSON.parse(state.input);
+        const promotion1stringData = CircuitString.fromString(JSON.stringify(promo));
+        const promotion1fields = promotion1stringData.toFields();
+        const promotion1Data = Poseidon.hash(promotion1fields);
+        await state.zkappWorkerClient!.fetchAccount({ publicKey: state.zkappPublicKey! })
+        let intialState = await state.zkappWorkerClient!.getRank(promo.martialArt);
+        console.log("from contract: ", intialState.toString());
+        intialState = originalData;
+        console.log("from json: ", originalData.toString());
+        console.log("from rank: ", promotion1Data.toString());
+        console.log("state zkapp key: ", state.zkappPublicKey!.toBase58());
+
+        await state.zkappWorkerClient!.fetchAccount({ publicKey: state.zkappPublicKey! })
+        await state.zkappWorkerClient!.createCertifyTransaction("ibjjf", blackbelt, intialState, promotion1Data);
+        console.log('creating proof...');
+        await state.zkappWorkerClient!.proveUpdateTransaction();
+
+        console.log('getting Transaction JSON...');
+        const transactionJSON = await state.zkappWorkerClient!.getTransactionJSON()
+
+        console.log('requesting send transaction...');
+        const { hash } = await (window as any).mina.sendTransaction({
+            transaction: transactionJSON,
+            feePayer: {
+                fee: transactionFee,
+                memo: '',
+            },
+        });
+
+        console.log(
+            'See transaction at https://berkeley.minaexplorer.com/transaction/' + hash
+        );
     }
 
     // -------------------------------------------------------
@@ -251,7 +300,7 @@ export default function App() {
             <hr></hr>
             <textarea id="json" onChange={handleJsonChange}></textarea><br/>
             <button onClick={verifyRank}> Verify Rank </button>
-            {/* <button onClick={SetRank}> Verify Rank </button> */}
+             <button onClick={promotetoJson}> Promote to Rank </button>
 
 
         </div>

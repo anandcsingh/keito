@@ -18,17 +18,18 @@ export default function AddRank() {
   let [state, setState] = useState({
     addSuccess: false,
     addAttempt: false,
-    addMessage: ""
+    addMessage: null
   });
 
   const addClicked = async (event: any) => {
     var address = Authentication.address != "" ? Authentication.address : "B62qpzAWcbZSjzQH9hiTKvHbDx1eCsmRR7dDzK2DuYjRT2sTyW9vSpR";
+    setState({ ...state, addMessage: null });
 
     event.preventDefault();
     const { martialArt, rank } = event.target.elements;
-    console.log("ma " + martialArt);
+    console.log("ma more times" + martialArt);
     const result: any = await UserApiClient().addMartialArt(address, martialArt.options[martialArt.selectedIndex].text, martialArt.value, rank.value);
-    console.log(result);
+    console.log("rank result", result);
     setState({ ...state, addAttempt: true, addSuccess: result.success, addMessage: result.message })
   };
 
