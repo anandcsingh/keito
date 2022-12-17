@@ -29,7 +29,8 @@ const FooterNav = ({
           </li>
           <li><Link href="students">Students</Link>
           </li>
-
+          <li><Link href="driver">Ranked Companion</Link>
+          </li>
         </ul>
       }
     </nav>
