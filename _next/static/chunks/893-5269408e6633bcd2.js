@@ -59,6 +59,12 @@ const FooterNav = (param)=>{
                         href: "students",
                         children: "Students"
                     })
+                }),
+                /*#__PURE__*/ (0,jsx_runtime.jsx)("li", {
+                    children: /*#__PURE__*/ (0,jsx_runtime.jsx)((link_default()), {
+                        href: "driver",
+                        children: "Ranked Companion"
+                    })
                 })
             ]
         })
